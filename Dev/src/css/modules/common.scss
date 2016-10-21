@@ -1,0 +1,146 @@
+//对话框样式
+.tips-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  @include margin(left,5px);
+  .dialog-warp {
+    position: absolute;
+    font-size: 12px;
+    color: #646464;
+    width: 200px;
+    line-height: 1.5;
+    display: none;
+    .dialog-box {
+      display: inline-block;
+      position: relative;
+      width: 97%;
+      padding: 3%;
+      background: #FAFAFA;
+      @include border(1px,solid,#c9c9c9,all);
+      @include borderradius(8px);
+      z-index: 999;
+    }
+  }
+  .dialog-warp.right {
+    top: 50%;
+    left: 25px;
+    .dialog-box:before,
+    .dialog-box:after {
+      content: '';
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 50%;
+      margin-top: -10px;
+    }
+    .dialog-box:before {
+      left: -10px;
+      @include triangle(left,10px,#ccc);
+    }
+    .dialog-box:after {
+      left: -8px;
+      @include triangle(left,10px,#fff);
+    }
+  }
+  .dialog-warp.top {
+    bottom: 25px;
+    width: 180px;
+    margin-left: -79px;
+    .dialog-box:before,
+    .dialog-box:after {
+      content: '';
+      width: 0;
+      height: 0;
+      position: absolute;
+      left: 50%;
+      margin-left: -10px;
+    }
+    .dialog-box:before {
+      bottom: -10px;
+      @include triangle(bottom,10px,#ccc);
+    }
+    .dialog-box:after {
+      bottom: -8px;
+      @include triangle(bottom,10px,#fff);
+    }
+  }
+}
+//进度条的样式
+//<div class="jindu-bg" data-bfb="10" data-width="10" data-fontsize="28">
+//  <div class="jindu-txt"><span><em class="jindu-val">0</em>%</span><br>进度</div>
+//</div>
+.jindu-bg {
+  width: 130px;
+  height: 130px;
+  position: relative;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+.jindu-bg canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.jindu-bg .jindu-txt {
+  display: inline-block;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 18px;
+}
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.infinite,
+.loading-box {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+.loading-box {
+  width: 60px;
+  height: 60px;
+  background-color: #67CF22;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1.2s;
+  animation-duration: 1.2s;
+  -webkit-animation-name: loading-box;
+  animation-name: loading-box;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+}
+@-webkit-keyframes loading-box {
+  0% {
+    -webkit-transform: perspective(120px);
+  }
+  50% {
+    -webkit-transform: perspective(120px) rotateY(180deg);
+  }
+  100% {
+    -webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg);
+  }
+}
+@keyframes loading-box {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}

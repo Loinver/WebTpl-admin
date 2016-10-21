@@ -1,0 +1,20 @@
+//modules 通用模块,组件
+@import "base/normalize";
+@import "base/mixin"; //base   基础相关 
+@import "base/base";
+@import "base/function";
+@import "modules/common"; //common   公共样式
+/**
+  * 备注：所有在css中的图片，都必须以main所在的路径为基准
+ */
+.box {
+  width: pxToRem(500);
+  height: 300px;
+  margin: 50px auto;
+  @include box-shadow(0 0 5px 0 rgba(0,0,0,.3));
+  @include box-sizing;
+  @extend %clearfix;
+}
+p {
+  margin: 10px 0;
+}
