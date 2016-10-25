@@ -82,7 +82,7 @@ textarea { overflow: auto; }
 ::-webkit-file-upload-button { -webkit-appearance: button; font: inherit; }
 
 /*margin*/
-.mgauto { margin: 0 auto; }
+.mgauto { margin-left: auto !important; margin-right: auto !important; }
 
 .mgt-5 { margin-top: 5px; }
 
@@ -437,5 +437,9 @@ textarea { overflow: auto; }
 .box { width: 31.25rem; height: 300px; margin: 50px auto; -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3); box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3); -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 p { margin: 10px 0; }
+
+.swiper-container { width: 100%; height: 420px; }
+.swiper-container .swiper-slide { text-align: center; font-size: 18px; background: #fff; }
+.swiper-container .swiper-slide a > img { text-align: center; }
 
 /*# sourceMappingURL=main.css.map */

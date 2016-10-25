@@ -5,12 +5,51 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="../src/css/main.css" />
-    <link rel="stylesheet" href="../src/css/sprite.css">
     <link rel="stylesheet" href="../src/layui/css/layui.css" />
+    <link rel="stylesheet" href="../src/css/swiper.min.css" />
   </head>
 
   <body>
-    <div class="layui-tab layui-tab-brief" lay-filter="demo">
+    <div class="layui-nav">
+      <ul class="w-1200 mgauto">
+        <li class="layui-nav-item layui-this">
+          <a href="">首页</a>
+        </li>
+        <li class="layui-nav-item">
+          <a href="">双融宝</a>
+        </li>
+        <li class="layui-nav-item">
+          <a href="">众星宝</a>
+        </li>
+        <li class="layui-nav-item">
+          <a href="">历史产品</a>
+        </li>
+        <li class="layui-nav-item">
+          <a href="">关于我们</a>
+        </li>
+      </ul>
+    </div>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <a href="javascript:console.log(1);"><img src="../src/imgs/common/1.jpg"></a>
+        </div>
+        <div class="swiper-slide">
+          <a href="javascript:console.log(2);"><img src="../src/imgs/common/2.jpg"></a>
+        </div>
+        <div class="swiper-slide">
+          <a href="javascript:console.log(3);"><img src="../src/imgs/common/1.jpg"></a>
+        </div>
+        <div class="swiper-slide">
+          <a href="javascript:console.log(4);"><img src="../src/imgs/common/2.jpg"></a>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
+    <div class="layui-tab layui-tab-brief w-1200 mgauto" lay-filter="demo">
       <ul class="layui-tab-title">
         <li class="layui-this">演示说明</li>
         <li>标题一</li>
@@ -27,24 +66,30 @@
         <div class="layui-tab-item">内容3</div>
       </div>
     </div>
-
     <script src="../src/layui/layui.js"></script>
+    <script src="../src/js/lib/swiper.min.js"></script>
     <script>
       layui.use(['layer', 'element'], function() {
         var layer = layui.layer,
           element = layui.element();
-
-        //向世界问个好
-        layer.msg('Hello World', {
-          icon: 6,
-          time: 8 * 1000
-        });
-
         //监听Tab切换
         element.on('tab(demo)', function(data) {
           layer.msg('切换了：' + this.innerHTML);
           console.log(data);
         });
+      });
+    </script>
+    <script>
+      var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        loop:true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: 4000,
+        autoplayDisableOnInteraction: false
       });
     </script>
   </body>

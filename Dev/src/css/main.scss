@@ -18,3 +18,15 @@
 p {
   margin: 10px 0;
 }
+.swiper-container {
+  width: 100%;
+  height: 420px;
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+  }
+  .swiper-slide a > img {    text-align: center;
+  }
+}
