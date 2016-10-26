@@ -25,7 +25,7 @@ gulp.task('jslint', function() {
 });
 // 编译Sass
 gulp.task('sass', function() {
-  return gulp.src('./Dev/src/css/main.scss')
+  return gulp.src('./Dev/src/css/*.scss')
     .pipe(sass())
     .pipe(autoprefixer({
       browsers: ['not ie <8', 'Firefox >= 20'],
@@ -61,7 +61,7 @@ gulp.task('libjs', function() {
 // 图片压缩
 gulp.task('imagesmin', function() {
   return gulp.src('./Dev/src/imgs/**/*.{jpg,png,gif}')
-    .pipe(imagesmin())
+    //.pipe(imagesmin())
     .pipe(cache(imagesmin({
       progressive: true,
       svgoPlugins: [{
@@ -137,7 +137,7 @@ gulp.task('plugincss', function() {
 gulp.task('default', function() {
   gulp.run('jslint', 'sprites', 'sass', 'libjs', 'scripts', 'imagesmin', 'concatcss', 'plugincss', 'htmlmin');
   // 监听文件变化
-  gulp.watch(['./Dev/src/js/**/*.js', './Dev/src/imgs/**/*.{png,jpg,gif,ico}', './Dev/web/**/*.html', './Dev/wap/**/*.html', './Dev/src/css/main.scss', './Release/src/css/plugin/*.css'], function() {
+  gulp.watch(['./Dev/src/js/**/*.js', './Dev/src/imgs/**/*.{png,jpg,gif,ico}', './Dev/web/**/*.html', './Dev/wap/**/*.html', './Dev/src/css/*.scss', './Release/src/css/plugin/*.css'], function() {
     livereload.listen();
     gulp.run('jslint', 'sprites', 'scripts', 'imagesmin', 'libjs', 'sass', 'plugincss', 'concatcss', 'htmlmin');
   });

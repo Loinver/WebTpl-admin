@@ -12,6 +12,7 @@
   <body>
     <div class="layui-nav">
       <ul class="w-1200 mgauto">
+        <li class="logo"></li>
         <li class="layui-nav-item layui-this">
           <a href="">首页</a>
         </li>
@@ -32,16 +33,10 @@
     <div class="swiper-container">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <a href="javascript:console.log(1);"><img src="../src/imgs/common/1.jpg"></a>
+          <a href="javascript:;" class="swiper-slide-img" style="background-image: url(../src/imgs/common/1.jpg);"></a>
         </div>
         <div class="swiper-slide">
-          <a href="javascript:console.log(2);"><img src="../src/imgs/common/2.jpg"></a>
-        </div>
-        <div class="swiper-slide">
-          <a href="javascript:console.log(3);"><img src="../src/imgs/common/1.jpg"></a>
-        </div>
-        <div class="swiper-slide">
-          <a href="javascript:console.log(4);"><img src="../src/imgs/common/2.jpg"></a>
+          <a href="javascript:;" class="swiper-slide-img" style="background-image: url(../src/imgs/common/2.jpg);"></a>
         </div>
       </div>
       <div class="swiper-pagination"></div>
@@ -86,7 +81,8 @@
         loop:true,
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
-        spaceBetween: 30,
+        spaceBetween: 0,
+        speed:600,
         centeredSlides: true,
         autoplay: 4000,
         autoplayDisableOnInteraction: false
