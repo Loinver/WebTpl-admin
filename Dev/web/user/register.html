@@ -49,22 +49,6 @@
           </div>
         </div>
         <div class="layui-form-item">
-          <label class="layui-form-label">复选框</label>
-          <div class="layui-input-block">
-            <input type="checkbox" name="like[write]" title="写作">
-            <input type="checkbox" name="like[read]" title="阅读" checked="">
-            <input type="checkbox" name="like[game]" title="游戏">
-          </div>
-        </div>
-        <div class="layui-form-item">
-          <label class="layui-form-label">单选框</label>
-          <div class="layui-input-block">
-            <input type="radio" name="sex" value="男" title="男" checked="">
-            <input type="radio" name="sex" value="女" title="女">
-            <input type="radio" name="sex" value="密" title="保密">
-          </div>
-        </div>
-        <div class="layui-form-item">
           <div class="layui-input-block">
             <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
@@ -83,38 +67,34 @@
       </p>
       <p><span>{{username}}</span></p>
       {{msg}}
+      <my-component></my-component>
     </div>
     <script src="../../src/js/lib/vue.js"></script>
     <script src="../../src/layui/layui.js"></script>
-    <script src="../../src/js/lib/jquery-1.11.1.min.js"></script>
-    <script src="../../src/js/define/citySelect.data.js"></script>
-    <script src="../../src/js/define/citySelect.js"></script>
+    <script src="../../src/js/define/selectCity.js"></script>
     <script>
-      $('#city-select').distpicker({
-        autoSelect: false
-      });
-      $('#city').distpicker({
-        autoSelect: false
-      });
+      var mypcas = new PCAS("s_province", "s_city", "s_county");
       layui.use(['form', 'jquery'], function() {
-        var form = layui.form(),
-          $ = layui.jquery;
-        form.render('select');
-
+        var form = layui.form();
+        var province, city;
         form.on('select(province)', function(data) {
           console.log(data.elem); //得到select原始DOM对象
           console.log(data.value); //得到被选中的值
-          $(data.elem).distpicker();
+          province = data.value;
+          mypcas.SetValue(data.value, "", "");
           form.render('select');
         });
         form.on('select(city)', function(data) {
           console.log(data.elem); //得到select原始DOM对象
           console.log(data.value); //得到被选中的值
+          city = data.value;
+          mypcas.SetValue(province, data.value, "");
           form.render('select');
         });
         form.on('select(county)', function(data) {
           console.log(data.elem); //得到select原始DOM对象
           console.log(data.value); //得到被选中的值
+          mypcas.SetValue(province, city, data.value);
           form.render('select');
         });
         form.verify({
@@ -153,6 +133,16 @@
         el: '#msg',
         data: data
       });
+      // 定义组件(v-if的用法)
+      var MyComponent = Vue.extend({
+          template: '<div>A custom component!</div><p v-if="1==2">yes</p><p v-else>no</p>'
+        })
+        // 注册组件
+      Vue.component('my-component', MyComponent)
+        // 创建根实例
+      new Vue({
+        el: '#msg'
+      })
     </script>
   </body>
 
