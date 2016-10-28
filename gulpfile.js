@@ -85,7 +85,7 @@ gulp.task('htmlmin', function() {
     minifyCSS: true //压缩页面CSS
   };
   return gulp.src('./Dev/web/**/*.html')
-    .pipe(htmlmin(options))
+    //.pipe(htmlmin(options))
     .pipe(gulp.dest('./Release/web'))
     .pipe(livereload())
     .pipe(notify("web页面压缩完成"));
