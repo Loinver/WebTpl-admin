@@ -36,15 +36,15 @@
         <div class="layui-form-item" lay-verify="" id="city-select">
           <label class="layui-form-label">选择地址</label>
           <div class="layui-input-inline">
-            <select name="s_province" id="s_province" lay-filter='province'>
+            <select name="province" id="province" lay-filter='province'>
             </select>
           </div>
           <div class="layui-input-inline">
-            <select name="s_city" id="s_city" lay-filter='city'>
+            <select name="city" id="city" lay-filter='city'>
             </select>
           </div>
           <div class="layui-input-inline">
-            <select name="s_county" id="s_county" lay-filter='county'>
+            <select name="county" id="county" lay-filter='county'>
             </select>
           </div>
         </div>
@@ -57,11 +57,6 @@
       </form>
     </div>
     <div class="w-1200 mgauto mgt-20" id="msg">
-      <div id="city">
-        <select></select>
-        <select></select>
-        <select></select>
-      </div>
       <p><label>请输入姓名：</label><input type="text" v-model="username"></p>
       <p><span>姓名：<span v-text="username"></span></span>
       </p>
@@ -73,7 +68,7 @@
     <script src="../../src/layui/layui.js"></script>
     <script src="../../src/js/define/selectCity.js"></script>
     <script>
-      var mypcas = new PCAS("s_province", "s_city", "s_county");
+      var mypcas = new PCAS('province,请选择省份', 'city,请选择城市', 'county,请选择县区');
       layui.use(['form', 'jquery'], function() {
         var form = layui.form();
         var province, city;
