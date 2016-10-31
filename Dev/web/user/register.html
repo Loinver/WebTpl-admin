@@ -13,85 +13,22 @@
 
   <body>
     <div class="register-box w-1200 mgauto">
-      <form class="layui-form" action="">
-        <div class="layui-form-item">
-          <label class="layui-form-label">用户名：</label>
-          <div class="layui-input-inline">
-            <input type="text" name="username" lay-verify="username" placeholder="请输入用户名" autocomplete="off" class="layui-input">
-          </div>
-        </div>
-        <div class="layui-form-item">
-          <label class="layui-form-label">手机号</label>
-          <div class="layui-input-inline">
-            <input type="tel" name="phone" lay-verify="phone" autocomplete="off" class="layui-input">
-          </div>
-        </div>
-        <div class="layui-form-item">
-          <label class="layui-form-label">密码</label>
-          <div class="layui-input-inline">
-            <input type="password" name="password" lay-verify="pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
-          </div>
-          <div class="layui-form-mid layui-word-aux">请填写6到12位密码</div>
-        </div>
-        <div class="layui-form-item" lay-verify="" id="city-select">
-          <label class="layui-form-label">选择地址</label>
-          <div class="layui-input-inline">
-            <select name="province" id="province" lay-filter='province'>
-            </select>
-          </div>
-          <div class="layui-input-inline">
-            <select name="city" id="city" lay-filter='city'>
-            </select>
-          </div>
-          <div class="layui-input-inline">
-            <select name="county" id="county" lay-filter='county'>
-            </select>
-          </div>
-        </div>
-        <div class="layui-form-item">
-          <div class="layui-input-block">
-            <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
-            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="w-1200 mgauto mgt-20" id="msg">
-      <p><label>请输入姓名：</label><input type="text" v-model="username"></p>
-      <p><span>姓名：<span v-text="username"></span></span>
-      </p>
-      <p><span>{{username}}</span></p>
-      {{msg}}
-      <my-component></my-component>
+      <div class="register-box">
+        <my-component></my-component>
+      </div>
     </div>
     <script src="../../src/js/lib/vue.js"></script>
     <script src="../../src/layui/layui.js"></script>
-    <script src="../../src/js/define/selectCity.js"></script>
+    <script src="../../src/js/component/user.js"></script>
     <script>
-      var mypcas = new PCAS('province,请选择省份', 'city,请选择城市', 'county,请选择县区');
+      // 注册组件
+      Vue.component('my-component', regComponent);
+      new Vue({
+        el: '.register-box'
+      });
       layui.use(['form', 'jquery'], function() {
         var form = layui.form();
-        var province, city;
-        form.on('select(province)', function(data) {
-          console.log(data.elem); //得到select原始DOM对象
-          console.log(data.value); //得到被选中的值
-          province = data.value;
-          mypcas.SetValue(data.value, "", "");
-          form.render('select');
-        });
-        form.on('select(city)', function(data) {
-          console.log(data.elem); //得到select原始DOM对象
-          console.log(data.value); //得到被选中的值
-          city = data.value;
-          mypcas.SetValue(province, data.value, "");
-          form.render('select');
-        });
-        form.on('select(county)', function(data) {
-          console.log(data.elem); //得到select原始DOM对象
-          console.log(data.value); //得到被选中的值
-          mypcas.SetValue(province, city, data.value);
-          form.render('select');
-        });
+        var pwd1, pwd2;
         form.verify({
           username: function(value) {
             if(!new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]+$").test(value)) {
@@ -104,40 +41,29 @@
               return '用户名不能全为数字';
             }
           },
-          pass: [
-            /^[\S]{6,12}$/, '密码必须6到12位，且不能出现空格'
-          ]
+          passF: function(value) {
+            pwd1 = value;
+            console.log("第一次" + pwd1);
+            if(/(?!^\[0-9]+$)(?!^[a-zA-Z]+$)(?!^[_#@]+$).{6,20}/.test(value)) {
+              return '密码至少6位'
+            }
+          },
+          passS: function(value) {
+            pwd2 = value;
+            console.log("第二次" + pwd2);
+            if(pwd1 != pwd2) {
+              return '两次输入的密码不一致'
+            }
+          }
         });
         //监听提交
-        form.on('submit(demo1)', function(data) {
+        form.on('submit(btn-submit)', function(data) {
           layer.alert(JSON.stringify(data.field), {
             title: '最终的提交信息'
           })
           return false;
         });
       });
-    </script>
-    <script>
-      //原生对象即数据
-      var data = {
-        msg: "你壕啊！你是？"
-      };
-      //创建viewmodel对象
-      var vm = new Vue({
-        //选择目标元素
-        el: '#msg',
-        data: data
-      });
-      // 定义组件(v-if的用法)
-      var MyComponent = Vue.extend({
-          template: '<div>A custom component!</div><p v-if="1==2">yes</p><p v-else>no</p>'
-        })
-        // 注册组件
-      Vue.component('my-component', MyComponent)
-        // 创建根实例
-      new Vue({
-        el: '#msg'
-      })
     </script>
   </body>
 
