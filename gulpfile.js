@@ -1,20 +1,20 @@
 // 引入 gulp
-var gulp = require('../node_modules/gulp');
+var gulp = require('../../../node_modules/gulp');
 // 引入组件
-var jshint = require('../node_modules/gulp-jshint'); //js检查插件
-var sass = require('../node_modules/gulp-sass'); //sass
-var concat = require('../node_modules/gulp-concat'); //合并js文件
-var uglify = require('../node_modules/gulp-uglify'); //压缩js文件
-var rename = require('../node_modules/gulp-rename'); //重命名插件
-var cssmin = require('../node_modules/gulp-clean-css'); //压缩css
-var notify = require('../node_modules/gulp-notify'); //gulp提示
-var imagesmin = require('../node_modules/gulp-imagemin'); //图片压缩
-var htmlmin = require('../node_modules/gulp-htmlmin'); //压缩html文件
-var sprite = require('../node_modules/gulp.spritesmith'); //雪碧图
-var autoprefixer = require('../node_modules/gulp-autoprefixer'); //自动补全前缀
-var livereload = require('../node_modules/gulp-livereload'); //自动刷新浏览器
-var cache = require('../node_modules/gulp-cache');
-var pngquant = require('../node_modules/imagemin-pngquant');
+var jshint = require('../../../node_modules/gulp-jshint'); //js检查插件
+var sass = require('../../../node_modules/gulp-sass'); //sass
+var concat = require('../../../node_modules/gulp-concat'); //合并js文件
+var uglify = require('../../../node_modules/gulp-uglify'); //压缩js文件
+var rename = require('../../../node_modules/gulp-rename'); //重命名插件
+var cssmin = require('../../../node_modules/gulp-clean-css'); //压缩css
+var notify = require('../../../node_modules/gulp-notify'); //gulp提示
+var imagesmin = require('../../../node_modules/gulp-imagemin'); //图片压缩
+var htmlmin = require('../../../node_modules/gulp-htmlmin'); //压缩html文件
+var sprite = require('../../../node_modules/gulp.spritesmith'); //雪碧图
+var autoprefixer = require('../../../node_modules/gulp-autoprefixer'); //自动补全前缀
+var livereload = require('../../../node_modules/gulp-livereload'); //自动刷新浏览器
+var cache = require('../../../node_modules/gulp-cache');
+var pngquant = require('../../../node_modules/imagemin-pngquant');
 //npm install gulp gulp-clean-css gulp-notify gulp.spritesmith gulp-imagemin gulp-cache imagemin-pngquant gulp-htmlmin gulp-jshint gulp-sass gulp-concat gulp-uglify gulp-rename gulp-livereload gulp-autoprefixer --save-dev
 // 检查js
 gulp.task('jslint', function() {
@@ -33,7 +33,6 @@ gulp.task('sass', function() {
     }))
     //.pipe(cssmin())
     .pipe(gulp.dest('./Dev/src/css'))
-    .pipe(livereload())
     .pipe(notify("css压缩完成！"));
 });
 // 合并，压缩js文件
@@ -137,50 +136,46 @@ gulp.task('sprites', function() {
 gulp.task('concatcss', function() {
   return gulp.src(['./Dev/src/css/*.css', './Dev/src/css/plugin/*.css'])
     .pipe(concat('index.css'))
+    .pipe(gulp.dest('./Dev/src/css'))
     .pipe(gulp.dest('./Release/src/css'))
+    .pipe(livereload())
     .pipe(notify("css合并完成"));
 });
 //生成插件css任务
 gulp.task('plugincss', function() {
   return gulp.src('./Dev/src/css/plugin/*.css')
-    //.pipe(gulp.dest('./Release/src/css'))
+    .pipe(gulp.dest('./Release/src/css'))
     .pipe(notify("插件css生成完成"));
 });
 // 默认任务
 gulp.task('default', function() {
-  gulp.run('jslint', 'sprites', 'sass', 'libjs', 'userJs', 'systemJs', 'scripts', 'imagesmin', 'plugincss', 'concatcss', 'htmlmin');
-  // 监听文件变化
-  gulp.watch(['./Dev/src/js/**/*.js', './Dev/src/js/**/*.js', './Dev/src/imgs/**/*.{png,jpg,gif,ico}', './Dev/web/**/*.html', './Dev/src/css/**/*.scss', './Dev/src/css/plugin/*.css'], function() {
+  gulp.run('imagesmin', 'sprites', 'sass', 'jslint', 'libjs', 'userJs', 'systemJs', 'scripts', 'plugincss', 'concatcss', 'htmlmin');
+  gulp.watch('./Dev/src/js/**/*.js', function() {
     livereload.listen();
-    gulp.run('jslint', 'sprites', 'scripts', 'imagesmin', 'libjs', 'userJs', 'systemJs', 'sass', 'plugincss', 'concatcss', 'htmlmin');
-  });
-
-  //gulp.watch('./Dev/src/js/**/*js', function() {
-  //  livereload.listen();
-  //  gulp.run('jslint', 'libjs');
-  //})
-  //gulp.watch('./Dev/src/imgs/**/*.{png,jpg,gif,ico}', function() {
-  //  livereload.listen();
-  //  gulp.run('sprites', 'imagesmin');
-  //})
-  //gulp.watch('./Dev/web/**/*.html', function() {
-  //  livereload.listen();
-  //  gulp.run('htmlmin');
-  //})
-  //gulp.watch('./Dev/wap/**/*.html', function() {
-  //  livereload.listen();
-  //  gulp.run('htmlmin');
-  //})
-  //gulp.watch('./Dev/src/css/main.scss', function() {
-  //  livereload.listen();
-  //  gulp.run('sass');
-  //})
-  //gulp.watch('./Release/src/css/*.css', function() {
-  //  livereload.listen();
-  //  gulp.run('concatcss');
-  //})
-  //gulp.watch('./Release/src/css/plugin/*.css', function() {
-  //  livereload.listen();
-  //  gulp.run('plugincss');
-  //})
+    gulp.run('jslint', 'libjs', 'userJs', 'systemJs');
+  })
+  gulp.watch('./Dev/src/imgs/**/*.{png,jpg,gif,ico}', function() {
+    livereload.listen();
+    gulp.run('sprites', 'imagesmin');
+  })
+  gulp.watch('./Dev/web/**/*.html', function() {
+    livereload.listen();
+    gulp.run('htmlmin');
+  })
+  gulp.watch('./Dev/wap/**/*.html', function() {
+    livereload.listen();
+    gulp.run('htmlmin');
+  })
+  gulp.watch('./Dev/src/css/*.scss', function() {
+    livereload.listen();
+    gulp.run('sass');
+  })
+  gulp.watch('./Release/src/css/*.css', function() {
+    livereload.listen();
+    gulp.run('concatcss');
+  })
+  gulp.watch('./Dev/src/css/plugin/*.css', function() {
+    livereload.listen();
+    gulp.run('plugincss');
+  })
 });
