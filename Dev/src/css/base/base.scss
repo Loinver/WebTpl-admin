@@ -76,6 +76,14 @@
 .pdr-20{padding-right:20px}
 .pdr-25{padding-right:25px}
 .pdr-30{padding-right:30px}
+.pd-5{padding:5px}
+.pd-10{padding:10px}
+.pd-15{padding:15px}
+.pd-20{padding:20px}
+.pd-25{padding:25px}
+.pd-30{padding:30px}
+.pd-40{padding:40px}
+.pd-50{padding:50px}
 .bdc{border:1px solid #ccc}
 .bdd{border:1px solid #ddd}
 .bde{border:1px solid #eee}
@@ -106,6 +114,7 @@
 .fs-48{font-size:48px}
 .fs-64{font-size:64px}
 .fs-0{font-size:0;letter-spacing:-5px}
+.ls-n{letter-spacing: normal;}
 .fstyle-i{font-style:italic}
 .fstyle-n{font-style:normal}
 .fstyle-o{font-style:oblique}
@@ -143,6 +152,9 @@
   &:after {
     clear: both;
   }
+}
+.c-fff {
+  color: #ffffff;
 }
 .cl{@extend %clearfix}
 .fl{float:left}

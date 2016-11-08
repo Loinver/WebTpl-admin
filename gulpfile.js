@@ -37,15 +37,8 @@ gulp.task('sass', function() {
 });
 // 合并，压缩js文件
 gulp.task('scripts', function() {
-  //如果需要配置某些字段不混淆压缩
-  var config = {
-    mangle: {
-      except: ['define', 'require', 'module', 'exports']
-    },
-    compress: false
-  };
   return gulp.src('./Dev/src/js/define/*.js')
-    .pipe(uglify(config))
+    //.pipe(uglify())
     .pipe(gulp.dest('./Release/src/js/define'))
     .pipe(livereload())
     .pipe(notify("js压缩完成！"));
@@ -56,24 +49,6 @@ gulp.task('libjs', function() {
     .pipe(uglify())
     .pipe(gulp.dest('./Release/src/js/lib'))
     .pipe(notify("lib js生成成功"));
-});
-//生成用户组件js
-gulp.task('userJs', function() {
-  return gulp.src('./Dev/src/js/components/user/*.js')
-    .pipe(concat('user.js'))
-    //.pipe(uglify())
-    .pipe(gulp.dest('./Dev/src/js/components'))
-    .pipe(gulp.dest('./Release/src/js/components'))
-    .pipe(notify("userjs生成"));
-});
-//生成系统组件js
-gulp.task('systemJs', function() {
-  return gulp.src('./Dev/src/js/components/system/*.js')
-    .pipe(concat('system.js'))
-    //.pipe(uglify())
-    .pipe(gulp.dest('./Dev/src/js/components'))
-    .pipe(gulp.dest('./Release/src/js/components'))
-    .pipe(notify("userjs生成"));
 });
 // 图片压缩
 gulp.task('imagesmin', function() {
@@ -136,7 +111,7 @@ gulp.task('sprites', function() {
 gulp.task('concatcss', function() {
   return gulp.src(['./Dev/src/css/*.css', './Dev/src/css/plugin/*.css'])
     .pipe(concat('index.css'))
-    .pipe(gulp.dest('./Dev/src/css'))
+    //.pipe(gulp.dest('./Dev/src/css'))
     .pipe(gulp.dest('./Release/src/css'))
     .pipe(livereload())
     .pipe(notify("css合并完成"));
@@ -149,10 +124,10 @@ gulp.task('plugincss', function() {
 });
 // 默认任务
 gulp.task('default', function() {
-  gulp.run('imagesmin', 'sprites', 'sass', 'jslint', 'libjs', 'userJs', 'systemJs', 'scripts', 'plugincss', 'concatcss', 'htmlmin');
+  gulp.run('imagesmin', 'sprites', 'sass', 'jslint', 'libjs', 'scripts', 'plugincss', 'concatcss', 'htmlmin');
   gulp.watch('./Dev/src/js/**/*.js', function() {
     livereload.listen();
-    gulp.run('jslint', 'libjs', 'userJs', 'systemJs');
+    gulp.run('jslint', 'libjs','scripts');
   })
   gulp.watch('./Dev/src/imgs/**/*.{png,jpg,gif,ico}', function() {
     livereload.listen();
@@ -160,17 +135,13 @@ gulp.task('default', function() {
   })
   gulp.watch('./Dev/web/**/*.html', function() {
     livereload.listen();
-    gulp.run('htmlmin');
+    gulp.run('htmlmin','sprites', 'imagesmin');
   })
-  gulp.watch('./Dev/wap/**/*.html', function() {
-    livereload.listen();
-    gulp.run('htmlmin');
-  })
-  gulp.watch('./Dev/src/css/*.scss', function() {
+  gulp.watch('./Dev/src/css/**/*.scss', function() {
     livereload.listen();
     gulp.run('sass');
   })
-  gulp.watch('./Release/src/css/*.css', function() {
+  gulp.watch('./Dev/src/css/*.css', function() {
     livereload.listen();
     gulp.run('concatcss');
   })

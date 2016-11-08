@@ -1,10 +1,68 @@
-.swiper-container {
-  width: 100%;
-  height: 435px;
-  .swiper-slide .swiper-slide-img {
-    width: 100%;
-    height: 100%;
-    display: inline-block;
-    background-position: center center;
-  }
+.layui-right {
+  float: right;
+}
+.layui-left {
+  float: left;
+}
+/* 头部 */
+#admin .layui-header {
+  background-color: #393D49;
+  height: 60px;
+  border-bottom: 5px solid #4E5465;
+}
+#admin .layui-header .layui-nav.nav .layui-nav-item a {
+  color: #000;
+  font-size: 18px;
+  margin-top: 5px;
+}
+#admin .layui-header .user {
+  margin-top: 5px;
+  height: 50px;
+  padding: 5px;
+  position: relative;
+}
+#admin .layui-header .user .user-avatar {
+  margin-right: 20px;
+  display: block;
+  height: 100%;
+}
+#admin .layui-header .user img {
+  height: 100%;
+  margin-top: -5px;
+}
+#admin .layui-header .user .user-nav {
+  position: absolute;
+  right: 0;
+  top: 55px;
+  width: 100px;
+  border: 1px solid #4E5465;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  display: none;
+  background: #ffffff;
+}
+#admin .layui-header .user:hover .user-nav {
+  display: block;
+}
+#admin .layui-header .user .user-nav .user-nav-item a {
+  font-size: 12px;
+  display: block;
+  padding: 10px;
+}
+#admin .layui-header .user .user-nav .user-nav-item:hover {
+  background: #4E5465;
+}
+#admin .layui-header .user .user-nav .user-nav-item:hover a {
+  color: #eeeeee;
+}
+/* 侧栏 */
+#admin .layui-side .layui-nav {
+  border-radius: 0;
+  min-height: 100%;
+}
+/* 主体 */
+#admin .layui-body {
+  padding: 15px;
+  bottom: 0;
 }

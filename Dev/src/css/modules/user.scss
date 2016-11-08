@@ -1,0 +1,26 @@
+.user-show {
+  width: 360px;
+  background-color: #5bacb6;
+  .user-photo {
+    display: inline-block;
+    overflow: hidden;
+    position: absolute;
+  }
+  .user-photo.l {
+    width: 64px;
+    height: 64px;
+  }
+  .user-info {
+    display: inline-block;
+    margin-left: 80px;
+  }
+}
+.user-detail {
+  .table {
+    line-height: 1.8;
+  }
+  .table th {
+    text-align: right;
+    font-weight: 400;
+  }
+}
