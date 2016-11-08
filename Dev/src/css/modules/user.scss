@@ -1,17 +1,16 @@
 .user-show {
-  width: 360px;
   background-color: #5bacb6;
   .user-photo {
     display: inline-block;
     overflow: hidden;
-    position: absolute;
+    position: relative;
   }
   .user-photo.l {
     width: 64px;
     height: 64px;
   }
   .user-info {
-    display: inline-block;
+    width: 240px;
     margin-left: 80px;
   }
 }
@@ -23,4 +22,8 @@
     text-align: right;
     font-weight: 400;
   }
+}
+.layer-iframe {
+  width: 320px;
+  overflow-x: hidden;
 }

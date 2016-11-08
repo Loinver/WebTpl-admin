@@ -109,7 +109,7 @@ gulp.task('sprites', function() {
 });
 //合并css任务
 gulp.task('concatcss', function() {
-  return gulp.src(['./Dev/src/css/*.css', './Dev/src/css/plugin/*.css'])
+  return gulp.src('./Dev/src/css/*.css')
     .pipe(concat('index.css'))
     //.pipe(gulp.dest('./Dev/src/css'))
     .pipe(gulp.dest('./Release/src/css'))
