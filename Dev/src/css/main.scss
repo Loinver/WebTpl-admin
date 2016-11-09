@@ -7,6 +7,8 @@
 @import "modules/index"; //首页
 @import "modules/user"; //用户
 @import "modules/datatable";//表格
+@import "modules/product";//表格
+@import "modules/article";//表格
 /**
   * 备注：所有在css中的图片，都必须以main所在的路径为基准
  */
@@ -21,7 +23,7 @@
   cursor: pointer;
 }
 .page-tab {
-  margin: 10px 0;
+  padding: 10px 0;
 }
 .layui-breadcrumb > a {
   padding-right: 8px;
@@ -44,6 +46,9 @@
 }
 .table-box .btn-showuser {
   cursor: pointer;
+}
+.layui-page{
+  text-align: right;
 }
 .label,
 .badge {

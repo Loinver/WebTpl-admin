@@ -8,13 +8,135 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="../../src/css/index.css" />
-    <link rel="stylesheet" href="../src/fonts/iconfont.css" />
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_5lks7zq8a4a62yb9.css " />
     <link rel="stylesheet" href="../../src/layui/css/layui.css" />
   </head>
 
   <body>
-   产品列表
+    <div class="layui-layout-admin">
+      <div class="layui-header">
+        <div class="admin-title dp-ib">
+          <h1 class="fs-24 dp-ib c-fff mgl-20 mgt-10">股牛邦管理系统</h1>
+        </div>
+        <!-- 用户 -->
+        <div href="#!" class="layui-right user">
+          <!-- 头像 -->
+          <a href="#!" class="user-avatar">
+            <img src="../../src/imgs/common/user-photo.jpg" alt="" class="layui-circle"><span class="c-fff mgl-20">超级管理员</span>
+          </a>
+          <!-- 头像下面显示 -->
+          <ul class="user-nav">
+            <li class="user-nav-item">
+              <a href="#!">
+                <i class="layui-icon">&#xe612;</i> 个人设置
+              </a>
+            </li>
+            <li class="user-nav-item">
+              <a href="#!">
+                <i class="layui-icon">&#xe623;</i> 退出
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="layui-side">
+        <ul class="layui-nav layui-nav-tree">
+          <li class="layui-nav-item layui-nav-title item-show" nav-item-num="1">
+            <a>账户管理<i class="layui-icon layui-right">&#xe619;</i></a>
+          </li>
+          <li class="layui-nav-item">
+            <a href="../user/user-list.html">用户列表</a>
+          </li>
+          <li class="layui-nav-item layui-nav-title item-show" nav-item-num="2">
+            <a>产品管理<i class="layui-icon layui-right">&#xe619;</i></a>
+            </a>
+          </li>
+          <li class="layui-nav-item layui-this">
+            <a href="../product/product-list.html">产品列表</a>
+          </li>
+          <li class="layui-nav-item">
+            <a href="../product/product-update.html">发布产品</a>
+          </li>
+          <li class="layui-nav-item layui-nav-title item-show" nav-item-num="3">
+            <a>文章管理<i class="layui-icon layui-right">&#xe619;</i></a>
+            </a>
+          </li>
+          <li class="layui-nav-item">
+            <a href="../article/article-list.html">文章列表</a>
+          </li>
+          <li class="layui-nav-item">
+            <a href="../article/article-update.html">发布文章</a>
+          </li>
+        </ul>
+      </div>
+      <!--
+        作者：honeyliner@163.com
+        时间：2016-11-07
+        描述：用户列表
+      -->
+      <div class="layui-body" id="user">
+        <p class="page-tab">
+          <span class="layui-breadcrumb" lay-separator=">"><a href="">首页</a><a><cite>产品列表</cite></a></span></p>
+        <h1><span class="fs-24">产品列表</span></h1>
+        <hr />
+        <div class="handle-box">
+          <ul>
+            <li class="handle-item"><span class="layui-form-label">输入产品名：</span>
+              <div class="layui-input-inline"><input type="text" autocomplete="off" placeholder="请输入搜索条件" class="layui-input"></div><button class="layui-btn mgl-20">查询</button></li>
+            <li class="handle-item"><span class="fl"><a class="layui-btn layui-btn-danger radius btn-delect" id="btn-delect-all"><i class="mobilefont icon-delect"></i> 批量删除</a><a class="layui-btn btn-add btn-default" id="btn-adduser"><i class="mobilefont icon-add"></i> 添加产品</a></span> <span class="fr">共有数据：<strong>88</strong> 条</span> </li>
+          </ul>
+        </div>
+        <table class="table-box table-sort">
+          <thead>
+            <tr class="tc">
+              <th class="sorting_desabled"><input type="checkbox" class="btn-checkall"></th>
+              <th>ID</th>
+              <th>产品名称</th>
+              <th>缩略图</th>
+              <th>产品描述</th>
+              <th>单价</th>
+              <th>状态</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-userid="10001">
+              <td><input type="checkbox" name=""></td>
+              <td class="tc">3</td>
+              <td class="tc"><u class="">产品名称</u></td>
+              <td class="tc"><img src="../../src/imgs/common/user-photo.jpg" alt="产品缩略图"></td>
+              <td>我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述</td>
+              <td class="tc">88元/月</td>
+              <td class="td-status tc"><span class="label label-success radius">正常销售</span></td>
+              <td class="td-handle">
+                <span title="暂停销售" class="handle-btn handle-btn-stop"><i class="mobilefont icon-zanting"></i></span>
+                <span title="编辑" class="handle-btn handle-btn-edit"><i class="mobilefont icon-edit"></i></span>
+                <span title="删除" class="handle-btn handle-btn-delect"><i class="mobilefont icon-delect"></i></span>
+              </td>
+            </tr>
+            <tr data-userid="10002">
+              <td><input type="checkbox" name=""></td>
+              <td class="tc">2</td>
+              <td class="tc"><u class="">产品名称</u></td>
+              <td class="tc"><img src="../../src/imgs/common/user-photo.jpg" alt="产品缩略图"></td>
+              <td>我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述</td>
+              <td class="tc">288元/月</td>
+              <td class="td-status tc"><span class="label label-danger radius">暂停销售</span></td>
+              <td class="td-handle">
+                <span title="开始销售" class="handle-btn handle-btn-run"><i class="mobilefont icon-qiyong"></i></span>
+                <span title="编辑" class="handle-btn handle-btn-edit"><i class="mobilefont icon-edit"></i></span>
+                <span title="删除" class="handle-btn handle-btn-delect"><i class="mobilefont icon-delect"></i></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="layui-page" id="product-page"></div>
+      </div>
+    </div>
     <script src="../../src/layui/layui.js"></script>
+    <script src="../../src/js/define/common.js"></script>
+    <script src="../../src/js/define/product.js"></script>
   </body>
 
 </html>

@@ -135,7 +135,7 @@ gulp.task('default', function() {
   })
   gulp.watch('./Dev/web/**/*.html', function() {
     livereload.listen();
-    gulp.run('htmlmin', 'sprites', 'imagesmin');
+    gulp.run('htmlmin', 'sprites', 'imagesmin','scripts');
   })
   gulp.watch('./Dev/src/css/**/*.scss', function() {
     livereload.listen();

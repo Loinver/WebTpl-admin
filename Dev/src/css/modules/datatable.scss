@@ -98,9 +98,11 @@ table.dataTable thead .sorting_desc {
 
 .table-box th,
 .table-box td {
-  padding: 8px 4px;
+  padding: 8px 2px;
   line-height: 20px;
   word-break: break-all;
+  min-width: 35px;
+  max-width: 400px;
 }
 
 .table-box tbody tr:nth-child(odd) {
@@ -126,7 +128,6 @@ table.dataTable thead .sorting_desc {
 }
 
 .table-box thead th {
-  min-width: 35px;
   font-size: 16px;
   font-weight: 400;
   border-left: 1px solid #ddd;
