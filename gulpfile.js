@@ -127,7 +127,7 @@ gulp.task('default', function() {
   gulp.run('imagesmin', 'sprites', 'sass', 'jslint', 'libjs', 'scripts', 'plugincss', 'concatcss', 'htmlmin');
   gulp.watch('./Dev/src/js/**/*.js', function() {
     livereload.listen();
-    gulp.run('jslint', 'libjs','scripts');
+    gulp.run('jslint', 'libjs', 'scripts');
   })
   gulp.watch('./Dev/src/imgs/**/*.{png,jpg,gif,ico}', function() {
     livereload.listen();
@@ -135,7 +135,7 @@ gulp.task('default', function() {
   })
   gulp.watch('./Dev/web/**/*.html', function() {
     livereload.listen();
-    gulp.run('htmlmin','sprites', 'imagesmin');
+    gulp.run('htmlmin', 'sprites', 'imagesmin');
   })
   gulp.watch('./Dev/src/css/**/*.scss', function() {
     livereload.listen();
