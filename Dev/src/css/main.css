@@ -824,7 +824,8 @@ table.dataTable thead .sorting_desc {
 
 .table-box tbody td {
   border-left: 1px solid #ddd;
-  border-top: 1px solid #ddd; }
+  border-top: 1px solid #ddd;
+  text-align: center; }
 
 .table-box th,
 .table-box td {

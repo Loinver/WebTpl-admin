@@ -62,7 +62,7 @@ layui.use(['layer', 'jquery', 'laypage', 'datatable'], function() {
       title: '警告'
     }, function(index) {
       $(obj).parents("tr").find(".td-handle").prepend('<span class="handle-btn handle-btn-run" title="开始发布"><i class="mobilefont icon-qiyong"></i></span>');
-      $(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">暂停发布</span>');
+      $(obj).parents("tr").find(".td-status").html('<span class="label label-danger radius">暂停发布</span>');
       $(obj).remove();
       layer.msg('已暂停发布!', {
         icon: 5,
