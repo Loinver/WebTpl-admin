@@ -141,6 +141,7 @@
 .dp-if{display:inline-flex}
 .dp-it{display:inline-table}
 .dp-li{display:list-item}
+*{box-sizing: border-box;}
 /*清除浮动*/
 %clearfix {
   &:before,

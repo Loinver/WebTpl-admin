@@ -429,6 +429,10 @@
 .dp-li {
   display: list-item; }
 
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
 /*清除浮动*/
 .cl:before, .cl:after {
   content: "";
@@ -721,16 +725,17 @@
   bottom: 0 !important; }
 
 .user-show {
-  background-color: #5bacb6; }
+  background-color: #5bacb6;
+  overflow: hidden;
+  zoom: 1;
+  clear: both;
+  width: 100%; }
   .user-show .user-photo {
-    display: inline-block;
-    overflow: hidden;
-    position: relative; }
-  .user-show .user-photo.l {
-    width: 64px;
-    height: 64px; }
+    position: absolute; }
+    .user-show .user-photo img.l {
+      width: 64px;
+      height: 64px; }
   .user-show .user-info {
-    width: 240px;
     margin-left: 80px; }
 
 .user-detail .table {
@@ -740,9 +745,8 @@
   text-align: right;
   font-weight: 400; }
 
-.layer-iframe {
-  width: 320px;
-  overflow-x: hidden; }
+.user-add .layui-form-label {
+  width: 120px; }
 
 table.dataTable {
   border-collapse: separate;
@@ -830,10 +834,9 @@ table.dataTable thead .sorting_desc {
 .table-box th,
 .table-box td {
   padding: 8px 2px;
-  line-height: 20px;
-  word-break: break-all;
   min-width: 35px;
-  max-width: 400px; }
+  line-height: 20px;
+  word-break: break-all; }
 
 .table-box tbody tr:nth-child(odd) {
   background-color: #fff; }
@@ -855,7 +858,8 @@ table.dataTable thead .sorting_desc {
 .table-box thead th {
   font-size: 16px;
   font-weight: 400;
-  border-left: 1px solid #ddd; }
+  border-left: 1px solid #ddd;
+  padding: 8px 5px; }
 
 .table-box .td-handle .handle-btn {
   cursor: pointer; }

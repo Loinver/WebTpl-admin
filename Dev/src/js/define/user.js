@@ -1,10 +1,12 @@
 layui.config({
-  base: '../../src/js/lib/' //假设这是test.js所在的目录
+  base: '../../src/js/lib/' //自定义layui组件的目录
 }).extend({ //设定组件别名
-  datatable: 'datatable' //如果test.js是在根目录，也可以不用设定别名
+  datatable: 'datatable',
 });
-layui.use(['layer', 'jquery', 'laypage', 'datatable'], function() {
+//初始化
+layui.use(['form', 'layer', 'jquery', 'datatable'], function() {
   var $ = layui.jquery,
+    form = layui.form(),
     layer = layui.layer,
     laypage = layui.laypage,
     datatable = layui.datatable;
@@ -22,7 +24,7 @@ layui.use(['layer', 'jquery', 'laypage', 'datatable'], function() {
           "orderable": false,
           "aTargets": [0, 9]
         } // 指定列不参与排序
-      ]
+      ],
     });
     $('.table-sort tbody').on('click', 'tr', function() {
       if($(this).hasClass('selected')) {
@@ -57,12 +59,6 @@ layui.use(['layer', 'jquery', 'laypage', 'datatable'], function() {
       content: url
     });
   };
-  //数据分页
-  laypage({
-    cont: 'user-page', //id
-    pages: 100, //总页数
-    groups: 5 //连续显示分页数
-  });
   /*关闭弹出框口*/
   function layer_close() {
     var index = parent.layer.getFrameIndex(window.name);
@@ -74,7 +70,7 @@ layui.use(['layer', 'jquery', 'laypage', 'datatable'], function() {
     var href = 'user-show.html';
     var id = $(this).parents('tr').attr('data-userid');
     console.log(id);
-    layer_show(username, href, id, '360', '400');
+    layer_show(username, href, id, '400', '500');
   });
   /*用户-添加*/
   $('#btn-adduser').on('click', function() {
@@ -90,7 +86,7 @@ layui.use(['layer', 'jquery', 'laypage', 'datatable'], function() {
       icon: 0,
       title: '警告'
     }, function(index) {
-      $(obj).parents("tr").find(".td-handle").prepend('<span class="handle-btn handle-btn-run" title="启用"><i class="mobilefont icon-qiyong"></i></span>');
+      $(obj).parents("tr").find(".td-handle").prepend('<span class="handle-btn handle-btn-run" title="启用"><i class="linyer icon-qiyong"></i></span>');
       $(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">已停用</span>');
       $(obj).remove();
       layer.msg('已停用!', {
@@ -107,7 +103,7 @@ layui.use(['layer', 'jquery', 'laypage', 'datatable'], function() {
       icon: 0,
       title: '警告'
     }, function(index) {
-      $(obj).parents("tr").find(".td-handle").prepend('<span class="handle-btn handle-btn-stop" title="停用"><i class="mobilefont icon-zanting"></i></span>');
+      $(obj).parents("tr").find(".td-handle").prepend('<span class="handle-btn handle-btn-stop" title="停用"><i class="linyer icon-zanting"></i></span>');
       $(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
       $(obj).remove();
       layer.msg('已启用!', {
@@ -143,4 +139,5 @@ layui.use(['layer', 'jquery', 'laypage', 'datatable'], function() {
       });
     });
   });
+  /*用户添加页面*/
 });

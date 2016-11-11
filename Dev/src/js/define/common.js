@@ -3,10 +3,9 @@ layui.config({
 }).extend({ //设定组件别名
 
 });
-layui.use(['jquery', 'element', 'layer'], function() {
+layui.use(['jquery', 'element'], function() {
   var $ = layui.jquery,
-    element = layui.element(),
-    layer = layui.layer;
+    element = layui.element();
   /*全选*/
   $("table thead th input:checkbox").on("click", function() {
     $(this).closest("table").find("tr > td:first-child input:checkbox").prop("checked", $("table thead th input:checkbox").prop("checked"));
@@ -49,7 +48,6 @@ layui.use(['jquery', 'element', 'layer'], function() {
       content: url
     });
   };
-
   /*关闭弹出框口*/
   function layer_close() {
     var index = parent.layer.getFrameIndex(window.name);
