@@ -467,13 +467,13 @@
   text-align: center; }
 
 .tl {
-  text-align: left; }
+  text-align: left !important; }
 
 .tr {
-  text-align: right; }
+  text-align: right !important; }
 
 .tj {
-  text-align: justify; }
+  text-align: justify !important; }
 
 .dll-grid {
   position: relative; }
@@ -724,6 +724,11 @@
   padding: 15px;
   bottom: 0 !important; }
 
+/* 对layui的优化 */
+.layui-form-switch, .layui-form-onswitch {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; }
+
 .user-show {
   background-color: #5bacb6;
   overflow: hidden;
@@ -866,6 +871,9 @@ table.dataTable thead .sorting_desc {
 
 .table-box .td-handle .handle-btn + .handle-btn {
   margin-left: 5px; }
+
+.pdut-thumbnail {
+  width: 40px; }
 
 /**
   * 备注：所有在css中的图片，都必须以main所在的路径为基准

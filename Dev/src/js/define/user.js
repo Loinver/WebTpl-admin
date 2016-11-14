@@ -35,35 +35,6 @@ layui.use(['form', 'layer', 'jquery', 'datatable'], function() {
       }
     });
   });
-  //注册弹出方法
-  function layer_show(title, url, id, w, h) {
-    if(title == null || title == '') {
-      title = false;
-    };
-    if(url == null || url == '') {
-      url = "404.html";
-    };
-    if(w == null || w == '') {
-      w = 800;
-    };
-    if(h == null || h == '') {
-      h = ($(window).height() - 50);
-    };
-    layer.open({
-      type: 2,
-      area: [w + 'px', h + 'px'],
-      fix: false,
-      maxmin: false,
-      shade: 0.4,
-      title: title,
-      content: url
-    });
-  };
-  /*关闭弹出框口*/
-  function layer_close() {
-    var index = parent.layer.getFrameIndex(window.name);
-    parent.layer.close(index);
-  }
   //用户--查看
   $('.btn-showuser').on('click', function() {
     var username = $(this).html();
@@ -76,7 +47,7 @@ layui.use(['form', 'layer', 'jquery', 'datatable'], function() {
   $('#btn-adduser').on('click', function() {
     var username = $(this).html();
     var href = 'user-add.html';
-    layer_show(username, href, '', '360', '400');
+    layer_show(username, href, '', '800', '600');
   });
   /*用户-停用*/
   $('.table-sort').on('click', '.handle-btn-stop', function() {
@@ -87,7 +58,7 @@ layui.use(['form', 'layer', 'jquery', 'datatable'], function() {
       title: '警告'
     }, function(index) {
       $(obj).parents("tr").find(".td-handle").prepend('<span class="handle-btn handle-btn-run" title="启用"><i class="linyer icon-qiyong"></i></span>');
-      $(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">已停用</span>');
+      $(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">已停用</span>');
       $(obj).remove();
       layer.msg('已停用!', {
         icon: 5,
@@ -116,7 +87,7 @@ layui.use(['form', 'layer', 'jquery', 'datatable'], function() {
   $('.table-sort').on('click', '.handle-btn-edit', function() {
     var obj = $(this);
     var id = obj.parents('tr').attr('data-userid');
-    layer_show('编辑', 'user-edit.html', id, '600', '500');
+    layer_show('编辑', 'user-edit.html', id, '800', '600');
   });
   /*密码-修改*/
   $('.table-sort').on('click', '.handle-btn-updatepwd', function() {
@@ -139,5 +110,26 @@ layui.use(['form', 'layer', 'jquery', 'datatable'], function() {
       });
     });
   });
-  /*用户添加页面*/
+  //批量删除
+  $('#btn-delect-all').on('click', function() {
+    //这是相对应的那一行数据移出
+    console.log($(".table-sort tbody :checkbox:checked").length);
+    if($(".table-sort tbody :checkbox:checked").length == 0) {
+      layer.msg('请选择需要删除的数据！', {
+        icon: 0
+      });
+    } else {
+      layer.confirm('确认要删除吗？', {
+        icon: 0,
+        title: '警告'
+      }, function(index) {
+        $(".table-sort tbody :checkbox:checked").parents('tr').remove(); //删除方法
+        layer.msg('已删除!', {
+          icon: 1,
+          time: 1000
+        });
+      });
+    }
+
+  });
 });

@@ -165,9 +165,9 @@
 .ps-a{position:absolute}
 .ps-r{position:relative}
 .tc{text-align:center}
-.tl{text-align:left}
-.tr{text-align:right}
-.tj{text-align:justify}
+.tl{text-align:left !important}
+.tr{text-align:right !important}
+.tj{text-align:justify !important}
 .dll-grid {
   position: relative;
 }

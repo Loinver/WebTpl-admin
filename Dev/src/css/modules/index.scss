@@ -67,3 +67,7 @@
   padding: 15px;
   bottom:0 !important;
 }
+/* 对layui的优化 */
+.layui-form-switch,.layui-form-onswitch{
+  box-sizing: content-box;
+}

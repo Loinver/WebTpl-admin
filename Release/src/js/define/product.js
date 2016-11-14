@@ -20,7 +20,7 @@ layui.use(['layer', 'jquery', 'laypage', 'datatable'], function() {
           "sProcessing": "正在加载中......",
           "sEmptyTable": "无数据",
           "orderable": false,
-          "aTargets": [0,3,4]
+          "aTargets": [0, 3, 4]
         } // 指定列不参与排序
       ]
     });
@@ -107,5 +107,10 @@ layui.use(['layer', 'jquery', 'laypage', 'datatable'], function() {
         time: 1000
       });
     });
+  });
+  /*产品缩略图查看大图*/
+  layer.photos({
+    photos: '.table-sort tbody',
+    anim: 5
   });
 });
