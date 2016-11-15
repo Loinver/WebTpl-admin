@@ -3,7 +3,6 @@ table.dataTable {
   border-spacing: 0;
   clear: both;
 }
-
 table.dataTable thead .sorting_asc,
 table.dataTable thead .sorting_desc,
 table.dataTable thead .sorting {
@@ -11,41 +10,32 @@ table.dataTable thead .sorting {
   background-repeat: no-repeat;
   background-position: right center;
 }
-
 table.dataTable thead .sorting {
   background-image: url("../imgs/common/sort_both.png");
 }
-
 table.dataTable thead .sorting_asc {
   background-image: url("../imgs/common/sort_asc.png");
 }
-
 table.dataTable thead .sorting_desc {
   background-image: url("../imgs/common/sort_desc.png");
 }
-
 .dataTable td.sorting_1 {
   background-color: #f5fafe;
 }
-
 .dataTables_wrapper .dataTables_length {
   float: left;
   padding-bottom: 20px;
 }
-
 .dataTables_wrapper .dataTables_length .select {
   width: 50px;
 }
-
 .dataTables_wrapper .dataTables_filter {
   float: right;
   text-align: right;
 }
-
 .dataTables_wrapper .dataTables_filter .input-text {
   width: auto;
 }
-
 .dataTables_wrapper .dataTables_info {
   clear: both;
   float: left;
@@ -53,13 +43,11 @@ table.dataTable thead .sorting_desc {
   font-size: 14px;
   color: #666;
 }
-
 .dataTables_wrapper .dataTables_paginate {
   float: right;
   padding-top: 10px;
   text-align: right;
 }
-
 .dataTables_wrapper .dataTables_paginate .paginate_button {
   border: 1px solid #ccc;
   cursor: pointer;
@@ -75,14 +63,12 @@ table.dataTable thead .sorting_desc {
   padding: 0 10px;
   font-size: 14px;
 }
-
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover,
 .dataTables_wrapper .dataTables_paginate .paginate_button.current,
 .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
   background: #5a98de;
   color: #fff;
 }
-
 .table-box {
   width: 100%;
   border: 1px solid #ddd;
@@ -90,54 +76,47 @@ table.dataTable thead .sorting_desc {
   margin-top: 20px;
   border-left: 0;
 }
-
+.table-box thead th {
+  font-size: 15px;
+  font-weight: 400;
+  border-left: 1px solid #ddd;
+  white-space: nowrap;
+  line-height: 36px;
+  padding: 0 10px 0 3px;
+}
+.table-box thead th:first-child {
+  padding: 0;
+}
 .table-box tbody td {
   border-left: 1px solid #ddd;
   border-top: 1px solid #ddd;
   text-align: center;
+  padding: 8px 5px;
+  font-size: 13px;
+  line-height: 20px;
 }
-
 .table-box th,
 .table-box td {
-  padding: 8px 2px;
   min-width: 35px;
-  line-height: 20px;
-  word-break: break-all;
+  max-width: 500px;
 }
-
 .table-box tbody tr:nth-child(odd) {
   background-color: #fff;
 }
-
 .table-box tbody tr:nth-child(even) {
   background-color: #f9f9f9;
 }
-
 .table-box tbody tr:hover {
   background-color: #f5f5f5;
 }
-
 .table-box th>input[type='checkbox'],
 .table-box td>input[type='checkbox'] {
   vertical-align: middle;
 }
-
 .table-box tbody tr td:first-child,
 .table-box tbody tr td:last-child {
   text-align: center;
 }
-
-.table-box thead th {
-  font-size: 16px;
-  font-weight: 400;
-  border-left: 1px solid #ddd;
-  padding: 8px 5px;
-}
-
 .table-box .td-handle .handle-btn {
   cursor: pointer;
-}
-
-.table-box .td-handle .handle-btn+.handle-btn {
-  margin-left: 5px;
 }

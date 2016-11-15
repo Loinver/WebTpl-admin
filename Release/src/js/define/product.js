@@ -1,7 +1,7 @@
 layui.config({
-  base: '../../src/js/lib/' //假设这是test.js所在的目录
-}).extend({ //设定组件别名
-  datatable: 'datatable' //如果test.js是在根目录，也可以不用设定别名
+  base: '../../src/js/lib/'
+}).extend({
+  datatable: 'datatable'
 });
 layui.use(['layer', 'jquery', 'laypage', 'datatable'], function() {
   var $ = layui.jquery,
@@ -20,7 +20,7 @@ layui.use(['layer', 'jquery', 'laypage', 'datatable'], function() {
           "sProcessing": "正在加载中......",
           "sEmptyTable": "无数据",
           "orderable": false,
-          "aTargets": [0, 3, 4]
+          "aTargets": [0, 4, 5]
         } // 指定列不参与排序
       ]
     });
@@ -42,16 +42,16 @@ layui.use(['layer', 'jquery', 'laypage', 'datatable'], function() {
   //产品--查看
   $('.btn-showuser').on('click', function() {
     var username = $(this).html();
-    var href = 'user/user-show.html';
+    var href = 'product-show.html';
     var id = $(this).parents('tr').attr('data-userid');
     console.log(id);
-    layer_show(username, href, id, '360', '400');
+    layer_show(username, href, id, '800', '600');
   });
   /*产品-添加*/
   $('#btn-adduser').on('click', function() {
     var username = $(this).html();
-    var href = 'user/user-add.html';
-    layer_show(username, href, '', '360', '400');
+    var href = 'product-add.html';
+    layer_show(username, href, '', '800', '600');
   });
   /*产品--停用*/
   $('.table-sort').on('click', '.handle-btn-stop', function() {
@@ -62,7 +62,7 @@ layui.use(['layer', 'jquery', 'laypage', 'datatable'], function() {
       title: '警告'
     }, function(index) {
       $(obj).parents("tr").find(".td-handle").prepend('<span class="handle-btn handle-btn-run" title="开始销售"><i class="linyer icon-qiyong"></i></span>');
-      $(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">暂停销售</span>');
+      $(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">暂停销售</span>');
       $(obj).remove();
       layer.msg('已暂停销售!', {
         icon: 5,
@@ -91,7 +91,7 @@ layui.use(['layer', 'jquery', 'laypage', 'datatable'], function() {
   $('.table-sort').on('click', '.handle-btn-edit', function() {
     var obj = $(this);
     var id = obj.parents('tr').attr('data-userid');
-    layer_show('编辑', 'user-edit.html', id, '600', '500');
+    layer_show('编辑', 'product-edit.html', id, '600', '500');
   });
   /*产品-删除*/
   $('.table-sort').on('click', '.handle-btn-delect', function() {

@@ -130,6 +130,5 @@ layui.use(['form', 'layer', 'jquery', 'datatable'], function() {
         });
       });
     }
-
   });
 });
