@@ -751,7 +751,7 @@
   font-weight: 400; }
 
 .user-add .layui-form-label {
-  width: 120px; }
+  width: 100px; }
 
 table.dataTable {
   border-collapse: separate;
@@ -879,10 +879,10 @@ table.dataTable thead .sorting_desc {
   width: 40px; }
 
 .product-add .layui-form-label {
-  width: 120px; }
+  width: 100px; }
 
 .product-add .layui-form-label + .layui-input-block {
-  margin-left: 120px; }
+  margin-left: 100px; }
 
 /**
   * 备注：所有在css中的图片，都必须以main所在的路径为基准

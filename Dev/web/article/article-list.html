@@ -39,7 +39,6 @@
           </ul>
         </div>
       </div>
-
       <div class="layui-side">
         <ul class="layui-nav layui-nav-tree">
           <li class="layui-nav-item layui-nav-title item-show" nav-item-num="1">
@@ -56,7 +55,7 @@
             <a href="../product/product-list.html">产品列表</a>
           </li>
           <li class="layui-nav-item">
-            <a href="../product/product-update.html">发布产品</a>
+            <a href="../product/product-edit.html">发布产品</a>
           </li>
           <li class="layui-nav-item layui-nav-title item-show" nav-item-num="3">
             <a>文章管理<i class="layui-icon layui-right">&#xe619;</i></a>
@@ -66,16 +65,14 @@
             <a href="../article/article-list.html">文章列表</a>
           </li>
           <li class="layui-nav-item">
-            <a href="../article/article-update.html">发布文章</a>
+            <a href="../article/article-edit.html">发布文章</a>
+          </li>
+          <li class="layui-nav-item">
+            <a href="../article/article-sorts.html">文章栏目</a>
           </li>
         </ul>
       </div>
-      <!--
-        作者：honeyliner@163.com
-        时间：2016-11-07
-        描述：用户列表
-      -->
-      <div class="layui-body" id="user">
+      <div class="layui-body">
         <p class="page-tab">
           <span class="layui-breadcrumb" lay-separator=">"><a href="">首页</a><a><cite>文章列表</cite></a></span></p>
         <h1><span class="fs-24">文章列表</span></h1>
@@ -106,7 +103,7 @@
               <td>3</td>
               <td>最新消息</td>
               <td>文章名称</td>
-              <td>我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述</td>
+              <td class="tl">我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述</td>
               <td>2016年11月9日17:13:02</td>
               <td class="td-status"><span class="label label-success radius">正常发布</span></td>
               <td class="td-handle">
@@ -120,9 +117,9 @@
               <td>2</td>
               <td>最新消息</td>
               <td>文章名称</td>
-              <td>我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述</td>
+              <td class="tl">我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述</td>
               <td>2016年11月9日17:13:02</td>
-              <td class="td-status"><span class="label label-danger radius">暂停发布</span></td>
+              <td class="td-status"><span class="label label-default radius">暂停发布</span></td>
               <td class="td-handle">
                 <span title="开始发布" class="handle-btn handle-btn-run"><i class="linyer icon-qiyong"></i></span>
                 <span title="编辑" class="handle-btn handle-btn-edit"><i class="linyer icon-edit"></i></span>
@@ -131,7 +128,7 @@
             </tr>
           </tbody>
         </table>
-        <div class="layui-page" id="product-page"></div>
+        <div class="layui-page" id="article-page"></div>
       </div>
     </div>
     <script src="../../src/layui/layui.js"></script>

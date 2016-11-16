@@ -45,7 +45,7 @@ function layer_show(title, url, id, w, h) {
     area: [w + 'px', h + 'px'],
     fix: false,
     maxmin: true,
-    shade: 0.4,
+    shade: false,
     title: title,
     content: url
   });

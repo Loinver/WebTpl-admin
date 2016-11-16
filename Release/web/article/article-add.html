@@ -7,20 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="../../src/css/index.css" />
     <link rel="stylesheet" href="../../src/layui/css/layui.css" />
-    <title>产品编辑</title>
+    <title>文章编辑</title>
   </head>
 
   <body>
     <div class="pd-20 product-add">
       <form class="layui-form" action="">
         <div class="layui-form-item">
-          <label class="layui-form-label">产品名称</label>
+          <label class="layui-form-label">文章标题</label>
           <div class="layui-input-block">
             <input type="text" name="productname" lay-verify="username" autocomplete="off" placeholder="请输入产品名称" class="layui-input">
           </div>
         </div>
         <div class="layui-form-item">
-          <label class="layui-form-label">分类类目</label>
+          <label class="layui-form-label">文章类目</label>
           <div class="layui-input-block">
             <select name="classify">
               <option value="">请选择类目</option>
@@ -35,33 +35,15 @@
           </div>
         </div>
         <div class="layui-form-item">
-          <label class="layui-form-label">产品单价</label>
-          <div class="layui-input-block">
-            <input type="text" name="productprice" lay-verify="identity" autocomplete="off" placeholder="请输入产品单价" class="layui-input">
-          </div>
-        </div>
-        <div class="layui-form-item">
-          <label class="layui-form-label">销售状态</label>
+          <label class="layui-form-label">显示状态</label>
           <div class="layui-input-block">
             <input type="checkbox" name="status" lay-skin="switch">
           </div>
         </div>
         <div class="layui-form-item">
-          <label class="layui-form-label">上传图片</label>
+          <label class="layui-form-label">文章编辑</label>
           <div class="layui-input-block">
-            <input type="file" name="file" class="layui-upload-file">
-          </div>
-        </div>
-        <div class="layui-form-item">
-          <label class="layui-form-label">产品描述</label>
-          <div class="layui-input-block">
-            <textarea name="productdesc" placeholder="请输入产品描述" class="layui-textarea"></textarea>
-          </div>
-        </div>
-        <div class="layui-form-item">
-          <label class="layui-form-label">上传图片</label>
-          <div class="layui-input-block">
-            <div id="zyupload" class="zyupload"></div>
+            <textarea id="article-box" style="display: none;"></textarea>
           </div>
         </div>
         <div class="layui-form-item">
@@ -75,7 +57,7 @@
     </div>
     <script src="../../src/layui/layui.js"></script>
     <script src="../../src/js/define/common.js"></script>
-    <script src="../../src/js/define/product-add.js"></script>
+    <script src="../../src/js/define/article-add.js"></script>
   </body>
 
 </html>
