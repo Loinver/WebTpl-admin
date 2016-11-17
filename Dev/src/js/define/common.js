@@ -66,3 +66,9 @@ function layer_close() {
   var index = parent.layer.getFrameIndex(window.name);
   parent.layer.close(index);
 }
+/**
+ * 格式化时间戳
+ */
+function replaceTime(nS) {
+  return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');
+}

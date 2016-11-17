@@ -1,5 +1,4 @@
 //modules 通用模块,组件
-//@import "base/normalize";
 @import "base/mixin"; //base   基础相关 
 @import "base/base";
 @import "base/function";
@@ -15,8 +14,8 @@
 .layui-btn.btn-default {
   background-color: #28B779;
 }
-.layui-layout-admin .layui-side{
-  overflow-y: hidden;
+.layui-layer-btn a{
+  box-sizing: content-box;
 }
 .btn-add>label {
   font-family: "微软雅黑";

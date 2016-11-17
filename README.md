@@ -1,3 +1,2 @@
-#  使用layui框架   基于gulp搭建的模板
-=======
-# WebTpl-admin
+#  使用layui框架   使用gulp工具搭建的后台模板
+

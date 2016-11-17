@@ -3,12 +3,56 @@ layui.config({
 }).extend({
   datatable: 'datatable'
 });
-layui.use(['layer', 'jquery', 'laypage', 'datatable'], function() {
+layui.use(['layer', 'jquery', 'laypage', 'datatable', 'laytpl'], function() {
   var $ = layui.jquery,
     layer = layui.layer,
     laypage = layui.laypage,
-    datatable = layui.datatable;
+    laytpl = layui.laytpl;
   $(function() {
+    /**
+     * 渲染数据
+     */
+    $.ajax({
+      type: "get",
+      url: "../../../json/article.json",
+      async: false,
+      success: function(data) {
+        var nums = 10; //初始化每页显示的数量
+        var render = function(curr) {
+          var str = '',
+            last = curr * nums - 1;
+          last = last >= data.length ? (data.length - 1) : last;
+          for(var i = (curr * nums - nums); i <= last; i++) {
+            var item = data[i];
+            var html = table.innerHTML;
+            //处理数据项
+            item.releaseTime = replaceTime(Math.round(item.releaseTime / 1000));
+            laytpl(html).render(item, function(html) {
+              str += html;
+            });
+          }
+          return str;
+        }
+        laypage({
+          cont: 'article-page',
+          pages: Math.ceil(data.length / nums), //得到总页数
+          curr: 1,
+          groups: 5,
+          skip: true,
+          hash: "page",
+          jump: function(obj, first) {
+            var curr = obj.curr;
+            view.innerHTML = render(obj.curr);
+          }
+        });
+      },
+      error: function(e) {
+        layerMsg("网络错误", 2);
+      }
+    });
+    /**
+     * 数据table化
+     */
     $('.table-sort').dataTable({
       "searching": false, //是否允许Datatables开启本地搜索
       "paging": false, //是否开启本地分页
@@ -32,12 +76,6 @@ layui.use(['layer', 'jquery', 'laypage', 'datatable'], function() {
         $(this).addClass('selected');
       }
     });
-  });
-  //数据分页
-  laypage({
-    cont: 'article-page', //id
-    pages: 100, //总页数
-    groups: 5 //连续显示分页数
   });
   //文章--查看
   $('.btn-showuser').on('click', function() {

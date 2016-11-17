@@ -1,8 +1,45 @@
-layui.use('tree', function() {
+layui.config({
+  base: '../../src/js/lib/'
+}).extend({
+  datatable: 'datatable'
+});
+layui.use(['tree', 'jquery', 'datatable','laypage'], function() {
+  var $ = layui.jquery,
+  laypage = layui.laypage;
+  $(function() {
+    $('.table-sort').dataTable({
+      "searching": false, //是否允许Datatables开启本地搜索
+      "paging": false, //是否开启本地分页
+      "lengthChange": false, //是否允许产品改变表格每页显示的记录数
+      "info": false, //控制是否显示表格左下角的信息
+      //跟数组下标一样，第一列从0开始，这里表格初始化时，第四列默认降序
+      //"order": [1, 'desc'], //asc升序   desc降序 
+      "aoColumnDefs": [{
+          "sProcessing": "正在加载中......",
+          "sEmptyTable": "无数据",
+          "orderable": false,
+          //"aTargets": [0, 4]
+        } // 指定列不参与排序
+      ]
+    });
+    $('.table-sort tbody').on('click', 'tr', function() {
+      if($(this).hasClass('selected')) {
+        $(this).removeClass('selected');
+      } else {
+        $('tr.selected').removeClass('selected');
+        $(this).addClass('selected');
+      }
+    });
+  });
+  //数据分页
+  laypage({
+    cont: 'sorts-page', //id
+    pages: 100, //总页数
+    groups: 5 //连续显示分页数
+  });
   var sortNodes = [{ //节点
     name: '媒体报道',
     id: 1,
-    spread: true,
     touch: false,
     children: [{
       name: '文章名1',
@@ -37,9 +74,12 @@ layui.use('tree', function() {
           title: '修改栏目名称',
           formType: 3
         }, function(text, index) {
-          console.log("修改后的栏目名称为" + text);
           if(1 == 1) { //成功
             layer.close(index);
+            node.name = text;
+            console.log("修改后的栏目名称为" + text);
+            console.log(node.name);
+            console.log(node);
             layerMsg('修改成功', 6);
           } else {
             layer.close(index);
@@ -51,4 +91,5 @@ layui.use('tree', function() {
       }
     }
   });
+  console.log(sortNodes);
 })

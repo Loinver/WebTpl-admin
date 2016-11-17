@@ -42,30 +42,22 @@
       <div class="layui-side">
         <ul class="layui-nav layui-nav-tree">
           <li class="layui-nav-item layui-nav-title item-show" nav-item-num="1">
-            <a>账户管理<i class="layui-icon layui-right">&#xe619;</i></a>
+            <a>用户管理<i class="layui-icon layui-right">&#xe619;</i></a>
           </li>
           <li class="layui-nav-item">
             <a href="../user/user-list.html">用户列表</a>
           </li>
-          <li class="layui-nav-item layui-nav-title item-show" nav-item-num="2">
+          <li class="layui-nav-item layui-nav-title item-show" nav-item-num="1">
             <a>产品管理<i class="layui-icon layui-right">&#xe619;</i></a>
-            </a>
           </li>
           <li class="layui-nav-item">
             <a href="../product/product-list.html">产品列表</a>
           </li>
-          <li class="layui-nav-item">
-            <a href="../product/product-edit.html">发布产品</a>
-          </li>
-          <li class="layui-nav-item layui-nav-title item-show" nav-item-num="3">
+          <li class="layui-nav-item layui-nav-title item-show" nav-item-num="2">
             <a>文章管理<i class="layui-icon layui-right">&#xe619;</i></a>
-            </a>
           </li>
           <li class="layui-nav-item layui-this">
             <a href="../article/article-list.html">文章列表</a>
-          </li>
-          <li class="layui-nav-item">
-            <a href="../article/article-edit.html">发布文章</a>
           </li>
           <li class="layui-nav-item">
             <a href="../article/article-sorts.html">文章栏目</a>
@@ -97,35 +89,33 @@
               <th>操作</th>
             </tr>
           </thead>
-          <tbody>
-            <tr data-userid="10001">
+          <script type="text/template" id="table">
+            <tr data-userid="{{d.id}}">
               <td><input type="checkbox" name=""></td>
-              <td>3</td>
-              <td>最新消息</td>
-              <td>文章名称</td>
-              <td class="tl">我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述</td>
-              <td>2016年11月9日17:13:02</td>
-              <td class="td-status"><span class="label label-success radius">正常发布</span></td>
+              <td>{{d.id}}</td>
+              <td>{{d.articleSorts}}</td>
+              <td>{{d.articleTitle}}</td>
+              <td class="tl">{{d.articleContents}}</td>
+              <td>{{d.releaseTime}}</td>
+              <td class="td-status">
+                {{# if(d.releaseStatus){ }}
+                <span class="label label-success radius">正常发布</span>{{# } }}
+                {{# if(!d.releaseStatus){ }}
+                <span class="label label-default radius">暂停发布</span>{{# } }}
+              </td>
               <td class="td-handle">
+                {{# if(d.releaseStatus){ }}
                 <span title="暂停发布" class="handle-btn handle-btn-stop"><i class="linyer icon-zanting"></i></span>
+                {{# } }}
+                {{# if(!d.releaseStatus){ }}
+                <span title="正常发布" class="handle-btn handle-btn-run"><i class="linyer icon-qiyong"></i></span>
+                {{# } }}
                 <span title="编辑" class="handle-btn handle-btn-edit"><i class="linyer icon-edit"></i></span>
                 <span title="删除" class="handle-btn handle-btn-delect"><i class="linyer icon-delect"></i></span>
               </td>
             </tr>
-            <tr data-userid="10002">
-              <td><input type="checkbox" name=""></td>
-              <td>2</td>
-              <td>最新消息</td>
-              <td>文章名称</td>
-              <td class="tl">我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述我是产品描述描述</td>
-              <td>2016年11月9日17:13:02</td>
-              <td class="td-status"><span class="label label-default radius">暂停发布</span></td>
-              <td class="td-handle">
-                <span title="开始发布" class="handle-btn handle-btn-run"><i class="linyer icon-qiyong"></i></span>
-                <span title="编辑" class="handle-btn handle-btn-edit"><i class="linyer icon-edit"></i></span>
-                <span title="删除" class="handle-btn handle-btn-delect"><i class="linyer icon-delect"></i></span>
-              </td>
-            </tr>
+          </script>
+          <tbody id="view">
           </tbody>
         </table>
         <div class="layui-page" id="article-page"></div>
