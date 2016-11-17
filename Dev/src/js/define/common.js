@@ -26,6 +26,17 @@ layui.use(['jquery', 'element', 'layer'], function() {
     }
   });
 });
+/**
+ * @param {String} 提示的内容
+ * @param {Number} 图标
+ * @description 0为警告，1为成功，2为错误，3为问号，4为锁定，5为失败， 6为成功
+ */
+function layerMsg(text, icon) {
+  layer.msg(text, {
+    icon: icon,
+    time: 1000
+  });
+}
 //注册弹出方法
 function layer_show(title, url, id, w, h) {
   if(title == null || title == '') {
