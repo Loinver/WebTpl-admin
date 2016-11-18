@@ -7,7 +7,7 @@
 /* 头部 */
 .layui-header {
   background-color: #393D49;
-  height: 60px;
+  height: 60px !important;
   border-bottom: 5px solid #4E5465;
 }
 .layui-header .layui-nav.nav .layui-nav-item a {
@@ -63,8 +63,8 @@
 }
 /* 主体 */
 .layui-body {
-  top: 65px !important;
-  padding: 15px;
+  top: 60px !important;
+  padding: 5px 15px;
   bottom:0 !important;
 }
 /* 对layui的优化 */

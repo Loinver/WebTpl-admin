@@ -666,7 +666,7 @@
 /* 头部 */
 .layui-header {
   background-color: #393D49;
-  height: 60px;
+  height: 60px !important;
   border-bottom: 5px solid #4E5465; }
 
 .layui-header .layui-nav.nav .layui-nav-item a {
@@ -720,8 +720,8 @@
 
 /* 主体 */
 .layui-body {
-  top: 65px !important;
-  padding: 15px;
+  top: 60px !important;
+  padding: 5px 15px;
   bottom: 0 !important; }
 
 /* 对layui的优化 */
@@ -779,7 +779,7 @@ table.dataTable thead .sorting_desc {
 
 .dataTables_wrapper .dataTables_length {
   float: left;
-  padding-bottom: 20px; }
+  padding-bottom: 10px; }
 
 .dataTables_wrapper .dataTables_length .select {
   width: 50px; }
@@ -818,17 +818,20 @@ table.dataTable thead .sorting_desc {
   padding: 0 10px;
   font-size: 14px; }
 
+.dataTables_wrapper {
+  margin-top: 20px; }
+
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover,
 .dataTables_wrapper .dataTables_paginate .paginate_button.current,
 .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
-  background: #5a98de;
+  background: #009688;
   color: #fff; }
 
 .table-box {
   width: 100%;
   border: 1px solid #ddd;
   border-collapse: separate;
-  margin-top: 20px;
+  margin-top: 0px;
   border-left: 0; }
 
 .table-box thead th {
@@ -849,6 +852,12 @@ table.dataTable thead .sorting_desc {
   padding: 8px 5px;
   font-size: 13px;
   line-height: 20px; }
+
+.table-box tbody tr.odd {
+  background-color: #fff; }
+
+.table-box tbody tr.even {
+  background-color: #f9f9f9; }
 
 .table-box th,
 .table-box td {
@@ -873,7 +882,24 @@ table.dataTable thead .sorting_desc {
   text-align: center; }
 
 .table-box .td-handle .handle-btn {
-  cursor: pointer; }
+  cursor: pointer;
+  margin: 0 2px; }
+
+.dataTables_filter input[type="search"] {
+  width: 150px;
+  margin-left: 5px;
+  padding-left: 10px;
+  border: 1px solid #e6e6e6;
+  background-color: #fff;
+  border-radius: 2px;
+  height: 32px;
+  line-height: 32px;
+  line-height: 30px\9; }
+
+.dataTables_length select {
+  height: 32px;
+  width: 50px;
+  border: 1px solid #e6e6e6; }
 
 .pdut-thumbnail {
   width: 40px; }
@@ -894,12 +920,22 @@ table.dataTable thead .sorting_desc {
 /**
   * 备注：所有在css中的图片，都必须以main所在的路径为基准
  */
+.oneline {
+  overflow: hidden;
+  line-height: auto;
+  height: auto;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
 .layui-btn.btn-default {
   background-color: #28B779; }
 
 .layui-layer-btn a {
   -moz-box-sizing: content-box;
   box-sizing: content-box; }
+
+.layui-layout-admin .layui-side {
+  top: 60px !important; }
 
 .btn-add > label {
   font-family: "微软雅黑";

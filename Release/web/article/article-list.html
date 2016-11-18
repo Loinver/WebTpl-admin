@@ -73,13 +73,13 @@
           <ul>
             <li class="handle-item"><span class="layui-form-label">输入搜索条件：</span>
               <div class="layui-input-inline"><input type="text" autocomplete="off" placeholder="请输入搜索条件" class="layui-input"></div><button class="layui-btn mgl-20">查询</button></li>
-            <li class="handle-item"><span class="fl"><a class="layui-btn layui-btn-danger radius btn-delect" id="btn-delect-all"><i class="linyer icon-delect"></i> 批量删除</a><a class="layui-btn btn-add btn-default" id="btn-adduser"><i class="linyer icon-add"></i> 发布文章</a></span> <span class="fr">共有数据：<strong>88</strong>条</span> </li>
+            <li class="handle-item"><span class="fl"><a class="layui-btn layui-btn-danger radius btn-delect" id="btn-delect-all"><i class="linyer icon-delect"></i> 批量删除</a><a class="layui-btn btn-add btn-default" id="btn-adduser"><i class="linyer icon-add"></i> 发布文章</a></span></li>
           </ul>
         </div>
-        <table class="table-box table-sort">
+        <table class="table-box table-sort" id="articleTable">
           <thead>
             <tr>
-              <th class="sorting_desabled"><input type="checkbox" class="btn-checkall"></th>
+              <th class="sorting_desabled">选择</th>
               <th>ID</th>
               <th>文章类别</th>
               <th>文章名称</th>
@@ -89,36 +89,9 @@
               <th>操作</th>
             </tr>
           </thead>
-          <script type="text/template" id="table">
-            <tr data-userid="{{d.id}}">
-              <td><input type="checkbox" name=""></td>
-              <td>{{d.id}}</td>
-              <td>{{d.articleSorts}}</td>
-              <td>{{d.articleTitle}}</td>
-              <td class="tl">{{d.articleContents}}</td>
-              <td>{{d.releaseTime}}</td>
-              <td class="td-status">
-                {{# if(d.releaseStatus){ }}
-                <span class="label label-success radius">正常发布</span>{{# } }}
-                {{# if(!d.releaseStatus){ }}
-                <span class="label label-default radius">暂停发布</span>{{# } }}
-              </td>
-              <td class="td-handle">
-                {{# if(d.releaseStatus){ }}
-                <span title="暂停发布" class="handle-btn handle-btn-stop"><i class="linyer icon-zanting"></i></span>
-                {{# } }}
-                {{# if(!d.releaseStatus){ }}
-                <span title="正常发布" class="handle-btn handle-btn-run"><i class="linyer icon-qiyong"></i></span>
-                {{# } }}
-                <span title="编辑" class="handle-btn handle-btn-edit"><i class="linyer icon-edit"></i></span>
-                <span title="删除" class="handle-btn handle-btn-delect"><i class="linyer icon-delect"></i></span>
-              </td>
-            </tr>
-          </script>
-          <tbody id="view">
+          <tbody>
           </tbody>
         </table>
-        <div class="layui-page" id="article-page"></div>
       </div>
     </div>
     <script src="../../src/layui/layui.js"></script>

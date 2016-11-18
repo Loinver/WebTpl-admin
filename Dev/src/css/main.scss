@@ -11,11 +11,17 @@
 /**
   * 备注：所有在css中的图片，都必须以main所在的路径为基准
  */
+.oneline{
+  @include oneline;
+}
 .layui-btn.btn-default {
   background-color: #28B779;
 }
 .layui-layer-btn a{
   box-sizing: content-box;
+}
+.layui-layout-admin .layui-side{
+  top: 60px !important;
 }
 .btn-add>label {
   font-family: "微软雅黑";

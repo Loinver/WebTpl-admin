@@ -37,6 +37,32 @@ function layerMsg(text, icon) {
     time: 1000
   });
 }
+//table配置项汉化
+var lang = {
+  "sProcessing": "处理中...",
+  "sLengthMenu": "每页 _MENU_ 项",
+  "sZeroRecords": "没有匹配结果",
+  "sInfo": "当前显示第 _START_ 至 _END_ 项，共 _TOTAL_ 项。",
+  "sInfoEmpty": "当前显示第 0 至 0 项，共 0 项",
+  "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+  "sInfoPostFix": "",
+  "sSearch": "本地搜索：",
+  "sUrl": "",
+  "sEmptyTable": "暂无数据",
+  "sLoadingRecords": "载入中...",
+  "sInfoThousands": ",",
+  "oPaginate": {
+    "sFirst": "首页",
+    "sPrevious": "上页",
+    "sNext": "下页",
+    "sLast": "末页",
+    "sJump": "跳转"
+  },
+  "oAria": {
+    "sSortAscending": ": 以升序排列此列",
+    "sSortDescending": ": 以降序排列此列"
+  }
+};
 //注册弹出方法
 function layer_show(title, url, id, w, h) {
   if(title == null || title == '') {
@@ -70,5 +96,5 @@ function layer_close() {
  * 格式化时间戳
  */
 function replaceTime(nS) {
-  return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');
+  return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
 }
