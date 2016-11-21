@@ -33,7 +33,7 @@
 .layui-header .user .user-nav {
   position: absolute;
   right: 0;
-  top: 55px;
+  top: 50px;
   width: 100px;
   border: 1px solid #4E5465;
   -webkit-border-radius: 0;
@@ -75,7 +75,7 @@
 .layui-form-onswitch {
   box-sizing: content-box;
 }
-.layui-tab-card>.layui-tab-title li{
+.layui-tab-card>.layui-tab-title li {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
@@ -87,11 +87,32 @@
 .layui-tab-card>.layui-tab-title .layui-this {
   background: #009688 !important;
   color: #fff !important;
-  .layui-tab-close{
+  .layui-tab-close {
     color: #fff;
   }
-  .layui-tab-close:hover{
+  .layui-tab-close:hover {
     background-color: #FF5722;
     border-radius: 50%;
+  }
+}
+/*登录*/
+.login-warp {
+  width: 100%;
+  background: url(../../src/imgs/upload/bg.png) no-repeat;
+  background-attachment: fixed;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  .login-box {
+    width: 300px;
+    height: 200px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -100px;
+  }
+  .btn-submit{
+    width: 190px;
   }
 }

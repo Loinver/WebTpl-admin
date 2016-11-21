@@ -11,9 +11,55 @@
     <link rel="stylesheet" href="../../src/layui/css/layui.css" />
   </head>
 
-  <body>
-    登录
+  <body class="login-warp">
+    <form class="layui-form" method="get" action="">
+      <div class="login-box">
+        <div class="layui-form-item">
+          <label class="layui-form-label">账号：</label>
+          <div class="layui-input-inline">
+            <input type="text" name="useraccount" class="layui-input" lay-verify="useraccount" placeholder="请输入账号" autocomplete="on">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">密码：</label>
+          <div class="layui-input-inline">
+            <input type="password" name="password" lay-verify="pass" placeholder="请输入密码" autocomplete="off" maxlength="20" class="layui-input">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label"></label>
+          <div class="layui-input-inline">
+            <button class="layui-btn btn-submit" lay-submit="" lay-filter="submit">立即登录</button>
+          </div>
+        </div>
+      </div>
+    </form>
     <script src="../../src/layui/layui.js"></script>
+    <script>
+      layui.use(['form', 'layer'], function() {
+        var $ = layui.jquery,
+          form = layui.form(),
+          layer = layui.layer;
+        form.verify({
+          useraccount: function(value) {
+            if(value == "") {
+              return "请输入用户名";
+            }
+          },
+          pass: function(value) {
+            if(pass == "") {
+              return "请输入密码";
+            }
+          }
+        });
+        form.on('submit(submit)', function(data) {
+          layer.alert(JSON.stringify(data.field), {
+            title: '最终的提交信息'
+          })
+          return false;
+        })
+      })
+    </script>
   </body>
 
 </html>

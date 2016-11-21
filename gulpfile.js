@@ -31,7 +31,7 @@ gulp.task('sass', function() {
       browsers: ['not ie <8', 'Firefox >= 20'],
       cascade: false,
     }))
-    //.pipe(cssmin())
+    .pipe(cssmin())
     .pipe(gulp.dest('./Dev/src/css'))
     .pipe(notify("css压缩完成！"));
 });
@@ -53,7 +53,7 @@ gulp.task('libjs', function() {
 // 图片压缩
 gulp.task('imagesmin', function() {
   return gulp.src('./Dev/src/imgs/**/*.{jpg,png,gif}')
-    //.pipe(imagesmin())
+    .pipe(imagesmin())
     .pipe(cache(imagesmin({
       progressive: true,
       svgoPlugins: [{
