@@ -1,9 +1,4 @@
-layui.config({
-  base: '../../src/js/lib/'
-}).extend({
-  datatable: 'datatable'
-});
-layui.use(['layer', 'jquery', 'datatable'], function() {
+layui.use(['layer','datatable'], function() {
   var $ = layui.jquery,
     layer = layui.layer;
   $(function() {

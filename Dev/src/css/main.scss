@@ -30,9 +30,6 @@
   line-height: 1;
   cursor: pointer;
 }
-.page-tab {
-  padding: 10px 0;
-}
 .layui-breadcrumb > a {
   padding-right: 8px;
   line-height: 22px;
@@ -41,7 +38,7 @@
 }
 .handle-box {
   .handle-item {
-    margin: 10px 0;
+    margin: 5px 0;
     overflow: hidden;
   }
   .handle-item .fr {
@@ -144,4 +141,27 @@ a.badge:focus {
   color: #fff;
   background-color: #dd514c;
   border-color: #dd514c;
+}
+/*低分辨率优化css*/
+@media only screen and (min-width: 1366px) and (max-width: 1600px) {
+  .layui-side{
+    width: 140px !important;
+  }
+  .layui-nav-tree{
+    width: 140px !important;
+  }
+  .layui-body{
+    left: 140px !important;
+  }
+}
+@media only screen and (min-width: 980px) and (max-width: 1366px) {
+  .layui-side{
+    width: 120px !important;
+  }
+  .layui-nav-tree{
+    width: 120px !important;
+  }
+  .layui-body{
+    left: 120px !important;
+  }
 }

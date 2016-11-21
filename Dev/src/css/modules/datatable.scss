@@ -86,6 +86,7 @@ table.dataTable thead .sorting_desc {
   white-space: nowrap;
   line-height: 36px;
   padding: 0 10px 0 3px;
+  text-align: center;
 }
 .table-box thead th:first-child {
   padding: 0;
@@ -121,10 +122,6 @@ table.dataTable thead .sorting_desc {
 .table-box th>input[type='checkbox'],
 .table-box td>input[type='checkbox'] {
   vertical-align: middle;
-}
-.table-box tbody tr td:first-child,
-.table-box tbody tr td:last-child {
-  text-align: center;
 }
 .table-box .td-handle .handle-btn {
   cursor: pointer;

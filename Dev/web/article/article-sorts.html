@@ -13,95 +13,42 @@
   </head>
 
   <body>
-    <div class="layui-layout-admin">
-      <div class="layui-header">
-        <div class="admin-title dp-ib">
-          <h1 class="fs-24 dp-ib c-fff mgl-20 mgt-10">股牛邦管理系统</h1>
-        </div>
-        <!-- 用户 -->
-        <div href="#!" class="layui-right user">
-          <!-- 头像 -->
-          <a href="#!" class="user-avatar">
-            <img src="../../src/imgs/common/user-photo.jpg" alt="" class="layui-circle"><span class="c-fff mgl-20">超级管理员</span>
-          </a>
-          <!-- 头像下面显示 -->
-          <ul class="user-nav">
-            <li class="user-nav-item">
-              <a href="#!">
-                <i class="layui-icon">&#xe612;</i> 个人设置
-              </a>
-            </li>
-            <li class="user-nav-item">
-              <a href="#!">
-                <i class="layui-icon">&#xe623;</i> 退出
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="layui-side">
-        <ul class="layui-nav layui-nav-tree">
-          <li class="layui-nav-item layui-nav-title item-show" nav-item-num="1">
-            <a>用户管理<i class="layui-icon layui-right">&#xe619;</i></a>
-          </li>
-          <li class="layui-nav-item">
-            <a href="../user/user-list.html">用户列表</a>
-          </li>
-          <li class="layui-nav-item layui-nav-title item-show" nav-item-num="1">
-            <a>产品管理<i class="layui-icon layui-right">&#xe619;</i></a>
-          </li>
-          <li class="layui-nav-item">
-            <a href="../product/product-list.html">产品列表</a>
-          </li>
-          <li class="layui-nav-item layui-nav-title item-show" nav-item-num="2">
-            <a>文章管理<i class="layui-icon layui-right">&#xe619;</i></a>
-          </li>
-          <li class="layui-nav-item">
-            <a href="../article/article-list.html">文章列表</a>
-          </li>
-          <li class="layui-nav-item layui-this">
-            <a href="../article/article-sorts.html">文章栏目</a>
-          </li>
+    <div class="tab-body">
+      <p class="page-tab">
+        <span class="layui-breadcrumb" lay-separator=">"><a href="">首页</a><a><cite>文章栏目</cite></a></span></p>
+      <h1><span class="fs-24">栏目管理</span></h1>
+      <hr />
+      <div class="handle-box">
+        <ul>
+          <li class="handle-item"><span class="fl"><a class="layui-btn layui-btn-danger radius btn-delect" id="btn-delect-all"><i class="linyer icon-delect"></i> 批量删除</a><a class="layui-btn btn-add btn-default" id="btn-adduser"><i class="linyer icon-add"></i> 发布文章</a></span></li>
         </ul>
       </div>
-      <div class="layui-body">
-        <p class="page-tab">
-          <span class="layui-breadcrumb" lay-separator=">"><a href="">首页</a><a><cite>文章栏目</cite></a></span></p>
-        <h1><span class="fs-24">栏目管理</span></h1>
-        <hr />
-        <div class="handle-box">
-          <ul>
-            <li class="handle-item"><span class="fl"><a class="layui-btn layui-btn-danger radius btn-delect" id="btn-delect-all"><i class="linyer icon-delect"></i> 批量删除</a><a class="layui-btn btn-add btn-default" id="btn-adduser"><i class="linyer icon-add"></i> 发布文章</a></span></li>
-          </ul>
-        </div>
-        <div class="sorts-box">
-          <div class="sort-list" id="sorts"></div>
-        </div>
-        <div class="sorts-table">
-          <table class="table-box table-sort">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>文章栏目</th>
-                <th>文章名称</th>
-                <th>文章内容</th>
-                <th>发布时间</th>
-                <th>发布状态</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="layui-page" id="sorts-page"></div>
-        </div>
+      <div class="sorts-box">
+        <div class="sort-list" id="sorts"></div>
+      </div>
+      <div class="sorts-table">
+        <table class="table-box table-sort">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>文章栏目</th>
+              <th>文章名称</th>
+              <th>文章内容</th>
+              <th>发布时间</th>
+              <th>发布状态</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
     <script src="../../src/layui/layui.js"></script>

@@ -1,14 +1,7 @@
-layui.config({
-  base: '../../src/js/lib/' //自定义layui组件的目录
-}).extend({ //设定组件别名
-  datatable: 'datatable',
-});
 //初始化
-layui.use(['layer', 'jquery', 'datatable'], function() {
+layui.use(['layer','datatable'], function() {
   var $ = layui.jquery,
-    layer = layui.layer,
-    laypage = layui.laypage,
-    datatable = layui.datatable;
+    layer = layui.layer;
   $(function() {
     $('#userTable').dataTable({
       "language": lang, //提示信息
@@ -79,7 +72,7 @@ layui.use(['layer', 'jquery', 'datatable'], function() {
     layer_show(username, href, '', '400', '500');
   });
   /*用户-添加*/
-  $("#userTable").on('click', '#btn-adduser', function() {
+  $("#btn-adduser").on('click', function() {
     var username = $(this).html();
     var href = 'user-add.html';
     layer_show(username, href, '', '800', '600');

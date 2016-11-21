@@ -61,13 +61,37 @@
   border-radius: 0;
   min-height: 100%;
 }
+.layui-side .layui-nav .layui-nav-item a>label {
+  cursor: pointer;
+}
 /* 主体 */
 .layui-body {
   top: 60px !important;
-  padding: 5px 15px;
-  bottom:0 !important;
+  padding: 0 10px;
+  bottom: 0 !important;
 }
 /* 对layui的优化 */
-.layui-form-switch,.layui-form-onswitch{
+.layui-form-switch,
+.layui-form-onswitch {
   box-sizing: content-box;
+}
+.layui-tab-card>.layui-tab-title li{
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+/*tab*/
+#tabContainers iframe {
+  width: 100%;
+  border: none;
+}
+.layui-tab-card>.layui-tab-title .layui-this {
+  background: #009688 !important;
+  color: #fff !important;
+  .layui-tab-close{
+    color: #fff;
+  }
+  .layui-tab-close:hover{
+    background-color: #FF5722;
+    border-radius: 50%;
+  }
 }

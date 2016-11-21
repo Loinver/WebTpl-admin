@@ -31,12 +31,6 @@ layui.use(['tree', 'jquery', 'datatable','laypage'], function() {
       }
     });
   });
-  //数据分页
-  laypage({
-    cont: 'sorts-page', //id
-    pages: 100, //总页数
-    groups: 5 //连续显示分页数
-  });
   var sortNodes = [{ //节点
     name: '媒体报道',
     id: 1,

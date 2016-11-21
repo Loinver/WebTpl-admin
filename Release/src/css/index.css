@@ -718,16 +718,38 @@
   border-radius: 0;
   min-height: 100%; }
 
+.layui-side .layui-nav .layui-nav-item a > label {
+  cursor: pointer; }
+
 /* 主体 */
 .layui-body {
   top: 60px !important;
-  padding: 5px 15px;
+  padding: 0 10px;
   bottom: 0 !important; }
 
 /* 对layui的优化 */
-.layui-form-switch, .layui-form-onswitch {
+.layui-form-switch,
+.layui-form-onswitch {
   -moz-box-sizing: content-box;
   box-sizing: content-box; }
+
+.layui-tab-card > .layui-tab-title li {
+  margin-left: 0 !important;
+  margin-right: 0 !important; }
+
+/*tab*/
+#tabContainers iframe {
+  width: 100%;
+  border: none; }
+
+.layui-tab-card > .layui-tab-title .layui-this {
+  background: #009688 !important;
+  color: #fff !important; }
+  .layui-tab-card > .layui-tab-title .layui-this .layui-tab-close {
+    color: #fff; }
+  .layui-tab-card > .layui-tab-title .layui-this .layui-tab-close:hover {
+    background-color: #FF5722;
+    border-radius: 50%; }
 
 .user-show {
   background-color: #5bacb6;
@@ -840,7 +862,8 @@ table.dataTable thead .sorting_desc {
   border-left: 1px solid #ddd;
   white-space: nowrap;
   line-height: 36px;
-  padding: 0 10px 0 3px; }
+  padding: 0 10px 0 3px;
+  text-align: center; }
 
 .table-box thead th:first-child {
   padding: 0; }
@@ -876,10 +899,6 @@ table.dataTable thead .sorting_desc {
 .table-box th > input[type='checkbox'],
 .table-box td > input[type='checkbox'] {
   vertical-align: middle; }
-
-.table-box tbody tr td:first-child,
-.table-box tbody tr td:last-child {
-  text-align: center; }
 
 .table-box .td-handle .handle-btn {
   cursor: pointer;
@@ -944,9 +963,6 @@ table.dataTable thead .sorting_desc {
   line-height: 1;
   cursor: pointer; }
 
-.page-tab {
-  padding: 10px 0; }
-
 .layui-breadcrumb > a {
   padding-right: 8px;
   line-height: 22px;
@@ -954,7 +970,7 @@ table.dataTable thead .sorting_desc {
   color: #333 !important; }
 
 .handle-box .handle-item {
-  margin: 10px 0;
+  margin: 5px 0;
   overflow: hidden; }
 
 .handle-box .handle-item .fr {
@@ -1056,6 +1072,23 @@ a.badge:focus {
   color: #fff;
   background-color: #dd514c;
   border-color: #dd514c; }
+
+/*低分辨率优化css*/
+@media only screen and (min-width: 1366px) and (max-width: 1600px) {
+  .layui-side {
+    width: 140px !important; }
+  .layui-nav-tree {
+    width: 140px !important; }
+  .layui-body {
+    left: 140px !important; } }
+
+@media only screen and (min-width: 980px) and (max-width: 1366px) {
+  .layui-side {
+    width: 120px !important; }
+  .layui-nav-tree {
+    width: 120px !important; }
+  .layui-body {
+    left: 120px !important; } }
 
 .icon-i-b{display:inline-block;background-image: url('../imgs/common/sprite.png');background-position: 0px 0px;width:16px;height:16px;}
 .icon-i-w{display:inline-block;background-image: url('../imgs/common/sprite.png');background-position: -16px 0px;width:16px;height:16px;}
