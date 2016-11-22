@@ -29,7 +29,7 @@
         <div class="layui-form-item">
           <label class="layui-form-label"></label>
           <div class="layui-input-inline">
-            <button class="layui-btn btn-submit" lay-submit="" lay-filter="submit">立即登录</button>
+            <button class="layui-btn btn-submit" lay-submit="" lay-filter="login">立即登录</button>
           </div>
         </div>
       </div>
@@ -47,12 +47,12 @@
             }
           },
           pass: function(value) {
-            if(pass == "") {
+            if(value == "") {
               return "请输入密码";
             }
           }
         });
-        form.on('submit(submit)', function(data) {
+        form.on('submit(login)', function(data) {
           layer.alert(JSON.stringify(data.field), {
             title: '最终的提交信息'
           })

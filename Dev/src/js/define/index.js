@@ -4,10 +4,10 @@ layui.use(['element', 'layer'], function() {
     layer = layui.layer;
   //iframe自适应
   $(window).on('resize', function() {
-    var $content = $('#tabContainers');
-    $content.height($(this).height() - 145);
-    $content.find('iframe').each(function() {
-      $(this).height($content.height());
+    var $obj = $('#tabContainers');
+    $obj.height($(this).height() - 145);
+    $obj.find('iframe').each(function() {
+      $(this).height($obj.height());
     });
   }).resize();
   //添加tab
@@ -56,7 +56,21 @@ layui.use(['element', 'layer'], function() {
         }
       });
     }
-  })
+  });
   //给第一个tab页设置禁止关闭
   $('#tabTitle').children('li:first-child').find('i').remove();
+  //侧边导航
+  $('.layui-side .layui-nav-title').click(function() {
+    var stop_item = $(this).attr('nav-item-num');
+    var nav_item_icon = $(this).find('.layui-icon');
+    if($(this).hasClass('item-hide')) {
+      $(this).nextAll('.layui-nav-item').slice(0, stop_item).slideToggle(100);
+      $(this).addClass('item-show').removeClass('item-hide');
+      nav_item_icon.css('transform', 'rotate(0deg)');
+    } else if($(this).hasClass('item-show')) {
+      $(this).nextAll('.layui-nav-item').slice(0, stop_item).slideToggle(100);
+      $(this).addClass('item-hide').removeClass('item-show');
+      nav_item_icon.css('transform', 'rotate(-180deg)');
+    }
+  });
 })

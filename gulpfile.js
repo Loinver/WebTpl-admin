@@ -38,7 +38,7 @@ gulp.task('sass', function() {
 // 合并，压缩js文件
 gulp.task('scripts', function() {
   return gulp.src('./Dev/src/js/define/*.js')
-    //.pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest('./Release/src/js/define'))
     .pipe(livereload())
     .pipe(notify("js压缩完成！"));
@@ -77,7 +77,7 @@ gulp.task('htmlmin', function() {
     minifyCSS: true //压缩页面CSS
   };
   return gulp.src('./Dev/web/**/*.html')
-    //.pipe(htmlmin(options))
+    .pipe(htmlmin(options))
     .pipe(gulp.dest('./Release/web'))
     .pipe(livereload())
     .pipe(notify("web页面压缩完成"));

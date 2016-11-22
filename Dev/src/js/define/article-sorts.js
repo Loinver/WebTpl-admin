@@ -1,11 +1,5 @@
-layui.config({
-  base: '../../src/js/lib/'
-}).extend({
-  datatable: 'datatable'
-});
-layui.use(['tree', 'jquery', 'datatable','laypage'], function() {
-  var $ = layui.jquery,
-  laypage = layui.laypage;
+layui.use(['tree', 'jquery', 'datatable'], function() {
+  var $ = layui.jquery;
   $(function() {
     $('.table-sort').dataTable({
       "searching": false, //是否允许Datatables开启本地搜索
