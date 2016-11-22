@@ -1,4 +1,4 @@
-layui.use(['layer','datatable'], function() {
+layui.use(['layer', 'datatable'], function() {
   var $ = layui.jquery,
     layer = layui.layer;
   $(function() {
@@ -20,9 +20,9 @@ layui.use(['layer','datatable'], function() {
         "orderable": false,
         "aTargets": [0, 4, 7] // 指定列不参与排序
       }],
-      "deferRender": true,//延迟渲染
-      "ajax": "../../../json/article.json",//数据的路径
-      "columns": [{//定义列
+      "deferRender": true, //延迟渲染
+      "ajax": "../../../json/article.json", //数据的路径
+      "columns": [{ //定义列
         "data": function(obj) {
           return '<input type="checkbox" name="article-list" data-id=' + obj.id + '>';
         }
@@ -31,8 +31,8 @@ layui.use(['layer','datatable'], function() {
       }, {
         "data": "articleSorts"
       }, {
-        "data": function(obj){
-          return '<u class="btn-showarticle">'+obj.articleTitle+'</u>';
+        "data": function(obj) {
+          return '<u class="btn-showarticle">' + obj.articleTitle + '</u>';
         }
       }, {
         "data": "articleContents",
@@ -79,7 +79,8 @@ layui.use(['layer','datatable'], function() {
     var obj = $(this);
     layer.confirm('确认要暂停发布吗？', {
       icon: 0,
-      title: '警告'
+      title: '警告',
+      shade: false
     }, function(index) {
       $(obj).parents("tr").find(".td-handle").prepend('<span class="handle-btn handle-btn-run" title="开始发布"><i class="linyer icon-qiyong"></i></span>');
       $(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">暂停发布</span>');
@@ -95,7 +96,8 @@ layui.use(['layer','datatable'], function() {
     var obj = $(this);
     layer.confirm('确认要开始发布吗？', {
       icon: 0,
-      title: '警告'
+      title: '警告',
+      shade: false
     }, function(index) {
       $(obj).parents("tr").find(".td-handle").prepend('<span class="handle-btn handle-btn-stop" title="暂停发布"><i class="linyer icon-zanting"></i></span>');
       $(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">正常发布</span>');
@@ -116,7 +118,8 @@ layui.use(['layer','datatable'], function() {
     var obj = $(this);
     layer.confirm('确认要删除吗？', {
       icon: 0,
-      title: '警告'
+      title: '警告',
+      shade: false
     }, function(index) {
       $(obj).parents("tr").remove(); //删除方法
       layer.msg('已删除!', {
@@ -136,7 +139,8 @@ layui.use(['layer','datatable'], function() {
     } else {
       layer.confirm('确认要删除吗？', {
         icon: 0,
-        title: '警告'
+        title: '警告',
+        shade: false
       }, function(index) {
         $(".table-sort tbody :checkbox:checked").parents('tr').remove(); //删除方法
         layer.msg('已删除!', {

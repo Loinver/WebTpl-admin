@@ -1,5 +1,5 @@
 //初始化
-layui.use(['layer','datatable'], function() {
+layui.use(['layer', 'datatable'], function() {
   var $ = layui.jquery,
     layer = layui.layer;
   $(function() {
@@ -82,7 +82,8 @@ layui.use(['layer','datatable'], function() {
     var obj = $(this);
     layer.confirm('确认要停用吗？', {
       icon: 0,
-      title: '警告'
+      title: '警告',
+      shade: false
     }, function(index) {
       $(obj).parents("tr").find(".td-handle").prepend('<span class="handle-btn handle-btn-run" title="启用"><i class="linyer icon-qiyong"></i></span>');
       $(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">已停用</span>');
@@ -98,7 +99,8 @@ layui.use(['layer','datatable'], function() {
     var obj = $(this);
     layer.confirm('确认要启用吗？', {
       icon: 0,
-      title: '警告'
+      title: '警告',
+      shade: false
     }, function(index) {
       $(obj).parents("tr").find(".td-handle").prepend('<span class="handle-btn handle-btn-stop" title="停用"><i class="linyer icon-zanting"></i></span>');
       $(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
@@ -124,7 +126,8 @@ layui.use(['layer','datatable'], function() {
     var obj = $(this);
     layer.confirm('确认要删除吗？', {
       icon: 0,
-      title: '警告'
+      title: '警告',
+      shade: false
     }, function(index) {
       $(obj).parents("tr").remove(); //删除方法
       layer.msg('已删除!', {
@@ -144,7 +147,8 @@ layui.use(['layer','datatable'], function() {
     } else {
       layer.confirm('确认要删除吗？', {
         icon: 0,
-        title: '警告'
+        title: '警告',
+        shade: false
       }, function(index) {
         $(".table-sort tbody :checkbox:checked").parents('tr').remove(); //删除方法
         layer.msg('已删除!', {

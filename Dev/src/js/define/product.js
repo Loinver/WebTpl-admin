@@ -87,7 +87,8 @@ layui.use(['layer', 'datatable'], function() {
     var id = obj.parents('tr').attr('data-userid');
     layer.confirm('确认要暂停销售吗？', {
       icon: 0,
-      title: '警告'
+      title: '警告',
+      shade: false
     }, function(index) {
       $(obj).parents("tr").find(".td-handle").prepend('<span class="handle-btn handle-btn-run" title="开始销售"><i class="linyer icon-qiyong"></i></span>');
       $(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">暂停销售</span>');
@@ -104,7 +105,8 @@ layui.use(['layer', 'datatable'], function() {
     var id = obj.parents('tr').attr('data-userid');
     layer.confirm('确认要开始销售吗？', {
       icon: 0,
-      title: '警告'
+      title: '警告',
+      shade: false
     }, function(index) {
       $(obj).parents("tr").find(".td-handle").prepend('<span class="handle-btn handle-btn-stop" title="暂停销售"><i class="linyer icon-zanting"></i></span>');
       $(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">正常销售</span>');
@@ -127,7 +129,8 @@ layui.use(['layer', 'datatable'], function() {
     var id = obj.parents('tr').attr('data-userid');
     layer.confirm('确认要删除吗？', {
       icon: 0,
-      title: '警告'
+      title: '警告',
+      shade: false
     }, function(index) {
       $(obj).parents("tr").remove(); //删除方法
       layer.msg('已删除!', {
@@ -137,8 +140,10 @@ layui.use(['layer', 'datatable'], function() {
     });
   });
   /*产品缩略图查看大图*/
-  layer.photos({
-    photos: '.table-sort tbody',
-    anim: 5
+  layer.ready(function() { //为了layer.ext.js加载完毕再执行
+    layer.photos({
+      photos: '.table-sort tbody',
+      anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+    });
   });
 });

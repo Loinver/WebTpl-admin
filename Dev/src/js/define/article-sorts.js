@@ -60,7 +60,8 @@ layui.use(['tree', 'jquery', 'datatable'], function() {
       if(node.touch == false) {
         layer.prompt({
           title: '修改栏目名称',
-          formType: 3
+          formType: 3,
+          shade: false
         }, function(text, index) {
           if(1 == 1) { //成功
             layer.close(index);
