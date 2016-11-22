@@ -1,0 +1,7 @@
+经过各种参考，从排版到代码。
+
+代码是经过gulp压缩过的
+
+目前完整的模块有三个 文章、产品和用户。
+
+github地址：https://github.com/Loinver/WebTpl-admin.git

@@ -139,11 +139,4 @@ layui.use(['layer', 'datatable'], function() {
       });
     });
   });
-  /*产品缩略图查看大图*/
-  layer.ready(function() { //为了layer.ext.js加载完毕再执行
-    layer.photos({
-      photos: '.table-sort tbody',
-      anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
-    });
-  });
 });

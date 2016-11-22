@@ -8,9 +8,15 @@ layui.use(['element', 'layer'], function() {
     layer = layui.layer,
     element = layui.element();
   /*全选*/
-  $("table thead th input:checkbox").on("click", function() {
-    $(this).closest("table").find("tr > td:first-child input:checkbox").prop("checked", $("table thead th input:checkbox").prop("checked"));
-  });
+  $(function() {
+    $('.table-sort').on('click', '.btn-checkall', function() {
+      $('.btn-checkall').prop('checked', this.checked);
+      $('[type="checkbox"][name="sublist"]').prop("checked", this.checked);
+    });
+    $('.table-sort').on('click', '[type="checkbox"][name="sublist"]', function() {
+      $('.btn-checkall').prop("checked", $('[type="checkbox"][name="sublist"]').length == $('[type="checkbox"][name="sublist"]:checked').length ? true : false);
+    });
+  })
 });
 /**
  * @param {String} 提示的内容
@@ -54,14 +60,11 @@ function layer_show(title, url, id, w, h) {
   if(title == null || title == '') {
     title = false;
   };
-  if(url == null || url == '') {
-    url = "404.html";
-  };
   if(w == null || w == '') {
     w = 800;
   };
   if(h == null || h == '') {
-    h = ($(window).height() - 50);
+    h = ($(window).height() - 300);
   };
   layer.open({
     type: 2,

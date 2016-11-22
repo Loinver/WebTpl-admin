@@ -35,7 +35,7 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('./Dev/src/css'))
     .pipe(notify("css压缩完成！"));
 });
-// 合并，压缩js文件
+// 压缩js文件
 gulp.task('scripts', function() {
   return gulp.src('./Dev/src/js/define/*.js')
     .pipe(uglify())
