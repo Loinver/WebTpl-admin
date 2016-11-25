@@ -9,60 +9,55 @@
   background-color: #393D49;
   height: 60px !important;
   border-bottom: 5px solid #4E5465;
-}
-.layui-header .layui-nav.nav .layui-nav-item a {
-  color: #000;
-  font-size: 18px;
-  margin-top: 5px;
-}
-.layui-header .user {
-  margin-top: 5px;
-  height: 50px;
-  padding: 5px;
-  position: relative;
-}
-.layui-header .user .user-avatar {
-  margin-right: 20px;
-  display: block;
-  height: 100%;
-}
-.layui-header .user img {
-  height: 100%;
-  margin-top: -5px;
-}
-.layui-header .user .user-nav {
-  position: absolute;
-  right: 0;
-  top: 50px;
-  width: 100px;
-  border: 1px solid #4E5465;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  display: none;
-  background: #ffffff;
-}
-.layui-header .user:hover .user-nav {
-  display: block;
-}
-.layui-header .user .user-nav .user-nav-item a {
-  font-size: 12px;
-  display: block;
-  padding: 10px;
-}
-.layui-header .user .user-nav .user-nav-item:hover {
-  background: #4E5465;
-}
-.layui-header .user .user-nav .user-nav-item:hover a {
-  color: #eeeeee;
+  .layui-nav.nav .layui-nav-item a {
+    color: #000;
+    font-size: 18px;
+    margin-top: 5px;
+  }
+  .user {
+    margin-top: 5px;
+    height: 50px;
+    padding: 5px;
+    position: relative;
+    img {
+      height: 100%;
+      margin-top: -5px;
+    }
+    .user-nav {
+      position: absolute;
+      right: 10px;
+      top: 50px;
+      width: 100px;
+      border: 1px solid #4E5465;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+      display: none;
+      background: #ffffff;
+      .user-nav-item a {
+        font-size: 12px;
+        display: block;
+        padding: 10px;
+      }
+      .user-nav-item:hover {
+        background: #4E5465;
+        a {
+          color: #EEEEEE;
+        }
+      }
+    }
+  }
+  .user:hover .user-nav {
+    display: block;
+  }
 }
 /* 侧栏 */
 .layui-side .layui-nav {
   border-radius: 0;
   min-height: 100%;
-}
-.layui-side .layui-nav .layui-nav-item a>label {
-  cursor: pointer;
+  .layui-nav-item a>label {
+    cursor: pointer;
+  }
 }
 /* 主体 */
 .layui-body {
@@ -79,7 +74,7 @@
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
-.layui-top-nav .layui-nav .layui-nav-item{
+.layui-top-nav .layui-nav .layui-nav-item {
   line-height: 55px !important;
 }
 /*tab*/
@@ -101,7 +96,7 @@
 /*登录*/
 .login-warp {
   width: 100%;
-  background: url(../../src/imgs/upload/bg.png) no-repeat;
+  background: url("../../src/imgs/upload/bg.png") no-repeat;
   background-attachment: fixed;
   -moz-background-size: cover;
   -webkit-background-size: cover;
@@ -115,7 +110,7 @@
     margin-left: -150px;
     margin-top: -100px;
   }
-  .btn-submit{
+  .btn-submit {
     width: 190px;
   }
 }

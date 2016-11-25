@@ -69,78 +69,29 @@
   }
 }
 //进度条的样式
-//<div class="jindu-bg" data-bfb="10" data-width="10" data-fontsize="28">
-//  <div class="jindu-txt"><span><em class="jindu-val">0</em>%</span><br>进度</div>
+//<div class="progress-circle-bg" data-bfb="10" data-width="10" data-fontsize="28">
+//  <div class="progress-circle-txt"><span><em class="progress-circle-val">0</em>%</span><br>进度</div>
 //</div>
-.jindu-bg {
+.progress-circle-bg {
   width: 130px;
   height: 130px;
   position: relative;
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-}
-.jindu-bg canvas {
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-.jindu-bg .jindu-txt {
-  display: inline-block;
-  width: 60px;
-  height: 36px;
-  text-align: center;
-  vertical-align: middle;
-  font-weight: 300;
-  font-size: 14px;
-  line-height: 18px;
-}
-.animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-.infinite,
-.loading-box {
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-}
-.loading-box {
-  width: 60px;
-  height: 60px;
-  background-color: #67CF22;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  -webkit-animation-duration: 1.2s;
-  animation-duration: 1.2s;
-  -webkit-animation-name: loading-box;
-  animation-name: loading-box;
-  -webkit-animation-timing-function: ease-in-out;
-  animation-timing-function: ease-in-out;
-}
-@-webkit-keyframes loading-box {
-  0% {
-    -webkit-transform: perspective(120px);
+  canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
   }
-  50% {
-    -webkit-transform: perspective(120px) rotateY(180deg);
-  }
-  100% {
-    -webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg);
-  }
-}
-@keyframes loading-box {
-  0% {
-    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-  }
-  50% {
-    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
-    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
-  }
-  100% {
-    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
-    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  .progress-circle-txt {
+    display: inline-block;
+    width: 60px;
+    height: 36px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 18px;
   }
 }

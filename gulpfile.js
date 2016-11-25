@@ -104,14 +104,12 @@ gulp.task('sprites', function() {
       }
     }))
     .pipe(gulp.dest('./Dev/src/css'))
-    //.pipe(gulp.dest('./Release/src/css'))
     .pipe(notify("雪碧图生成成功"));
 });
 //合并css任务
 gulp.task('concatcss', function() {
   return gulp.src('./Dev/src/css/*.css')
     .pipe(concat('index.css'))
-    //.pipe(gulp.dest('./Dev/src/css'))
     .pipe(gulp.dest('./Release/src/css'))
     .pipe(livereload())
     .pipe(notify("css合并完成"));
