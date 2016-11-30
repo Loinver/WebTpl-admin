@@ -41,7 +41,7 @@ layui.use(['layer', 'datatable'], function() {
         }
       }, {
         "data": "describe",
-        "className": "oneline"
+        "className": "oneline tl"
       }, {
         "data": function(obj) {
           return obj.unitPrice + "元";
@@ -66,6 +66,7 @@ layui.use(['layer', 'datatable'], function() {
         "className": "td-handle"
       }]
     });
+    $('.table-sort thead').find('.tl').removeClass('tl');
   });
   //产品--查看
   $('.btn-showuser').on('click', function() {
