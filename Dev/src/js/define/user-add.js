@@ -1,6 +1,7 @@
 var mypcas = new PCAS('province,请选择省份', 'city,请选择城市', 'county,请选择县区');
-layui.use(['form'], function() {
-  var form = layui.form();
+layui.use(['form', 'jquery'], function() {
+  var form = layui.form(),
+    $ = layui.jquery;
   //城市选择
   var province, city;
   form.on('select(province)', function(data) {
@@ -38,19 +39,32 @@ layui.use(['form'], function() {
     pass: [
       /(?!^\[0-9]+$)(?!^[a-zA-Z]+$)(?!^[_#@]+$).{6,20}/, '密码必须6到20位，且不能出现空格'
     ],
-    phone: function(value) {
+    mobile: function(value) {
       if(!new RegExp(/^0?(13|14|15|18|17)[0-9]{9}$/).test(value)) {
         return "手机号格式不正确"
       }
     },
-    identity: function(value) {
+    idcard: function(value) {
       if(!new RegExp(/^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/).test(value)) {
         return "身份证号码格式不正确"
       }
     }
-  })
+  });
+  //blur监听
+  $('input[name="username"]').on('blur', function() {
+    var value = $(this).val();
+    if(!new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]+$").test(value)) {
+      layer.msg('用户名不能有特殊字符');
+    }
+    if(/(^\_)|(\__)|(\_+$)/.test(value)) {
+      layer.msg('用户名首尾不能出现下划线\'_\'');
+    }
+    if(/^\d+\d+\d$/.test(value)) {
+      layer.msg('用户名不能全为数字');
+    }
+  });
   //监听提交
-  form.on('submit(useradd)', function(data){
+  form.on('submit(useradd)', function(data) {
     layer.alert(JSON.stringify(data.field), {
       title: '最终的提交信息'
     })
