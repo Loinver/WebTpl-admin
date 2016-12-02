@@ -77,6 +77,10 @@ layui.use(['layer', 'datatable'], function() {
     var href = 'user-add.html';
     layer_show(username, href, '', '800', '600');
   });
+  /*刷新当前页面*/
+  $("#refresh").on('click', function() {
+    window.location.reload();
+  });
   /*用户-停用*/
   $('.table-sort').on('click', '.handle-btn-stop', function() {
     var obj = $(this);

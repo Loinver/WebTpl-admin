@@ -53,6 +53,7 @@ layui.use(['element', 'layer'], function() {
         } else {
           //切换tab
           element.tabChange('page-tab', tabIndex);
+          window.location.reload();
         }
       });
     }
