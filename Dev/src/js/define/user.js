@@ -22,7 +22,7 @@ layui.use(['layer', 'datatable'], function() {
       "ajax": "../../../json/user.json", //数据的路径
       "columns": [{ //定义列
         "data": function(obj) {
-          return '<input type="checkbox" name="sublist" data-id=' + obj.id + '>';
+          return '<input type="checkbox" class="fly-checkbox" name="sublist" data-id=' + obj.id + '>';
         }
       }, {
         "data": "id"
@@ -76,6 +76,10 @@ layui.use(['layer', 'datatable'], function() {
     var username = $(this).html();
     var href = 'user-add.html';
     layer_show(username, href, '', '800', '600');
+  });
+  /*刷新当前页面*/
+  $("#refresh").on('click', function() {
+    window.location.reload();
   });
   /*用户-停用*/
   $('.table-sort').on('click', '.handle-btn-stop', function() {
