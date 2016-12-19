@@ -53,13 +53,10 @@ layui.use(['element', 'layer'], function() {
         } else {
           //切换tab
           element.tabChange('page-tab', tabIndex);
-          window.location.reload();
         }
       });
     }
   });
-  //给第一个tab页设置禁止关闭
-  $('#tabTitle').children('li:first-child').find('i').remove();
   //侧边导航
   $('.layui-side .layui-nav-title').click(function() {
     var stop_item = $(this).attr('nav-item-num');
