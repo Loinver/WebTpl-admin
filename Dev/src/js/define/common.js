@@ -45,10 +45,10 @@ var lang = {
   "sInfoThousands": ",",
   "oPaginate": {
     "sFirst": "首页",
-    "sPrevious": "上页",
-    "sNext": "下页",
-    "sLast": "末页",
-    "sJump": "跳转"
+    "sPrevious": "上一页",
+    "sNext": "下一页",
+    "sLast": "最后页",
+    "sJump": "跳转至"
   },
   "oAria": {
     "sSortAscending": ": 以升序排列此列",
