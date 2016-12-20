@@ -1,7 +1,11 @@
-.layui-body .sorts-box{
-  width: 150px;
-  position: absolute;
-}
-.layui-body .sorts-box+.sorts-table{
-  margin-left: 150px;
+.article-sorts {
+  .sorts-box {
+    .sorts-list {
+      width: 200px;
+      position: absolute;
+    }
+    .sorts-table{
+      margin-left:200px;
+    }
+  }
 }

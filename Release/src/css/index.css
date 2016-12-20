@@ -970,10 +970,6 @@
 .layui-form-onswitch {
   box-sizing: content-box; }
 
-.layui-tab-card > .layui-tab-title li {
-  margin-left: 0 !important;
-  margin-right: 0 !important; }
-
 .layui-top-nav .layui-nav .layui-nav-item {
   line-height: 55px !important; }
 
@@ -1007,30 +1003,6 @@
     margin-top: -100px; }
   .login-warp .btn-submit {
     width: 190px; }
-
-.user-show {
-  background-color: #5bacb6;
-  overflow: hidden;
-  zoom: 1;
-  clear: both;
-  width: 100%; }
-  .user-show .user-photo {
-    position: absolute; }
-    .user-show .user-photo img.l {
-      width: 64px;
-      height: 64px; }
-  .user-show .user-info {
-    margin-left: 80px; }
-
-.user-detail .table {
-  line-height: 1.8; }
-
-.user-detail .table th {
-  text-align: right;
-  font-weight: 400; }
-
-.user-add .layui-form-label {
-  width: 100px; }
 
 table.dataTable {
   border-collapse: separate;
@@ -1178,6 +1150,30 @@ table.dataTable thead .sorting_desc {
 .dataTables_wrapper .paginate_button.current {
   border: 1px solid #009688; }
 
+.user-show {
+  background-color: #5bacb6;
+  overflow: hidden;
+  zoom: 1;
+  clear: both;
+  width: 100%; }
+  .user-show .user-photo {
+    position: absolute; }
+    .user-show .user-photo img.l {
+      width: 64px;
+      height: 64px; }
+  .user-show .user-info {
+    margin-left: 80px; }
+
+.user-detail .table {
+  line-height: 1.8; }
+
+.user-detail .table th {
+  text-align: right;
+  font-weight: 400; }
+
+.user-add .layui-form-label {
+  width: 100px; }
+
 .pdut-thumbnail {
   width: 40px; }
 
@@ -1187,12 +1183,12 @@ table.dataTable thead .sorting_desc {
 .product-add .layui-form-label + .layui-input-block {
   margin-left: 100px; }
 
-.layui-body .sorts-box {
-  width: 150px;
+.article-sorts .sorts-box .sorts-list {
+  min-width: 200px;
   position: absolute; }
 
-.layui-body .sorts-box + .sorts-table {
-  margin-left: 150px; }
+.article-sorts .sorts-box .sorts-table {
+  margin-left: 200px; }
 
 /**
   * 备注：所有在css中的图片，都必须以main所在的路径为基准
@@ -1376,7 +1372,8 @@ a.badge:focus {
   border: solid 2px #28B779;
   border-radius: 4px;
   background-clip: padding-box;
-  display: inline-block; }
+  display: inline-block;
+  cursor: pointer; }
   .fly-checkbox:focus {
     outline: 0 none;
     outline-offset: 0; }
@@ -1395,8 +1392,7 @@ a.badge:focus {
       content: "\e696";
       color: #FFFFFF;
       font-size: 16px;
-      font-weight: 600;
-      cursor: pointer; }
+      font-weight: 600; }
   .fly-checkbox:disabled {
     background-color: #d9d9d9;
     border: solid 1px #d9d9d9; }
@@ -1412,8 +1408,7 @@ a.badge:focus {
       content: "\e696";
       color: #FFFFFF;
       font-size: 16px;
-      font-weight: 600;
-      cursor: pointer; }
+      font-weight: 600; }
   .fly-checkbox.checkbox-green {
     border: solid 2px #5cb85c; }
   .fly-checkbox.checkbox-orange {
@@ -1423,8 +1418,8 @@ a.badge:focus {
   .fly-checkbox.checkbox-orange:checked {
     background-color: #f0ad4e; }
   .fly-checkbox.checkbox-s {
-    width: 19px;
-    height: 19px; }
+    width: 16px;
+    height: 16px; }
     .fly-checkbox.checkbox-s:before {
       position: absolute;
       display: inline-block;
@@ -1436,9 +1431,8 @@ a.badge:focus {
       font-family: linyer;
       content: "\e696";
       color: #FFFFFF;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer; }
+      font-size: 12px;
+      font-weight: 600; }
 
 .icon-i-b{display:inline-block;background-image: url('../../imgs/common/sprite.png');background-position: 0px 0px;width:16px;height:16px;}
 .icon-i-w{display:inline-block;background-image: url('../../imgs/common/sprite.png');background-position: -16px 0px;width:16px;height:16px;}

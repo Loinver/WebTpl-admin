@@ -1,13 +1,12 @@
 //modules 通用模块,组件
 @import "base/mixin"; //base   基础相关 
 @import "base/base";
-@import "base/function";
 @import "modules/common"; //common   公共样式
 @import "modules/index"; //首页
-@import "modules/user"; //用户
 @import "modules/datatable"; //表格
-@import "modules/product"; //表格
-@import "modules/article"; //表格
+@import "modules/user"; //用户
+@import "modules/product"; //产品
+@import "modules/article"; //文章
 /**
   * 备注：所有在css中的图片，都必须以main所在的路径为基准
  */
@@ -198,7 +197,6 @@ a.badge:focus {
     color: #FFFFFF;
     font-size: $fs;
     font-weight: 600;
-    cursor: pointer;
   }
 }
 .fly-checkbox {
@@ -211,6 +209,7 @@ a.badge:focus {
   border-radius: 4px;
   background-clip: padding-box;
   display: inline-block;
+  cursor: pointer;
   &:focus {
     outline: 0 none;
     outline-offset: 0;
@@ -238,8 +237,8 @@ a.badge:focus {
     background-color: #f0ad4e;
   }
   &.checkbox-s {
-    width: 19px;
-    height: 19px;
-    @include checkedCon(14px);
+    width: 16px;
+    height: 16px;
+    @include checkedCon(12px);
   }
 }
