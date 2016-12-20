@@ -1,0 +1,37 @@
+//px转化为rem
+@function pxToRem($px, $base: 16) {
+  @return ($px / $base) * 1rem;
+}
+//960网格布局
+$_columns: 12 !default;
+// 总列数
+$_column-width: 80px !default;
+// 单列宽
+$_gutter: 20px !default;
+// 间隔
+@function get_width($columns:$_columns, $onlyInnerWidth: true, $_subtract:0) {
+  // 默认返回值 
+  $return: ($_column-width + $_gutter) * $columns - $_subtract !default;
+  @if $onlyInnerWidth == true {
+    //如果$onlyInnerWidth为true，那么减掉一个间隔$_gutter
+    $return: ($_column-width + $_gutter) * $columns - $_gutter - $_subtract;
+  }
+  @return $return;
+}
+
+//栅格化布局
+//.container {
+//width: get_width(12,false);
+//}
+//.col-four {
+//@extend %clearfix;
+//.col {
+//  @include float;
+//  margin: 0 $_gutter / 2;
+//  width: get_width(3); //220px
+//  h2 {
+//    padding-left: 10px;
+//    width: get_width(3,true,10px); //210px
+//  }
+//}
+//}
