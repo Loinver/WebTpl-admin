@@ -1093,7 +1093,8 @@ a.badge:focus {
   border: solid 2px #28B779;
   border-radius: 4px;
   background-clip: padding-box;
-  display: inline-block; }
+  display: inline-block;
+  cursor: pointer; }
   .fly-checkbox:focus {
     outline: 0 none;
     outline-offset: 0; }
@@ -1112,8 +1113,7 @@ a.badge:focus {
       content: "\e696";
       color: #FFFFFF;
       font-size: 16px;
-      font-weight: 600;
-      cursor: pointer; }
+      font-weight: 600; }
   .fly-checkbox:disabled {
     background-color: #d9d9d9;
     border: solid 1px #d9d9d9; }
@@ -1129,8 +1129,7 @@ a.badge:focus {
       content: "\e696";
       color: #FFFFFF;
       font-size: 16px;
-      font-weight: 600;
-      cursor: pointer; }
+      font-weight: 600; }
   .fly-checkbox.checkbox-green {
     border: solid 2px #5cb85c; }
   .fly-checkbox.checkbox-orange {
@@ -1154,5 +1153,4 @@ a.badge:focus {
       content: "\e696";
       color: #FFFFFF;
       font-size: 14px;
-      font-weight: 600;
-      cursor: pointer; }
+      font-weight: 600; }

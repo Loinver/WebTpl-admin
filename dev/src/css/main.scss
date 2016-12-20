@@ -198,7 +198,6 @@ a.badge:focus {
     color: #FFFFFF;
     font-size: $fs;
     font-weight: 600;
-    cursor: pointer;
   }
 }
 .fly-checkbox {
@@ -211,6 +210,7 @@ a.badge:focus {
   border-radius: 4px;
   background-clip: padding-box;
   display: inline-block;
+  cursor: pointer;
   &:focus {
     outline: 0 none;
     outline-offset: 0;
