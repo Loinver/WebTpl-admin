@@ -5,22 +5,22 @@
 @import "modules/common"; //common   公共样式
 @import "modules/index"; //首页
 @import "modules/user"; //用户
-@import "modules/datatable";//表格
-@import "modules/product";//表格
-@import "modules/article";//表格
+@import "modules/datatable"; //表格
+@import "modules/product"; //表格
+@import "modules/article"; //表格
 /**
   * 备注：所有在css中的图片，都必须以main所在的路径为基准
  */
-.oneline{
+.oneline {
   @include oneline;
 }
 .layui-btn.btn-default {
   background-color: #28B779;
 }
-.layui-layer-btn a{
+.layui-layer-btn a {
   box-sizing: content-box;
 }
-.layui-layout-admin .layui-side{
+.layui-layout-admin .layui-side {
   top: 60px !important;
 }
 .btn-add>label {
@@ -52,7 +52,7 @@
 .table-box .btn-showuser {
   cursor: pointer;
 }
-.layui-page{
+.layui-page {
   text-align: right;
 }
 .label,
@@ -144,27 +144,101 @@ a.badge:focus {
 }
 /*低分辨率优化css*/
 @media only screen and (min-width: 1366px) and (max-width: 1600px) {
-  .layui-side{
+  .layui-side {
     width: 140px !important;
   }
-  .layui-nav-tree{
+  .layui-nav-tree {
     width: 140px !important;
   }
-  .layui-body{
+  .layui-body {
     left: 140px !important;
   }
 }
 @media only screen and (min-width: 980px) and (max-width: 1366px) {
-  .layui-side{
+  .layui-side {
     width: 120px !important;
   }
-  .layui-nav-tree{
+  .layui-nav-tree {
     width: 120px !important;
   }
-  .layui-body{
+  .layui-body {
     left: 120px !important;
   }
 }
-#tabTitle>li:first-child i{
+#tabTitle>li:first-child i {
   display: none;
+}
+@font-face {
+  font-family: 'linyer';
+  src: url('../fonts/iconfont.eot');
+  src: url('../fonts/iconfont.eot?#iefix') format('embedded-opentype'), url('../fonts/iconfont.woff') format('woff'), url('../fonts/iconfont.ttf') format('truetype'), url('../fonts/iconfont.svg#linyer') format('svg');
+}
+//复选框样式
+.iconfont {
+  display: inline-block;
+  font-family: 'linyer';
+  font-style: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+  -webkit-text-stroke-width: 0.2px;
+}
+@mixin checkedCon($fs:16px) {
+  &:before {
+    position: absolute;
+    display: inline-block;
+    right: 50%;
+    bottom: 50%;
+    transform: translate(50%,50%);
+    font-family: linyer;
+    content: "\e696";
+    color: #FFFFFF;
+    font-size: $fs;
+    font-weight: 600;
+  }
+}
+.fly-checkbox {
+  -webkit-appearance: none;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background-color: #FFFFFF;
+  border: solid 2px #28B779;
+  border-radius: 4px;
+  background-clip: padding-box;
+  display: inline-block;
+  &:focus {
+    outline: 0 none;
+    outline-offset: 0;
+  }
+  &:checked {
+    background-color: #28B779;
+    border: solid 0 #28B779;
+    @include checkedCon();
+  }
+  &:disabled {
+    background-color: #d9d9d9;
+    border: solid 1px #d9d9d9;
+    @include checkedCon();
+  }
+  &.checkbox-green {
+    border: solid 2px #5cb85c;
+  }
+  &.checkbox-orange {
+    border: solid 2px #f0ad4e;
+  }
+  &.checkbox-green:checked {
+    background-color: #5cb85c;
+  }
+  &.checkbox-orange:checked {
+    background-color: #f0ad4e;
+  }
+  &.checkbox-s {
+    width: 19px;
+    height: 19px;
+    @include checkedCon(14px);
+  }
 }

@@ -21,7 +21,7 @@ layui.use(['layer', 'datatable'], function() {
       "ajax": "../../../json/product.json", //数据的路径
       "columns": [{ //定义列
         "data": function(obj) {
-          return '<input type="checkbox" name="article-list" data-id=' + obj.id + '>';
+          return '<input type="checkbox" name="sublist" class="fly-checkbox" data-id=' + obj.id + '>';
         }
       }, {
         "data": "id"

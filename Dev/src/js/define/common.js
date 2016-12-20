@@ -1,7 +1,7 @@
 layui.config({
-  base: '../../src/js/lib/' //假设这是test.js所在的目录
+  base: '../../src/js/lib/'//扩展组件目录
 }).extend({ //设定组件别名
-  datatable: 'datatable'
+  datatable: 'datatable'//公用组件命名部分
 });
 layui.use(['element', 'layer'], function() {
   var $ = layui.jquery,
