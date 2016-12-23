@@ -1065,7 +1065,7 @@ table.dataTable thead .sorting_desc {
   height: 26px;
   line-height: 26px;
   text-decoration: none;
-  margin: 0 0 6px 6px;
+  margin-right: 5px;
   padding: 0 10px;
   font-size: 14px; }
 
@@ -1184,7 +1184,7 @@ table.dataTable thead .sorting_desc {
   margin-left: 100px; }
 
 .article-sorts .sorts-box .sorts-list {
-  min-width: 200px;
+  width: 200px;
   position: absolute; }
 
 .article-sorts .sorts-box .sorts-table {

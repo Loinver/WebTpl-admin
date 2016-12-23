@@ -782,7 +782,7 @@ table.dataTable thead .sorting_desc {
   height: 26px;
   line-height: 26px;
   text-decoration: none;
-  margin: 0 0 6px 6px;
+  margin-right: 5px;
   padding: 0 10px;
   font-size: 14px; }
 
