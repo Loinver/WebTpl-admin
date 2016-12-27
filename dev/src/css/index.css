@@ -3940,7 +3940,7 @@ a.badge:focus {
 
 .fly-echart.echart-map.sw-100 {
   width: 100%;
-  height: 800px; }
+  height: 700px; }
 
 .fly-echart.echart-pie.sw-50 {
   width: 50%;
@@ -3948,7 +3948,7 @@ a.badge:focus {
 
 .fly-echart.echart-pie.sw-100 {
   width: 100%;
-  height: 800px; }
+  height: 700px; }
 
 .fly-echart.echart-line.sw-50 {
   width: 50%;
@@ -3956,7 +3956,7 @@ a.badge:focus {
 
 .fly-echart.echart-line.sw-100 {
   width: 100%;
-  height: 800px; }
+  height: 700px; }
 
 .fly-echart.echart-bar.sw-50 {
   width: 50%;
@@ -3964,7 +3964,14 @@ a.badge:focus {
 
 .fly-echart.echart-bar.sw-100 {
   width: 100%;
-  height: 800px; }
+  height: 750px; }
+
+.fly-echart.echart-map,
+.fly-echart.echart-pie,
+.fly-echart.echart-line,
+.fly-echart.echart-bar {
+  width: 600px;
+  height: 400px; }
 
 .icon-i-b{display:inline-block;background-image: url('../../imgs/common/sprite.png');background-position: 0px 0px;width:16px;height:16px;}
 .icon-i-w{display:inline-block;background-image: url('../../imgs/common/sprite.png');background-position: -16px 0px;width:16px;height:16px;}
