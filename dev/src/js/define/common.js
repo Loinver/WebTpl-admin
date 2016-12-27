@@ -1,13 +1,18 @@
 layui.config({
-  base: '../../src/js/lib/'//扩展组件目录
+  base: '../../src/js/lib/' //扩展组件目录
 }).extend({ //设定组件别名
-  datatable: 'datatable'//公用组件命名部分
+  datatable: 'datatable' //公用组件命名部分
 });
 layui.use(['element', 'layer'], function() {
   var $ = layui.jquery,
     layer = layui.layer,
     element = layui.element();
-  /*全选*/
+  /**
+   ****jq扩展函数*******
+   */
+  /**
+   * 全选
+   */
   $(function() {
     $('.table-sort').on('click', '.btn-checkall', function() {
       $('.btn-checkall').prop('checked', this.checked);
@@ -16,7 +21,47 @@ layui.use(['element', 'layer'], function() {
     $('.table-sort').on('click', '[type="checkbox"][name="sublist"]', function() {
       $('.btn-checkall').prop("checked", $('[type="checkbox"][name="sublist"]').length == $('[type="checkbox"][name="sublist"]:checked').length ? true : false);
     });
-  })
+    /**
+     * 提示
+     */
+    $('.tips-icon,.tips-obj').hover(function() {
+      $(this).find('.dialog-warp').show();
+      $(this).find('.dialog-warp').stop();
+      $(this).find('.dialog-warp').animate({
+        "opacity": 1
+      }, 300);
+    }, function() {
+      $(this).find('.dialog-warp').stop();
+      $(this).find('.dialog-warp').animate({
+        "opacity": 0
+      }, 300);
+      $(this).find('.dialog-warp').hide();
+    })
+    $('.dialog-warp').each(function() {
+      var H = $(this).height();
+      $(this).css('margin-top', -H / 2);
+    });
+    /**
+     * 速度动画
+     * @param {Object} obj
+     */
+    var $obj = $('.obj');
+    $obj.each(function() {
+      var $this = $(this);
+      var max_number = $this.data("value"); //最大值
+      var plus_number = Math.ceil(max_number / 99); //增加值,因为时间变化一样的
+      var start_number = 0;
+      var Interval = setInterval(function() {
+        start_number += plus_number;
+        if(start_number > max_number) {
+          $this.html(max_number);
+          clearInterval(Interval);
+        } else {
+          $this.text(start_number);
+        }
+      }, 10);
+    });
+  });
 });
 /**
  * @param {String} 提示的内容
@@ -75,15 +120,176 @@ function layer_show(title, url, id, w, h) {
     title: title,
     content: url
   });
+
 };
-/*关闭弹出框口*/
+/**
+ * 关闭弹出框口
+ */
 function layer_close() {
   var index = parent.layer.getFrameIndex(window.name);
   parent.layer.close(index);
 }
 /**
+ *********************************扩展原生函数**********************************
+ */
+/**
+ * addclass函数封装
+ * @param {Object} obj
+ * @param {Object} classStr
+ */
+function addClass(obj, classStr) {
+  var array = noRepeat(trim(obj.className).split('\s+'));
+  if(!inArray(array, classStr)) {
+    array.push(classStr);
+  }
+  obj.className = array.join(' ');
+  return obj;
+}
+/**
+ * removeclass函数封装
+ * @param {Object} obj
+ * @param {Object} classStr
+ */
+function removeClass(obj, classStr) {
+  var array = noRepeat(trim(obj.className).split('\s+'));
+  var index = indexOf(array, classStr);
+  if(index != -1) {
+    classStr.splice(index, 1);
+    obj.className = classStr.join(' ');
+  }
+  return obj;
+}
+/**
+ * toggleClass函数封装
+ * @param {Object} obj
+ * @param {Object} classStr
+ */
+function toggleClass(obj, classStr) {
+  var array = noRepeat(trim(obj.className).split('\s+'));
+  if(inArray(array, classStr)) {
+    removeClass(obj, classStr);
+  } else {
+    addClass(obj, classStr);
+  }
+}
+
+/**
  * 格式化时间戳
  */
 function replaceTime(nS) {
   return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
+}
+/**
+ * 求数组最大值
+ */
+Array.prototype.max = function() {
+  return Math.max.apply(null, this);
+};
+/**
+ * 求数组最小值
+ */
+Array.prototype.min = function() {
+  return Math.min.apply(null, this);
+};
+/**
+ * 数组排序
+ * @param {name} name
+ */
+function sortBy(name) {
+  return function(o, p) {
+    var a, b;
+    if(typeof o === "object" && typeof p === "object" && o && p) {
+      a = o[name];
+      b = p[name];
+      if(a === b) {
+        return 0;
+      }
+      if(typeof a === typeof b) {
+        return a < b ? -1 : 1;
+      }
+      return typeof a < typeof b ? -1 : 1;
+    } else {
+      throw("error");
+    }
+  }
+};
+/**
+ * 时间差
+ * @param {Object} olddate
+ */
+function timeDiff(olddate) {
+  var old = new Date(olddate);
+  var dateNum = (new Date()) - old;
+  var days = dateNum / 1000 / 60 / 60 / 24;
+  return Math.floor(days);
+}
+/**
+ * 获取当前时间
+ */
+function getNowDate() {
+  var now = new Date();
+  return now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate();
+}
+/**
+ * 获取星期几
+ */
+function getWeek() {
+  return(new Date()).getDay();
+}
+getWeek();
+/**
+ * 数组的indexOf方法封装
+ * @param {Object} arr
+ * @param {Object} value
+ * @param {Object} start
+ */
+function indexOf(arr, value, start) {
+  //如果不设置start,则默认start为0
+  if(arguments.length == 2) {
+    start = 0;
+  }
+  //如果数组中存在indexOf方法，则用原生的indexOf方法
+  if(arr.indexOf) {
+    return arr.indexOf(value, start);
+  }
+  for(var i = 0; i < arr.length; i++) {
+    if(arr[i] === value) {
+      return i;
+    }
+  }
+  return -1;
+}
+/**
+ * 数组去重方法封装
+ * @param {Object} arr
+ */
+function noRepeat(arr) {
+  var result = [];
+  for(var i = 0; i < arr.length; i++) {
+    if(indexOf(result, arr[i]) == -1) {
+      result.push(arr[i]);
+    }
+  }
+  return result;
+}
+/**
+ * inArray方法封装
+ * @param {Object} arr
+ * @param {Object} value
+ */
+function inArray(arr, value) {
+  for(var i = 0; i < arr.length; i++) {
+    if(arr[i] === value) {
+      return true;
+    }
+  }
+  return false;
+}
+/**
+ * 去除首尾空格函数封装
+ * @param {Object} arr
+ */
+function trim(arr) {
+  var result = arr.replace(/^\s+|\s+$/g, '');
+  return result;
 }

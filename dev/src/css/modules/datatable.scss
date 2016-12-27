@@ -41,7 +41,6 @@ table.dataTable thead .sorting_desc {
   float: left;
   padding-top: 10px;
   font-size: 14px;
-  color: #666;
 }
 .dataTables_wrapper .dataTables_paginate {
   float: right;
@@ -55,13 +54,13 @@ table.dataTable thead .sorting_desc {
   margin-left: 2px;
   text-align: center;
   text-decoration: none;
-  color: #666;
   height: 26px;
   line-height: 26px;
   text-decoration: none;
   margin-right:5px;
   padding: 0 10px;
   font-size: 14px;
+  vertical-align: middle;
 }
 .dataTables_wrapper {
   margin-top: 20px;

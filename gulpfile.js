@@ -31,7 +31,6 @@ gulp.task('sass', function() {
       browsers: ['last 4 versions'],
       cascade: false,
     }))
-    //.pipe(cssmin())
     .pipe(gulp.dest('./dev/src/css/rubbish'))
     .pipe(notify("css压缩完成！"));
 });
@@ -110,6 +109,7 @@ gulp.task('sprites', function() {
 gulp.task('concatcss', function() {
   return gulp.src('./dev/src/css/rubbish/*.css')
     .pipe(concat('index.css'))
+    //.pipe(cssmin())
     .pipe(gulp.dest('./dev/src/css'))
     .pipe(gulp.dest('./res/src/css'))
     .pipe(livereload())
@@ -126,7 +126,7 @@ gulp.task('default', function() {
   gulp.run('imagesmin', 'sprites', 'sass', 'jslint', 'libjs', 'scripts', 'plugincss', 'concatcss', 'htmlmin');
   gulp.watch('./dev/src/js/**/*.js', function() {
     livereload.listen();
-    gulp.run('jslint', 'libjs', 'scripts', 'htmlmin');
+    gulp.run('jslint', 'libjs', 'scripts');
   })
   gulp.watch('./dev/src/imgs/**/*.{png,jpg,gif,ico}', function() {
     livereload.listen();
@@ -134,14 +134,14 @@ gulp.task('default', function() {
   })
   gulp.watch('./dev/web/**/*.html', function() {
     livereload.listen();
-    gulp.run('htmlmin', 'sprites', 'imagesmin', 'scripts');
+    gulp.run('htmlmin', 'sprites');
   })
   gulp.watch('./dev/src/css/**/*.scss', function() {
     livereload.listen();
-    gulp.run('sass', 'concatcss');
+    gulp.run('sass','concatcss');
   })
   gulp.watch('./dev/src/css/plugin/*.css', function() {
     livereload.listen();
-    gulp.run('plugincss', 'htmlmin');
+    gulp.run('plugincss');
   })
 });
