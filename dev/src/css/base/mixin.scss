@@ -1,10 +1,10 @@
 // 链接动画
-@mixin dz($time:0.25s) {
+@mixin link($time:0.25s) {
   -webkit-transition: all $time ease-in-out;
   transition: all $time ease-in-out;
 }
 // 文字描边
-@mixin Stroke($s1:1px, $s2:1px, $color:#fff) {
+@mixin stroke($s1:1px, $s2:1px, $color:#fff) {
   text-shadow: $s1 $s1 $s2 $color, -$s1 $s1 $s2 $color, $s1 (-$s1) $s2 $color, -$s1 (-$s1) $s2 $color;
 }
 // 旋转
@@ -23,17 +23,15 @@
   transform: translate($s1,$s2);
 }
 // 禁止选中
-@mixin bancheck {
+@mixin disabled {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   user-select: none;
 }
 // 一行文字标题超出显示省略号
-@mixin oneline($s1:auto) {
+@mixin oneline {
   overflow: hidden;
-  line-height: $s1;
-  height: $s1;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
@@ -43,24 +41,11 @@
   line-height: $s1;
   overflow: hidden;
 }
-//圆角矩形
-@mixin borderradius($px) {
-  -webkit-border-radius: $px;
-  -moz-border-radius: $px;
-  border-radius: $px;
-}
 //阴影
 @mixin boxshadow($s1, $s2, $s3, $s4, $rgb1, $rgb2, $rgb3, $rgbo) {
   box-shadow: $s1 $s2 $s3 $s4 rgba($rgb1, $rgb2, $rgb3, $rgbo);
   -webkit-box-shadow: $s1 $s2 $s3 $s4 rgba($rgb1, $rgb2, $rgb3, $rgbo);
   -moz-box-shadow: $s1 $s2 $s3 $s4 rgba($rgb1, $rgb2, $rgb3, $rgbo);
-}
-//棋盘背景
-@mixin polka($size, $dot, $color, $accent) {
-  background: $color;
-  background-image: radial-gradient($accent $dot, transparent 0), radial-gradient($accent $dot, transparent 0);
-  background-size: $size $size;
-  background-position: 0 0, $size/2 $size/2;
 }
 //triangle
 //triangle1是双倍宽
@@ -171,33 +156,8 @@ $prefix-for-spec: true !default; // 标准版
   }
   @include box-sizing;
 }
-//margin  外边距
-@mixin margin($directions, $px) {
-  @if $directions == auto {
-    margin-left: $directions;
-    margin-right: $directions;
-  }
-  @else {
-    @each $direction in $directions {
-      margin-#{$direction}: $px;
-    }
-  }
-}
-//padding  内边距
-@mixin padding($directions, $px) {
-  @each $direction in $directions {
-    padding-#{$direction}: $px;
-  }
-}
 //opacity 透明度
 @mixin opacity($opacity:50) {
   opacity: $opacity / 100;
   filter:alpha(opacity=$opacity);
-}
-//通过先定义@mixin，然后在%调用@mixin来实现传递变量
-@mixin float($float:left) {
-  float: $float;
-}
-%float-right {
-  @include float(right);
 }

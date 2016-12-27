@@ -48,6 +48,11 @@ layui.use(['form', 'jquery'], function() {
       if(!new RegExp(/^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/).test(value)) {
         return "身份证号码格式不正确"
       }
+    },
+    address:function(value){
+      if(value ==""){
+        return "请输入正确的详细地址";
+      }
     }
   });
   //blur监听

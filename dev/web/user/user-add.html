@@ -33,7 +33,7 @@
           </div>
         </div>
         <div class="layui-form-item" lay-verify="">
-          <label class="layui-form-label">选择地址</label>
+          <label class="layui-form-label">所在地区</label>
           <div class="layui-input-inline">
             <select name="province" id="province" lay-filter='province'>
             </select>
@@ -45,6 +45,12 @@
           <div class="layui-input-inline">
             <select name="county" id="county" lay-filter='county'>
             </select>
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">详细地址</label>
+          <div class="layui-input-inline sw-times2">
+            <input type="text" name="address" lay-verify="address" autocomplete="off" placeholder="请输入街道、楼牌号等" class="layui-input">
           </div>
         </div>
         <div class="layui-form-item">
