@@ -16,14 +16,6 @@ layui.use(['tree', 'jquery', 'datatable'], function() {
         } // 指定列不参与排序
       ]
     });
-    $('.table-sort tbody').on('click', 'tr', function() {
-      if($(this).hasClass('selected')) {
-        $(this).removeClass('selected');
-      } else {
-        $('tr.selected').removeClass('selected');
-        $(this).addClass('selected');
-      }
-    });
   });
   var sortNodes = [{ //节点
     name: '媒体报道',

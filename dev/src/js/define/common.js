@@ -1,12 +1,23 @@
 layui.config({
   base: '../../src/js/lib/' //扩展组件目录
 }).extend({ //设定组件别名
-  datatable: 'datatable' //公用组件命名部分
+  datatable: 'datatable', //公用组件命名部分
+  datatableButton: 'dataTables/extensions/Buttons/js/dataTables.buttons',
+  datatableFlash: 'dataTables/extensions/Buttons/js/buttons.flash',
+  datatableHtml5: 'dataTables/extensions/Buttons/js/buttons.html5',
+  datatablePrint: 'dataTables/extensions/Buttons/js/buttons.print',
+  datatableColVis: 'dataTables/extensions/Buttons/js/buttons.colVis',
+  datatableSelect: 'dataTables/extensions/Select/js/dataTables.select',
 });
-layui.use(['element', 'layer'], function() {
+layui.use(['element', 'layer', 'util'], function() {
   var $ = layui.jquery,
     layer = layui.layer,
-    element = layui.element();
+    element = layui.element(),
+    util = layui.util;
+  /**
+   * 使用内部工具组件
+   */
+  util.fixbar();
   /**
    ****jq扩展函数*******
    */
