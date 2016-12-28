@@ -3688,4 +3688,5 @@ a.badge:focus {
 .fly-echart.echart-line,
 .fly-echart.echart-bar {
   width: 600px;
-  height: 400px; }
+  height: 400px;
+  margin-bottom: 20px; }

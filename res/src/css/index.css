@@ -3964,14 +3964,15 @@ a.badge:focus {
 
 .fly-echart.echart-bar.sw-100 {
   width: 100%;
-  height: 750px; }
+  height: 700px; }
 
 .fly-echart.echart-map,
 .fly-echart.echart-pie,
 .fly-echart.echart-line,
 .fly-echart.echart-bar {
   width: 600px;
-  height: 400px; }
+  height: 400px;
+  margin-bottom: 20px; }
 
 .icon-i-b{display:inline-block;background-image: url('../../imgs/common/sprite.png');background-position: 0px 0px;width:16px;height:16px;}
 .icon-i-w{display:inline-block;background-image: url('../../imgs/common/sprite.png');background-position: -16px 0px;width:16px;height:16px;}

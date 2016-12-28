@@ -45,7 +45,7 @@ layui.use(['element', 'layer'], function() {
      * 速度动画
      * @param {Object} obj
      */
-    var $obj = $('.obj');
+    var $obj = $('.fly-numberAdd');
     $obj.each(function() {
       var $this = $(this);
       var max_number = $this.data("value"); //最大值
@@ -61,6 +61,18 @@ layui.use(['element', 'layer'], function() {
         }
       }, 10);
     });
+    /**
+     * 数字过万则处理
+     */
+    $('.fly-number').each(function(i, obj) {
+      var n = +$(obj).data('number');
+      if(n > 10000) {
+        $(obj).text((n / 10000).toFixed(2) + '万');
+      }
+    });
+    /**
+     * 
+     */
   });
 });
 /**
