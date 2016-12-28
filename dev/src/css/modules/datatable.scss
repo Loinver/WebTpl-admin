@@ -57,13 +57,10 @@ table.dataTable thead .sorting_desc {
   height: 26px;
   line-height: 26px;
   text-decoration: none;
-  margin-right:5px;
+  margin-right: 5px;
   padding: 0 10px;
   font-size: 14px;
   vertical-align: middle;
-}
-.dataTables_wrapper {
-  margin-top: 20px;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover,
 .dataTables_wrapper .dataTables_paginate .paginate_button.current,
@@ -104,6 +101,12 @@ table.dataTable thead .sorting_desc {
 .table-box tbody tr.even {
   background-color: #f9f9f9;
 }
+.table-box tbody tr:nth-of-type(odd) {
+  background-color: #fff;
+}
+.table-box tbody tr:nth-of-type(even) {
+  background-color: #f9f9f9;
+}
 .table-box th,
 .table-box td {
   min-width: 35px;
@@ -142,4 +145,88 @@ table.dataTable thead .sorting_desc {
 }
 .dataTables_wrapper .paginate_button.current {
   border: 1px solid #009688;
+}
+.dt-button-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,.1);
+  z-index: 998;
+}
+.dt-button-info {
+  padding: 20px;
+  background-color: rgba(0,0,0,.6);
+  position: fixed;
+  width: 300px;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -150px;
+}
+.dataTable > tbody > tr.selected > td{
+  background-color: #d2efd3;
+}
+//操作栏
+.tableTools {
+  position: relative;
+  .dt-button-collection .dropdown-menu {
+    display: block;
+    z-index: 999;
+  }
+  .dt-button-collection .dropdown-menu > li > a {
+    color: #BBBBBB;
+    text-decoration: line-through;
+    background-color: #EEEEEE;
+  }
+  .dt-button-collection .dropdown-menu > li > a.active {
+    color: #333;
+    text-decoration: none;
+    background-color: #ffffff;
+  }
+  
+  .tableTools-box {
+    margin: 10px 0;
+    display: inline-table;
+    position: relative;
+    .table-tool {
+      position: relative;
+    }
+    .dt-button-collection {
+      margin-top: 0 !important;
+    }
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 1000;
+      min-width: 130px;
+      margin-top: 2px;
+      padding: 1px;
+      background-color: #ffffff;
+      //border: 1px solid rgba(0, 0, 0, 0.15);
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+      -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+      background-clip: padding-box;
+      li {
+        .dt-button {
+          display: inline-block;
+          padding: 5px 15px;
+          clear: both;
+          font-weight: normal;
+          line-height: 1.2;
+          white-space: nowrap;
+          width: 100%;
+        }
+      }
+      li:hover {
+        background-color: #e6e6e6;
+        cursor: pointer;
+      }
+    }
+  }
 }

@@ -44,7 +44,7 @@ gulp.task('scripts', function() {
 });
 //迁移 lib  js
 gulp.task('libjs', function() {
-  return gulp.src('./dev/src/js/lib/*.js')
+  return gulp.src('./dev/src/js/lib/**/*.js')
     .pipe(uglify())
     .pipe(gulp.dest('./res/src/js/lib'))
     .pipe(notify("lib js生成成功"));
@@ -138,7 +138,11 @@ gulp.task('default', function() {
   })
   gulp.watch('./dev/src/css/**/*.scss', function() {
     livereload.listen();
-    gulp.run('sass','concatcss');
+    gulp.run('sass');
+  })
+  gulp.watch('./dev/src/css/rubbish/*.css', function() {
+    livereload.listen();
+    gulp.run('concatcss');
   })
   gulp.watch('./dev/src/css/plugin/*.css', function() {
     livereload.listen();
