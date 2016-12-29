@@ -2,8 +2,12 @@
 layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatableHtml5', 'datatablePrint', 'datatableColVis', 'datatableSelect'], function() {
   var $ = layui.jquery,
     layer = layui.layer;
-  $(function() {
+  $(document).ready(function() {
     var myTable = $('#orderTable').DataTable({
+      "processing": true, //DataTables载入数据时，是否显示‘进度’提示  
+      "stateSave": true, //是否打开客户端状态记录功能,此功能在ajax刷新纪录的时候不会将个性化设定回复为初始化状态  
+      "scrollCollapse": true, //是否开启DataTables的高度自适应，当数据条数不够分页数据条数的时候，插件高度是否随数据条数而改变  
+      "paginationType": "full_numbers", //详细分页组，可以支持直接跳转到某页  
       "language": lang, //提示信息
       "autoWidth": false, //自适应宽度，
       "lengthMenu": [15, 30, 50],
@@ -18,32 +22,51 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
         "orderable": false,
         "aTargets": [0, 10] // 指定列不参与排序
       }],
+      "bFilter": true, //是否启动过滤、搜索功能  
       "deferRender": true, //延迟渲染
       "ajax": "../../../json/user.json", //数据的路径
       "columns": [{ //定义列
         "data": function(obj) {
           return '<input type="checkbox" class="fly-checkbox" name="sublist" data-id=' + obj.id + '>';
-        }
+        },
+        "sTitle": "<input type='checkbox' class='btn-checkall fly-checkbox'>", //标题
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
-        "data": "id"
+        "data": "id",
+        "sTitle": "ID", //标题
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
         "data": function(obj) {
           return '<u class="btn-showuser">' + obj.userName + '</u>';
-        }
+        },
+        "sTitle": "用户名", //标题
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
-        "data": "userSex"
+        "data": "userSex",
+        "sTitle": "性别", //标题
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
-        "data": "phone"
+        "data": "phone",
+        "sTitle": "手机号码", //标题
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
-        "data": "identity"
+        "data": "identity",
+        "sTitle": "身份证号码", //标题
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
-        "data": "email"
+        "data": "email",
+        "sTitle": "邮箱", //标题
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
-        "data": "address"
+        "data": "address",
+        "sTitle": "所在地址", //标题
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
         "data": function(obj) {
           return replaceTime(obj.joinTime / 1000);
-        }
+        },
+        "sTitle": "加入时间", //标题
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
         "data": function(obj) {
           if(obj.status) {
@@ -52,7 +75,9 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
             return '<span class="label label-default radius">已停用</span>';
           }
         },
-        "className": "td-status"
+        "className": "td-status",
+        "sTitle": "状态", //标题
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
         "data": function(obj) {
           if(obj.status) {
@@ -61,13 +86,19 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
             return '<span title="启用" class="handle-btn handle-btn-run"><i class="linyer icon-qiyong"></i></span><span title="编辑" class="handle-btn handle-btn-edit"><i class="linyer icon-edit"></i></span><span title="修改密码" class="handle-btn handle-btn-updatepwd"><i class="linyer icon-xgpwd2"></i></span><span title="删除" class="handle-btn handle-btn-delect"><i class="linyer icon-delect"></i></span>';
           }
         },
-        "className": "td-handle"
+        "className": "td-handle",
+        "sTitle": "操作", //标题
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }]
     });
-    //添加falsh
+    /**
+     * 添加falsh
+     */
     $.fn.dataTable.Buttons.swfPath = "../../src/js/lib/dataTables/extensions/Buttons/swf/flashExport.swf";
     $.fn.dataTable.Buttons.defaults.dom.container.className = 'tableTools-box';
-    //操作栏
+    /**
+     * 操作栏
+     */
     new $.fn.dataTable.Buttons(myTable, {
       buttons: [{
         "extend": "colvis",
@@ -123,7 +154,8 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
     /**
      * 选择
      */
-    myTable.on('select', function(e, dt, type, index) {console.log('1');
+    myTable.on('select', function(e, dt, type, index) {
+      console.log('1');
       if(type === 'row') {
         $(myTable.row(index).node()).find('input:checkbox').prop('checked', true);
       }
@@ -157,7 +189,7 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
     });
     $(document).on('click', '#orderTable tbody td', function() {
       var row = $(this).closest('tr').get(0);
-      
+
       //console.log(row);
     })
   });

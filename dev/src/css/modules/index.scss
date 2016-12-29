@@ -62,8 +62,10 @@
 /* 主体 */
 .layui-body {
   top: 60px !important;
-  padding: 0 10px;
   bottom: 0 !important;
+}
+.fly-tab.layui-tab {
+  margin: 0;
 }
 /* 对layui的优化 */
 .layui-form-switch,

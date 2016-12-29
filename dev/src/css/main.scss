@@ -203,6 +203,7 @@ a.badge:focus {
 }
 .fly-checkbox {
   -webkit-appearance: none;
+  -moz-appearance: none;
   position: relative;
   width: 20px;
   height: 20px;
@@ -244,9 +245,17 @@ a.badge:focus {
     @include checkedCon(12px);
   }
 }
+.fly-checkbox:checked {
+  background-color: #28B779;
+  border: solid 0 #28B779;
+  @include checkedCon();
+}
 //继续优化
 .layui-form-item .layui-form-label+.layui-input-inline.sw-times2 {
   width: 390px;
+}
+.tab-body {
+  position: relative;
 }
 //地图
 .fly-echart.echart-map.sw-100,
@@ -269,4 +278,70 @@ a.badge:focus {
   width: 600px;
   height: 400px;
   margin-bottom: 20px;
+}
+//加载中
+.loader {
+  font-size: 16px;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-animation: load4 1.3s infinite linear;
+  animation: load4 1.3s infinite linear;
+}
+@-webkit-keyframes load4 {
+  0%,
+  100% {
+    box-shadow: 0 -3em 0 0.2em #666666, 2em -2em 0 0 #666666, 3em 0 0 -0.5em #666666, 2em 2em 0 -0.5em #666666, 0 3em 0 -0.5em #666666, -2em 2em 0 -0.5em #666666, -3em 0 0 -0.5em #666666, -2em -2em 0 0 #666666;
+  }
+  12.5% {
+    box-shadow: 0 -3em 0 0 #666666, 2em -2em 0 0.2em #666666, 3em 0 0 0 #666666, 2em 2em 0 -0.5em #666666, 0 3em 0 -0.5em #666666, -2em 2em 0 -0.5em #666666, -3em 0 0 -0.5em #666666, -2em -2em 0 -0.5em #666666;
+  }
+  25% {
+    box-shadow: 0 -3em 0 -0.5em #666666, 2em -2em 0 0 #666666, 3em 0 0 0.2em #666666, 2em 2em 0 0 #666666, 0 3em 0 -0.5em #666666, -2em 2em 0 -0.5em #666666, -3em 0 0 -0.5em #666666, -2em -2em 0 -0.5em #666666;
+  }
+  37.5% {
+    box-shadow: 0 -3em 0 -0.5em #666666, 2em -2em 0 -0.5em #666666, 3em 0 0 0 #666666, 2em 2em 0 0.2em #666666, 0 3em 0 0 #666666, -2em 2em 0 -0.5em #666666, -3em 0 0 -0.5em #666666, -2em -2em 0 -0.5em #666666;
+  }
+  50% {
+    box-shadow: 0 -3em 0 -0.5em #666666, 2em -2em 0 -0.5em #666666, 3em 0 0 -0.5em #666666, 2em 2em 0 0 #666666, 0 3em 0 0.2em #666666, -2em 2em 0 0 #666666, -3em 0 0 -0.5em #666666, -2em -2em 0 -0.5em #666666;
+  }
+  62.5% {
+    box-shadow: 0 -3em 0 -0.5em #666666, 2em -2em 0 -0.5em #666666, 3em 0 0 -0.5em #666666, 2em 2em 0 -0.5em #666666, 0 3em 0 0 #666666, -2em 2em 0 0.2em #666666, -3em 0 0 0 #666666, -2em -2em 0 -0.5em #666666;
+  }
+  75% {
+    box-shadow: 0 -3em 0 -0.5em #666666, 2em -2em 0 -0.5em #666666, 3em 0 0 -0.5em #666666, 2em 2em 0 -0.5em #666666, 0 3em 0 -0.5em #666666, -2em 2em 0 0 #666666, -3em 0 0 0.2em #666666, -2em -2em 0 0 #666666;
+  }
+  87.5% {
+    box-shadow: 0 -3em 0 0 #666666, 2em -2em 0 -0.5em #666666, 3em 0 0 -0.5em #666666, 2em 2em 0 -0.5em #666666, 0 3em 0 -0.5em #666666, -2em 2em 0 0 #666666, -3em 0 0 0 #666666, -2em -2em 0 0.2em #666666;
+  }
+}
+@keyframes load4 {
+  0%,
+  100% {
+    box-shadow: 0 -3em 0 0.2em #666666, 2em -2em 0 0 #666666, 3em 0 0 -0.5em #666666, 2em 2em 0 -0.5em #666666, 0 3em 0 -0.5em #666666, -2em 2em 0 -0.5em #666666, -3em 0 0 -0.5em #666666, -2em -2em 0 0 #666666;
+  }
+  12.5% {
+    box-shadow: 0 -3em 0 0 #666666, 2em -2em 0 0.2em #666666, 3em 0 0 0 #666666, 2em 2em 0 -0.5em #666666, 0 3em 0 -0.5em #666666, -2em 2em 0 -0.5em #666666, -3em 0 0 -0.5em #666666, -2em -2em 0 -0.5em #666666;
+  }
+  25% {
+    box-shadow: 0 -3em 0 -0.5em #666666, 2em -2em 0 0 #666666, 3em 0 0 0.2em #666666, 2em 2em 0 0 #666666, 0 3em 0 -0.5em #666666, -2em 2em 0 -0.5em #666666, -3em 0 0 -0.5em #666666, -2em -2em 0 -0.5em #666666;
+  }
+  37.5% {
+    box-shadow: 0 -3em 0 -0.5em #666666, 2em -2em 0 -0.5em #666666, 3em 0 0 0 #666666, 2em 2em 0 0.2em #666666, 0 3em 0 0 #666666, -2em 2em 0 -0.5em #666666, -3em 0 0 -0.5em #666666, -2em -2em 0 -0.5em #666666;
+  }
+  50% {
+    box-shadow: 0 -3em 0 -0.5em #666666, 2em -2em 0 -0.5em #666666, 3em 0 0 -0.5em #666666, 2em 2em 0 0 #666666, 0 3em 0 0.2em #666666, -2em 2em 0 0 #666666, -3em 0 0 -0.5em #666666, -2em -2em 0 -0.5em #666666;
+  }
+  62.5% {
+    box-shadow: 0 -3em 0 -0.5em #666666, 2em -2em 0 -0.5em #666666, 3em 0 0 -0.5em #666666, 2em 2em 0 -0.5em #666666, 0 3em 0 0 #666666, -2em 2em 0 0.2em #666666, -3em 0 0 0 #666666, -2em -2em 0 -0.5em #666666;
+  }
+  75% {
+    box-shadow: 0 -3em 0 -0.5em #666666, 2em -2em 0 -0.5em #666666, 3em 0 0 -0.5em #666666, 2em 2em 0 -0.5em #666666, 0 3em 0 -0.5em #666666, -2em 2em 0 0 #666666, -3em 0 0 0.2em #666666, -2em -2em 0 0 #666666;
+  }
+  87.5% {
+    box-shadow: 0 -3em 0 0 #666666, 2em -2em 0 -0.5em #666666, 3em 0 0 -0.5em #666666, 2em 2em 0 -0.5em #666666, 0 3em 0 -0.5em #666666, -2em 2em 0 0 #666666, -3em 0 0 0 #666666, -2em -2em 0 0.2em #666666;
+  }
 }

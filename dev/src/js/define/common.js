@@ -9,7 +9,7 @@ layui.config({
   datatableColVis: 'dataTables/extensions/Buttons/js/buttons.colVis',
   datatableSelect: 'dataTables/extensions/Select/js/dataTables.select',
 });
-layui.use(['element', 'layer', 'util'], function() {
+layui.use(['layer', 'util', 'element'], function() {
   var $ = layui.jquery,
     layer = layui.layer,
     element = layui.element(),
@@ -19,7 +19,7 @@ layui.use(['element', 'layer', 'util'], function() {
    */
   util.fixbar();
   /**
-   ****jq扩展函数*******
+   ****************************jq扩展函数*******************************v**
    */
   /**
    * 全选
@@ -82,8 +82,11 @@ layui.use(['element', 'layer', 'util'], function() {
       }
     });
     /**
-     * 
+     * 刷新当前页
      */
+    $("#refresh").on('click', function() {
+      window.location.reload();
+    });
   });
 });
 /**
@@ -99,11 +102,11 @@ function layerMsg(text, icon) {
 }
 //table配置项汉化
 var lang = {
-  "sProcessing": "处理中...",
+  "sProcessing": "<div class='loader'>加载中...</div>",
   "sLengthMenu": "每页 _MENU_ 项",
-  "sZeroRecords": "没有匹配结果",
-  "sInfo": "当前显示第 _START_ 至 _END_ 项，共 _TOTAL_ 项。",
-  "sInfoEmpty": "当前显示第 0 至 0 项，共 0 项",
+  "sZeroRecords": "换个搜索词试试呢？暂无数据",
+  "sInfo": "当前显示第 _START_ 至 _END_ 项，全部 _TOTAL_ 项。",
+  "sInfoEmpty": "当前显示第 0 至 0 项，全部 0 项",
   "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
   "sInfoPostFix": "",
   "sSearch": "本地搜索：",
@@ -143,7 +146,6 @@ function layer_show(title, url, id, w, h) {
     title: title,
     content: url
   });
-
 };
 /**
  * 关闭弹出框口
