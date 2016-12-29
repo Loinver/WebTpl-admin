@@ -1,8 +1,12 @@
-layui.use(['layer', 'datatable'], function() {
+layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatableHtml5', 'datatablePrint', 'datatableColVis', 'datatableSelect'], function() {
   var $ = layui.jquery,
     layer = layui.layer;
   $(function() {
-    $('#productTable').dataTable({
+    var myTable = $('#productTable').DataTable({
+      "processing": true, //DataTables载入数据时，是否显示‘进度’提示  
+      "stateSave": true, //是否打开客户端状态记录功能,此功能在ajax刷新纪录的时候不会将个性化设定回复为初始化状态  
+      "scrollCollapse": true, //是否开启DataTables的高度自适应，当数据条数不够分页数据条数的时候，插件高度是否随数据条数而改变  
+      "paginationType": "full_numbers", //详细分页组，可以支持直接跳转到某页  
       "language": lang, //提示信息
       "autoWidth": false, //自适应宽度，
       "lengthMenu": [10, 20, 30],
@@ -22,15 +26,23 @@ layui.use(['layer', 'datatable'], function() {
       "columns": [{ //定义列
         "data": function(obj) {
           return '<input type="checkbox" name="sublist" class="fly-checkbox" data-id=' + obj.id + '>';
-        }
+        },
+        "sTitle": "<input type='checkbox' class='btn-checkall fly-checkbox'>", //标题
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错 
       }, {
-        "data": "id"
+        "data": "id",
+        "sTitle": "ID", //标题
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错 
       }, {
-        "data": "sorts"
+        "data": "sorts",
+          "sTitle" : "分类栏目",  //标题
+          "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错 
       }, {
         "data": function(obj) {
           return '<u class="btn-showarticle">' + obj.title + '</u>';
-        }
+        },
+          "sTitle" : "产品名称",  //标题
+          "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错 
       }, {
         "data": function(obj) {
           if(obj.thumbImg == "") {
@@ -41,7 +53,7 @@ layui.use(['layer', 'datatable'], function() {
         }
       }, {
         "data": "describe",
-        "className": "oneline tl"
+        "className": "oneline"
       }, {
         "data": function(obj) {
           return obj.unitPrice + "元";
@@ -66,7 +78,107 @@ layui.use(['layer', 'datatable'], function() {
         "className": "td-handle"
       }]
     });
-    $('.table-sort thead').find('.tl').removeClass('tl');
+    /**
+     * flash
+     */
+    $.fn.dataTable.Buttons.swfPath = "../../src/js/lib/dataTables/extensions/Buttons/swf/flashExport.swf";
+    $.fn.dataTable.Buttons.defaults.dom.container.className = 'tableTools-box';
+    /**操作栏
+     * 
+     */
+    new $.fn.dataTable.Buttons(myTable, {
+      buttons: [{
+        "extend": "colvis",
+        "text": "<i class='linyer icon-search'></i> <span class='hidden'>显示/隐藏列</span>",
+        "className": "layui-btn table-tool",
+        columns: ':not(:first):not(:last)'
+      }, {
+        "extend": "copy",
+        "text": "<i class='linyer icon-copy'></i> <span class='hidden'>复制到剪贴板</span>",
+        "className": "layui-btn table-tool"
+      }, {
+        "extend": "csv",
+        "text": "<i class='linyer icon-exports'></i> <span class='hidden'>导出csv</span>",
+        "className": "layui-btn table-tool"
+      }, {
+        "extend": "excel",
+        "text": "<i class='linyer icon-excel'></i> <span class='hidden'>导出excel</span>",
+        "className": "layui-btn table-tool"
+      }, {
+        "extend": "pdf",
+        "text": "<i class='linyer icon-pdf'></i> <span class=''>导出pdf</span>",
+        "className": "layui-btn table-tool"
+      }, {
+        "extend": "print",
+        "text": "<i class='linyer icon-print'></i> <span class='hidden'>打印</span>",
+        "className": "layui-btn table-tool",
+        autoPrint: false,
+        message: '此打印是使用DataTable的打印按钮生成的!'
+      }]
+    });
+    console.log(myTable);
+    myTable.buttons().container().appendTo($('.tableTools'));
+    /**
+     * 显示隐藏列
+     */
+    var defaultColvisAction = myTable.button(0).action();
+    myTable.button(0).action(function(e, dt, button, config) {
+      defaultColvisAction(e, dt, button, config);
+      if($('.dt-button-collection > .dropdown-menu').length == 0) {
+        $('.dt-button-collection')
+          .wrapInner('<ul class="dropdown-menu" />')
+          .find('a').attr('href', 'javascript:;').wrap("<li />")
+      }
+      $('.dt-button-collection').appendTo('.tableTools-box')
+    });
+    /**
+     * 复制到剪贴板
+     */
+    var defaultCopyAction = myTable.button(1).action();
+    myTable.button(1).action(function(e, dt, button, config) {
+      defaultCopyAction(e, dt, button, config);
+    });
+    /**
+     * 选择
+     */
+    myTable.on('select', function(e, dt, type, index) {
+      console.log('1');
+      if(type === 'row') {
+        $(myTable.row(index).node()).find('input:checkbox').prop('checked', true);
+      }
+    });
+    /**
+     * 取消选择
+     */
+    myTable.on('deselect', function(e, dt, type, index) {
+      if(type === 'row') {
+        $(myTable.row(index).node()).find('input:checkbox').prop('checked', false);
+      }
+    });
+    /**
+     * 根据表头复选框 选择/取消选择所有行
+     */
+    $(document).on('click', '#productTable > thead > tr > th input[type=checkbox]', function() {
+      var th_checked = this.checked;
+      $('#productTable').find('tbody > tr').each(function() {
+        var row = this;
+        if(th_checked) myTable.row(row).select();
+        else myTable.row(row).deselect();
+      });
+    });
+    /**
+     * 选中/取消选中复选框时 选中/取消选中一行
+     */
+    $(document).on('click', '#productTable tbody td input[type=checkbox]', function() {
+      var row = $(this).closest('tr').get(0);
+      if(!this.checked) myTable.row(row).deselect();
+      else myTable.row(row).select();
+    });
+    $(document).on('click', '#productTable tbody td', function() {
+      var row = $(this).closest('tr').get(0);
+
+      //console.log(row);
+    })
   });
   //产品--查看
   $('.btn-showuser').on('click', function() {

@@ -1,9 +1,13 @@
 //初始化
-layui.use(['layer', 'datatable'], function() {
+layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatableHtml5', 'datatablePrint', 'datatableColVis', 'datatableSelect'], function() {
   var $ = layui.jquery,
     layer = layui.layer;
   $(function() {
-    $('#userTable').dataTable({
+    var myTable = $('#userTable').DataTable({
+      "processing": true, //DataTables载入数据时，是否显示‘进度’提示  
+      "stateSave": true, //是否打开客户端状态记录功能,此功能在ajax刷新纪录的时候不会将个性化设定回复为初始化状态  
+      "scrollCollapse": true, //是否开启DataTables的高度自适应，当数据条数不够分页数据条数的时候，插件高度是否随数据条数而改变  
+      "paginationType": "full_numbers", //详细分页组，可以支持直接跳转到某页  
       "language": lang, //提示信息
       "autoWidth": false, //自适应宽度，
       "lengthMenu": [15, 30, 50],
@@ -23,27 +27,45 @@ layui.use(['layer', 'datatable'], function() {
       "columns": [{ //定义列
         "data": function(obj) {
           return '<input type="checkbox" class="fly-checkbox" name="sublist" data-id=' + obj.id + '>';
-        }
+        },
+        "sTitle": "<input type='checkbox' class='btn-checkall fly-checkbox'>", //标题
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
-        "data": "id"
+        "data": "id",
+        "sTitle": "ID", //标题
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
         "data": function(obj) {
           return '<u class="btn-showuser">' + obj.userName + '</u>';
-        }
+        },
+        "sTitle": "用户名", //标题
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
-        "data": "userSex"
+        "data": "userSex",
+        "sTitle": "性别", //标题
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
-        "data": "phone"
+        "data": "phone",
+        "sTitle": "手机号码", //标题
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
-        "data": "identity"
+        "data": "identity",
+        "sTitle": "身份证号码", //标题
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
-        "data": "email"
+        "data": "email",
+        "sTitle": "邮箱", //标题
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
-        "data": "address"
+        "data": "address",
+        "sTitle": "地址", //标题
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
         "data": function(obj) {
           return replaceTime(obj.joinTime / 1000);
-        }
+        },
+        "sTitle": "加入时间", //标题
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
         "data": function(obj) {
           if(obj.status) {
@@ -52,7 +74,9 @@ layui.use(['layer', 'datatable'], function() {
             return '<span class="label label-default radius">已停用</span>';
           }
         },
-        "className": "td-status"
+        "className": "td-status",
+        "sTitle": "状态", //标题
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
         "data": function(obj) {
           if(obj.status) {
@@ -61,9 +85,112 @@ layui.use(['layer', 'datatable'], function() {
             return '<span title="启用" class="handle-btn handle-btn-run"><i class="linyer icon-qiyong"></i></span><span title="编辑" class="handle-btn handle-btn-edit"><i class="linyer icon-edit"></i></span><span title="修改密码" class="handle-btn handle-btn-updatepwd"><i class="linyer icon-xgpwd2"></i></span><span title="删除" class="handle-btn handle-btn-delect"><i class="linyer icon-delect"></i></span>';
           }
         },
-        "className": "td-handle"
+        "className": "td-handle",
+        "sTitle": "操作", //标题
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }]
     });
+    /**
+     * 添加falsh
+     */
+    $.fn.dataTable.Buttons.swfPath = "../../src/js/lib/dataTables/extensions/Buttons/swf/flashExport.swf";
+    $.fn.dataTable.Buttons.defaults.dom.container.className = 'tableTools-box';
+    /**
+     * 操作栏
+     */
+    new $.fn.dataTable.Buttons(myTable, {
+      buttons: [{
+        "extend": "colvis",
+        "text": "<i class='linyer icon-search'></i> <span class='hidden'>显示/隐藏列</span>",
+        "className": "layui-btn table-tool",
+        columns: ':not(:first):not(:last)'
+      }, {
+        "extend": "copy",
+        "text": "<i class='linyer icon-copy'></i> <span class='hidden'>复制到剪贴板</span>",
+        "className": "layui-btn table-tool"
+      }, {
+        "extend": "csv",
+        "text": "<i class='linyer icon-exports'></i> <span class='hidden'>导出csv</span>",
+        "className": "layui-btn table-tool"
+      }, {
+        "extend": "excel",
+        "text": "<i class='linyer icon-excel'></i> <span class='hidden'>导出excel</span>",
+        "className": "layui-btn table-tool"
+      }, {
+        "extend": "pdf",
+        "text": "<i class='linyer icon-pdf'></i> <span class=''>导出pdf</span>",
+        "className": "layui-btn table-tool"
+      }, {
+        "extend": "print",
+        "text": "<i class='linyer icon-print'></i> <span class='hidden'>打印</span>",
+        "className": "layui-btn table-tool",
+        autoPrint: false,
+        message: '此打印是使用DataTable的打印按钮生成的!'
+      }]
+    });
+    console.log(myTable);
+    myTable.buttons().container().appendTo($('.tableTools'));
+    /**
+     * 显示隐藏列
+     */
+    var defaultColvisAction = myTable.button(0).action();
+    myTable.button(0).action(function(e, dt, button, config) {
+      defaultColvisAction(e, dt, button, config);
+      if($('.dt-button-collection > .dropdown-menu').length == 0) {
+        $('.dt-button-collection')
+          .wrapInner('<ul class="dropdown-menu" />')
+          .find('a').attr('href', 'javascript:;').wrap("<li />")
+      }
+      $('.dt-button-collection').appendTo('.tableTools-box')
+    });
+    /**
+     * 复制到剪贴板
+     */
+    var defaultCopyAction = myTable.button(1).action();
+    myTable.button(1).action(function(e, dt, button, config) {
+      defaultCopyAction(e, dt, button, config);
+    });
+    /**
+     * 选择
+     */
+    myTable.on('select', function(e, dt, type, index) {
+      console.log('1');
+      if(type === 'row') {
+        $(myTable.row(index).node()).find('input:checkbox').prop('checked', true);
+      }
+    });
+    /**
+     * 取消选择
+     */
+    myTable.on('deselect', function(e, dt, type, index) {
+      if(type === 'row') {
+        $(myTable.row(index).node()).find('input:checkbox').prop('checked', false);
+      }
+    });
+    /**
+     * 根据表头复选框 选择/取消选择所有行
+     */
+    $(document).on('click', '#userTable > thead > tr > th input[type=checkbox]', function() {
+      var th_checked = this.checked;
+      $('#userTable').find('tbody > tr').each(function() {
+        var row = this;
+        if(th_checked) myTable.row(row).select();
+        else myTable.row(row).deselect();
+      });
+    });
+    /**
+     * 选中/取消选中复选框时 选中/取消选中一行
+     */
+    $(document).on('click', '#userTable tbody td input[type=checkbox]', function() {
+      var row = $(this).closest('tr').get(0);
+      if(!this.checked) myTable.row(row).deselect();
+      else myTable.row(row).select();
+    });
+    $(document).on('click', '#userTable tbody td', function() {
+      var row = $(this).closest('tr').get(0);
+
+      //console.log(row);
+    })
   });
   //用户--查看
   $("#userTable").on('click', '.btn-showuser', function() {
@@ -76,10 +203,6 @@ layui.use(['layer', 'datatable'], function() {
     var username = $(this).html();
     var href = 'user-add.html';
     layer_show(username, href, '', '800', '600');
-  });
-  /*刷新当前页面*/
-  $("#refresh").on('click', function() {
-    window.location.reload();
   });
   /*用户-停用*/
   $('.table-sort').on('click', '.handle-btn-stop', function() {
