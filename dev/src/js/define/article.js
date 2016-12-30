@@ -25,12 +25,16 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
           "orderable": false,
           "aTargets": [0, 4, 7] // 指定列不参与排序
         }],
+        select: {
+          style: 'multi'
+        },
         "deferRender": true, //延迟渲染
         "ajax": "../../../json/article.json", //数据的路径
         "columns": [{ //定义列
           "data": function(obj) {
             return '<input type="checkbox" name="sublist" class="fly-checkbox" data-id=' + obj.id + '>';
-          },"sTitle" : "<input type='checkbox' class='btn-checkall fly-checkbox'>",  //标题
+          },
+          "sTitle": "<input type='checkbox' class='btn-checkall fly-checkbox'>", //标题
           "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
         }, {
           "data": "id",
@@ -81,10 +85,10 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
           "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
         }]
       });
-      /**
-       * 其他
-       */
-      $.fn.dataTable.Buttons.swfPath = "../../src/js/lib/dataTables/extensions/Buttons/swf/flashExport.swf";
+    /**
+     * 其他
+     */
+    $.fn.dataTable.Buttons.swfPath = "../../src/js/lib/dataTables/extensions/Buttons/swf/flashExport.swf";
     $.fn.dataTable.Buttons.defaults.dom.container.className = 'tableTools-box';
     /**操作栏
      * 
@@ -161,7 +165,7 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
     /**
      * 根据表头复选框 选择/取消选择所有行
      */
-    $(document).on('click', '#articleTable > thead > tr > th input[type=checkbox]', function() {
+    $(document).on('click', '#articleTable > thead > tr > th input[type=checkbox],#articleTable > tfoot > tr > th input[type=checkbox]', function() {
       var th_checked = this.checked;
       $('#articleTable').find('tbody > tr').each(function() {
         var row = this;

@@ -25,6 +25,9 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
       "bFilter": true, //是否启动过滤、搜索功能  
       "deferRender": true, //延迟渲染
       "ajax": "../../../json/user.json", //数据的路径
+      select: {
+        style: 'multi'
+      },
       "columns": [{ //定义列
         "data": function(obj) {
           return '<input type="checkbox" class="fly-checkbox" name="sublist" data-id=' + obj.id + '>';
@@ -33,7 +36,7 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
         "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
         "data": "id",
-        "sTitle": "ID", //标题
+        "sTitle": "订单号", //标题
         "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
         "data": function(obj) {
@@ -155,7 +158,6 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
      * 选择
      */
     myTable.on('select', function(e, dt, type, index) {
-      console.log('1');
       if(type === 'row') {
         $(myTable.row(index).node()).find('input:checkbox').prop('checked', true);
       }
@@ -171,7 +173,7 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
     /**
      * 根据表头复选框 选择/取消选择所有行
      */
-    $(document).on('click', '#orderTable > thead > tr > th input[type=checkbox]', function() {
+    $(document).on('click', '#orderTable > thead > tr > th input[type=checkbox],#orderTable > tfoot > tr > th input[type=checkbox]', function() {
       var th_checked = this.checked;
       $('#orderTable').find('tbody > tr').each(function() {
         var row = this;

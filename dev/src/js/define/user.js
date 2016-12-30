@@ -24,6 +24,9 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
       }],
       "deferRender": true, //延迟渲染
       "ajax": "../../../json/user.json", //数据的路径
+      select: {//单击tr选中当前行
+        style: 'multi'
+      },
       "columns": [{ //定义列
         "data": function(obj) {
           return '<input type="checkbox" class="fly-checkbox" name="sublist" data-id=' + obj.id + '>';
@@ -170,7 +173,7 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
     /**
      * 根据表头复选框 选择/取消选择所有行
      */
-    $(document).on('click', '#userTable > thead > tr > th input[type=checkbox]', function() {
+    $(document).on('click', '#userTable > thead > tr > th input[type=checkbox],#userTable > tfoot > tr > th input[type=checkbox]', function() {
       var th_checked = this.checked;
       $('#userTable').find('tbody > tr').each(function() {
         var row = this;
