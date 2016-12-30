@@ -21,6 +21,9 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
         "orderable": false,
         "aTargets": [0, 4, 8] // 指定列不参与排序
       }],
+      select: {
+        style: 'multi'
+      },
       "deferRender": true, //延迟渲染
       "ajax": "../../../json/product.json", //数据的路径
       "columns": [{ //定义列
@@ -158,7 +161,7 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
     /**
      * 根据表头复选框 选择/取消选择所有行
      */
-    $(document).on('click', '#productTable > thead > tr > th input[type=checkbox]', function() {
+    $(document).on('click', '#productTable > thead > tr > th input[type=checkbox],#productTable > tfoot > tr > th input[type=checkbox]', function() {
       var th_checked = this.checked;
       $('#productTable').find('tbody > tr').each(function() {
         var row = this;
