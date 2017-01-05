@@ -3994,5 +3994,5 @@ a.badge:focus {
   87.5% {
     box-shadow: 0 -3em 0 0 #666666, 2em -2em 0 -0.5em #666666, 3em 0 0 -0.5em #666666, 2em 2em 0 -0.5em #666666, 0 3em 0 -0.5em #666666, -2em 2em 0 0 #666666, -3em 0 0 0 #666666, -2em -2em 0 0.2em #666666; } }
 
-.icon-i-b{display:inline-block;background-image: url('../../imgs/common/sprite.png');background-position: 0px 0px;width:16px;height:16px;}
-.icon-i-w{display:inline-block;background-image: url('../../imgs/common/sprite.png');background-position: -16px 0px;width:16px;height:16px;}
+.icon-i-b{display:inline-block;background-image: url('../imgs/common/sprite.png');background-position: 0px 0px;width:16px;height:16px;}
+.icon-i-w{display:inline-block;background-image: url('../imgs/common/sprite.png');background-position: -16px 0px;width:16px;height:16px;}
