@@ -1,4 +1,3 @@
-//初始化
 layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatableHtml5', 'datatablePrint', 'datatableColVis', 'datatableSelect'], function() {
   var $ = layui.jquery,
     layer = layui.layer;
