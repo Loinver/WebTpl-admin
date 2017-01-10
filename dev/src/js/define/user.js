@@ -2,7 +2,7 @@
 layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatableHtml5', 'datatablePrint', 'datatableColVis', 'datatableSelect'], function() {
   var $ = layui.jquery,
     layer = layui.layer;
-  $(function() {
+  $(document).ready(function() {
     var myTable = $('#userTable').DataTable({
       "processing": true, //DataTables载入数据时，是否显示‘进度’提示  
       "stateSave": true, //是否打开客户端状态记录功能,此功能在ajax刷新纪录的时候不会将个性化设定回复为初始化状态  
@@ -24,7 +24,7 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
       }],
       "deferRender": true, //延迟渲染
       "ajax": "../../../json/user.json", //数据的路径
-      select: {//单击tr选中当前行
+      select: { //单击tr选中当前行
         style: 'multi'
       },
       "columns": [{ //定义列
@@ -42,10 +42,12 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
           return '<u class="btn-showuser">' + obj.userName + '</u>';
         },
         "sTitle": "用户名", //标题
+        "sType": 'chinese',
         "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
         "data": "userSex",
         "sTitle": "性别", //标题
+        "sType": 'chinese',
         "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
         "data": "phone",
@@ -62,6 +64,7 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
       }, {
         "data": "address",
         "sTitle": "地址", //标题
+        "sType": 'chinese',
         "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
         "data": function(obj) {
@@ -157,7 +160,6 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
      * 选择
      */
     myTable.on('select', function(e, dt, type, index) {
-      console.log('1');
       if(type === 'row') {
         $(myTable.row(index).node()).find('input:checkbox').prop('checked', true);
       }

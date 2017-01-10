@@ -826,4 +826,4 @@ layui.define("jquery", function(exports) {
     return DataTable.Buttons;
   }));
   exports('datatableFlash');
-});
+  });

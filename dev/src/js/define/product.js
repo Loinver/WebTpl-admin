@@ -35,17 +35,20 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
       }, {
         "data": "id",
         "sTitle": "ID", //标题
+        "sType": 'chinese',
         "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错 
       }, {
         "data": "sorts",
-          "sTitle" : "分类栏目",  //标题
-          "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错 
+        "sTitle": "分类栏目", //标题
+        "sType": 'chinese',
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错 
       }, {
         "data": function(obj) {
           return '<u class="btn-showarticle">' + obj.title + '</u>';
         },
-          "sTitle" : "产品名称",  //标题
-          "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错 
+        "sTitle": "产品名称", //标题
+        "sType": 'chinese',
+        "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错 
       }, {
         "data": function(obj) {
           if(obj.thumbImg == "") {
@@ -55,7 +58,8 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
           }
         }
       }, {
-        "data": "describe",
+        "data": "describe",//产品描述
+        "sType": 'chinese',
         "className": "oneline"
       }, {
         "data": function(obj) {
