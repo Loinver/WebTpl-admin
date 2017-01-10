@@ -85,7 +85,7 @@ gulp.task('htmlmin', function() {
 gulp.task('sprites', function() {
   return gulp.src('./dev/src/imgs/icon/icon-' + '*.png') //合并图的地址
     .pipe(sprite({
-      imgName: '../../imgs/common/sprite.png', //保存后合并的图的地址
+      imgName: '../imgs/common/sprite.png', //保存后合并的图的地址
       cssName: 'sprite.css', //生成的样式地址
       cssFormat: 'css',
       cssTemplate: function(data) {
@@ -102,8 +102,14 @@ gulp.task('sprites', function() {
         return arr.join("");
       }
     }))
-    .pipe(gulp.dest('./dev/src/css/rubbish'))
+    .pipe(gulp.dest('./dev/src/css'))
     .pipe(notify("雪碧图生成成功"));
+});
+//sprite css生成
+gulp.task('spritecss', function() {
+  return gulp.src('./dev/src/css/sprite.css')
+    .pipe(gulp.dest('./dev/src/css/rubbish'))
+    .pipe(notify('雪碧css已复制'));
 });
 //合并css任务
 gulp.task('concatcss', function() {
@@ -123,7 +129,7 @@ gulp.task('plugincss', function() {
 });
 // 默认任务
 gulp.task('default', function() {
-  gulp.run('imagesmin', 'sprites', 'sass', 'jslint', 'libjs', 'scripts', 'plugincss', 'concatcss', 'htmlmin');
+  gulp.run('imagesmin', 'sprites', 'sass', 'jslint', 'libjs', 'scripts', 'spritecss', 'plugincss', 'concatcss', 'htmlmin');
   gulp.watch('./dev/src/js/**/*.js', function() {
     livereload.listen();
     gulp.run('jslint', 'libjs', 'scripts');
@@ -142,7 +148,7 @@ gulp.task('default', function() {
   })
   gulp.watch('./dev/src/css/rubbish/*.css', function() {
     livereload.listen();
-    gulp.run('concatcss');
+    gulp.run('spritecss', 'concatcss');
   })
   gulp.watch('./dev/src/css/plugin/*.css', function() {
     livereload.listen();

@@ -39,21 +39,25 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
         }, {
           "data": "id",
           "sTitle": "ID", //标题
+          "sType": 'chinese',
           "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
         }, {
           "data": "articleSorts",
           "sTitle": "文章栏目", //标题
+          "sType": 'chinese',
           "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
         }, {
           "data": function(obj) {
             return '<u class="btn-showarticle">' + obj.articleTitle + '</u>';
           },
           "sTitle": "文章标题", //标题
+          "sType": 'chinese',
           "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
         }, {
           "data": "articleContents",
           "className": "oneline",
           "sTitle": "文章内容", //标题
+          "sType": 'chinese',
           "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
         }, {
           "data": function(obj) {

@@ -49,7 +49,7 @@ layui.use(['element', 'layer'], function() {
             element.tabDelete('page-tab', $(this).parent('li').index());
           });
           //获取焦点
-          element.tabChange('page-tab', $li.length - 1);
+          element.tabChange('page-tab', --$li.length);
         } else {
           //切换tab
           element.tabChange('page-tab', tabIndex);
@@ -72,3 +72,4 @@ layui.use(['element', 'layer'], function() {
     }
   });
 })
+

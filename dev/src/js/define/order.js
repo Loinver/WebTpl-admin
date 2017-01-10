@@ -1,4 +1,3 @@
-//初始化
 layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatableHtml5', 'datatablePrint', 'datatableColVis', 'datatableSelect'], function() {
   var $ = layui.jquery,
     layer = layui.layer;
@@ -43,10 +42,12 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
           return '<u class="btn-showuser">' + obj.userName + '</u>';
         },
         "sTitle": "用户名", //标题
+        "sType": 'chinese',
         "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
         "data": "userSex",
         "sTitle": "性别", //标题
+        "sType": 'chinese',
         "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
         "data": "phone",
@@ -63,6 +64,7 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
       }, {
         "data": "address",
         "sTitle": "所在地址", //标题
+        "sType": 'chinese',
         "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错  
       }, {
         "data": function(obj) {
