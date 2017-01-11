@@ -263,12 +263,14 @@ a.badge:focus {
 .fly-echart.echart-line.sw-100,
 .fly-echart.echart-bar.sw-100 {
   width: 100%;
+  min-width: 800px;
   height: 700px;
 }
 .fly-echart.echart-pie.sw-50,
 .fly-echart.echart-line.sw-50,
 .fly-echart.echart-bar.sw-50 {
   width: 50%;
+  min-width: 600px;
   height: 500px;
 }
 .fly-echart.echart-map,
