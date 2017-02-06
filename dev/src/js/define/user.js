@@ -218,8 +218,6 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
     });
     $(document).on('click', '#userTable tbody td', function() {
       var row = $(this).closest('tr').get(0);
-
-      //console.log(row);
     })
   });
   //用户--查看

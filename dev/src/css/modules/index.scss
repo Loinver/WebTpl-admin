@@ -10,7 +10,7 @@
   height: 60px !important;
   border-bottom: 5px solid #4E5465;
   .layui-nav.nav .layui-nav-item a {
-    color: #000;
+    color: #323232;
     font-size: 18px;
     margin-top: 5px;
   }
@@ -94,7 +94,7 @@
 /*登录*/
 .login-warp {
   width: 100%;
-  background: url("../../src/imgs/upload/bg.png") no-repeat;
+  background: url("../../src/imgs/common/no-pic.png") no-repeat;
   background-attachment: fixed;
   -moz-background-size: cover;
   -webkit-background-size: cover;
