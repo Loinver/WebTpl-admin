@@ -13,7 +13,6 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
   $.fn.dataTableExt.oSort['chinese-desc'] = function(x, y) {
     return y.localeCompare(x);
   };
-
   // aTypes是插件存放表格内容类型的数组
   // reg赋值的正则表达式，用来判断是否是中文字符
   // 返回值push到aTypes数组，排序时扫描该数组，'chinese'则调用上面两个方法。返回null默认是'string'

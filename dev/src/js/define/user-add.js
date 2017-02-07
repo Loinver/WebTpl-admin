@@ -25,6 +25,7 @@ layui.use(['form', 'jquery'], function() {
     form.render('select');
   });
   form.verify({
+    //验证可以有两种方法，一种if，一种直接判断
     username: function(value) {
       if(!new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]+$").test(value)) {
         return '用户名不能有特殊字符';
