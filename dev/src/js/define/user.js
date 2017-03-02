@@ -47,7 +47,7 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
         "aTargets": [0, 10] // 指定列不参与排序
       }],
       "deferRender": true, //延迟渲染
-      "ajax": "../../../json/user.json", //数据的路径
+      "ajax": '../../../json/user.json', //数据的路径
       select: { //单击tr选中当前行
         style: 'multi'
       },
@@ -282,6 +282,7 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
   /*用户-删除*/
   $('.table-sort').on('click', '.handle-btn-delect', function() {
     var obj = $(this);
+    var id = obj.parents('tr').find('td:first-child input').data('id');
     layer.confirm('确认要删除吗？', {
       icon: 0,
       title: '警告',

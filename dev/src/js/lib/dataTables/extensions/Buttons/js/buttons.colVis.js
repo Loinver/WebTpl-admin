@@ -130,7 +130,6 @@ layui.define("jquery", function(exports) {
         hide: []
       }
     });
-    console.log(11);
     return DataTable.Buttons
   }));
   exports('datatableColVis')

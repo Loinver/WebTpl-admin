@@ -3,9 +3,9 @@ table.dataTable {
   border-spacing: 0;
   clear: both;
 }
+table.dataTable thead .sorting,
 table.dataTable thead .sorting_asc,
-table.dataTable thead .sorting_desc,
-table.dataTable thead .sorting {
+table.dataTable thead .sorting_desc {
   cursor: pointer;
   background-repeat: no-repeat;
   background-position: right center;
@@ -62,9 +62,9 @@ table.dataTable thead .sorting_desc {
   font-size: 14px;
   vertical-align: middle;
 }
-.dataTables_wrapper .dataTables_paginate .paginate_button:hover,
 .dataTables_wrapper .dataTables_paginate .paginate_button.current,
-.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button:not(.disabled):hover {
   background: #009688;
   color: #fff;
 }
@@ -75,12 +75,12 @@ table.dataTable thead .sorting_desc {
   margin-top: 0;
   border-left: 0;
 }
-.table-box tfoot th,
-.table-box tfoot td {
+.table-box tfoot td,
+.table-box tfoot th {
   border-top: 1px solid #CCCCCC;
 }
-.table-box thead th,
-.table-box tfoot th {
+.table-box tfoot th,
+.table-box thead th {
   font-size: 15px;
   font-weight: 400;
   border-left: 1px solid #ddd;
@@ -89,8 +89,8 @@ table.dataTable thead .sorting_desc {
   padding: 0 10px 0 3px;
   text-align: center;
 }
-.table-box thead th:first-child,
-.table-box tfoot th:first-child {
+.table-box tfoot th:first-child,
+.table-box thead th:first-child {
   padding: 0;
 }
 .table-box tbody td {
@@ -113,16 +113,16 @@ table.dataTable thead .sorting_desc {
 .table-box tbody tr:nth-of-type(even) {
   background-color: #f9f9f9;
 }
-.table-box th,
-.table-box td {
+.table-box td,
+.table-box th {
   min-width: 35px;
   max-width: 400px;
 }
 .table-box tbody tr:hover {
   background-color: #f5f5f5;
 }
-.table-box th>input[type='checkbox'],
-.table-box td>input[type='checkbox'] {
+.table-box th > input[type='checkbox'],
+.table-box td > input[type='checkbox'] {
   vertical-align: middle;
 }
 .table-box .td-handle .handle-btn {
@@ -145,8 +145,8 @@ table.dataTable thead .sorting_desc {
   width: 50px;
   border: 1px solid #e6e6e6;
 }
-.dataTables_wrapper .paginate_button.previous,
-.dataTables_wrapper .paginate_button.next {
+.dataTables_wrapper .paginate_button.next,
+.dataTables_wrapper .paginate_button.previous {
   border: none;
 }
 .dataTables_wrapper .paginate_button.current {

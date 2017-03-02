@@ -115,7 +115,7 @@ gulp.task('spritecss', function() {
 gulp.task('concatcss', function() {
   return gulp.src('./dev/src/css/rubbish/*.css')
     .pipe(concat('index.css'))
-    .pipe(cssmin())
+    //.pipe(cssmin())
     .pipe(gulp.dest('./dev/src/css'))
     .pipe(gulp.dest('./res/src/css'))
     .pipe(livereload())

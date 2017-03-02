@@ -9,6 +9,7 @@
 @import "modules/product"; //产品
 @import "modules/article"; //文章
 @import "modules/order"; //订单
+@import "modules/album"; //相册
 /**
   * 备注：所有在css中的图片，都必须以main所在的路径为基准
  */
@@ -24,7 +25,7 @@
 .layui-layout-admin .layui-side {
   top: 60px !important;
 }
-.btn-add>label {
+.btn-add > label {
   font-family: "微软雅黑";
   margin-left: 3px;
   font-size: 16px;
@@ -56,8 +57,8 @@
 .layui-page {
   text-align: right;
 }
-.label,
-.badge {
+.badge,
+.label {
   display: inline-block;
   padding: 2px 4px;
   font-size: 12px;
@@ -76,66 +77,66 @@
   padding-left: 9px;
   border-radius: 9px;
 }
-.label:empty,
-.badge:empty {
+.badge:empty,
+.label:empty {
   display: none;
 }
-a.label:hover,
-a.label:focus,
+a.badge:focus,
 a.badge:hover,
-a.badge:focus {
+a.label:focus,
+a.label:hover {
   color: #fff;
   text-decoration: none;
   cursor: pointer;
 }
-.label-default,
-.badge-default {
+.badge-default,
+.label-default {
   background-color: #e6e6e6;
   color: #333;
 }
-.label-default[href],
-.badge-default[href] {
+.badge-default[href],
+.label-default[href] {
   background-color: #e6e6e6;
   color: #333;
 }
-.label-primary,
-.badge-primary {
+.badge-primary,
+.label-primary {
   background-color: #5a98de;
 }
-.label-primary[href],
-.badge-primary[href] {
+.badge-primary[href],
+.label-primary[href] {
   background-color: #5a98de;
 }
-.label-secondary,
-.badge-secondary {
+.badge-secondary,
+.label-secondary {
   background-color: #3bb4f2;
 }
-.label-secondary[href],
-.badge-secondary[href] {
+.badge-secondary[href],
+.label-secondary[href] {
   background-color: #3bb4f2;
 }
-.label-success,
-.badge-success {
+.badge-success,
+.label-success {
   background-color: #5eb95e;
 }
-.label-success[href],
-.badge-success[href] {
+.badge-success[href],
+.label-success[href] {
   background-color: #5eb95e;
 }
-.label-warning,
-.badge-warning {
+.badge-warning,
+.label-warning {
   background-color: #f37b1d;
 }
-.label-warning[href],
-.badge-warning[href] {
+.badge-warning[href],
+.label-warning[href] {
   background-color: #f37b1d;
 }
-.label-danger,
-.badge-danger {
+.badge-danger,
+.label-danger {
   background-color: #dd514c;
 }
-.label-danger[href],
-.badge-danger[href] {
+.badge-danger[href],
+.label-danger[href] {
   background-color: #dd514c;
 }
 .btn-danger {
@@ -166,13 +167,13 @@ a.badge:focus {
     left: 120px !important;
   }
 }
-#tabTitle>li:first-child i {
+#tabTitle > li:first-child i {
   display: none;
 }
 @font-face {
   font-family: 'linyer';
-  src: url('../fonts/iconfont.eot');
-  src: url('../fonts/iconfont.eot?#iefix') format('embedded-opentype'), url('../fonts/iconfont.woff') format('woff'), url('../fonts/iconfont.ttf') format('truetype'), url('../fonts/iconfont.svg#linyer') format('svg');
+  src: url("../fonts/iconfont.eot");
+  src: url("../fonts/iconfont.eot?#iefix") format('embedded-opentype'), url("../fonts/iconfont.woff") format('woff'), url("../fonts/iconfont.ttf") format('truetype'), url("../fonts/iconfont.svg#linyer") format('svg');
 }
 //复选框样式
 .iconfont {
@@ -258,25 +259,25 @@ a.badge:focus {
   position: relative;
 }
 //地图
-.fly-echart.echart-map.sw-100,
-.fly-echart.echart-pie.sw-100,
+.fly-echart.echart-bar.sw-100,
 .fly-echart.echart-line.sw-100,
-.fly-echart.echart-bar.sw-100 {
+.fly-echart.echart-map.sw-100,
+.fly-echart.echart-pie.sw-100 {
   width: 100%;
   min-width: 800px;
   height: 700px;
 }
-.fly-echart.echart-pie.sw-50,
+.fly-echart.echart-bar.sw-50,
 .fly-echart.echart-line.sw-50,
-.fly-echart.echart-bar.sw-50 {
+.fly-echart.echart-pie.sw-50 {
   width: 50%;
   min-width: 600px;
   height: 500px;
 }
-.fly-echart.echart-map,
-.fly-echart.echart-pie,
+.fly-echart.echart-bar,
 .fly-echart.echart-line,
-.fly-echart.echart-bar {
+.fly-echart.echart-map,
+.fly-echart.echart-pie {
   width: 600px;
   height: 400px;
   margin-bottom: 20px;
