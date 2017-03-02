@@ -3192,9 +3192,9 @@ table.dataTable {
   border-spacing: 0;
   clear: both; }
 
+table.dataTable thead .sorting,
 table.dataTable thead .sorting_asc,
-table.dataTable thead .sorting_desc,
-table.dataTable thead .sorting {
+table.dataTable thead .sorting_desc {
   cursor: pointer;
   background-repeat: no-repeat;
   background-position: right center; }
@@ -3251,9 +3251,9 @@ table.dataTable thead .sorting_desc {
   font-size: 14px;
   vertical-align: middle; }
 
-.dataTables_wrapper .dataTables_paginate .paginate_button:hover,
 .dataTables_wrapper .dataTables_paginate .paginate_button.current,
-.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button:not(.disabled):hover {
   background: #009688;
   color: #fff; }
 
@@ -3264,12 +3264,12 @@ table.dataTable thead .sorting_desc {
   margin-top: 0;
   border-left: 0; }
 
-.table-box tfoot th,
-.table-box tfoot td {
+.table-box tfoot td,
+.table-box tfoot th {
   border-top: 1px solid #CCCCCC; }
 
-.table-box thead th,
-.table-box tfoot th {
+.table-box tfoot th,
+.table-box thead th {
   font-size: 15px;
   font-weight: 400;
   border-left: 1px solid #ddd;
@@ -3278,8 +3278,8 @@ table.dataTable thead .sorting_desc {
   padding: 0 10px 0 3px;
   text-align: center; }
 
-.table-box thead th:first-child,
-.table-box tfoot th:first-child {
+.table-box tfoot th:first-child,
+.table-box thead th:first-child {
   padding: 0; }
 
 .table-box tbody td {
@@ -3302,8 +3302,8 @@ table.dataTable thead .sorting_desc {
 .table-box tbody tr:nth-of-type(even) {
   background-color: #f9f9f9; }
 
-.table-box th,
-.table-box td {
+.table-box td,
+.table-box th {
   min-width: 35px;
   max-width: 400px; }
 
@@ -3334,8 +3334,8 @@ table.dataTable thead .sorting_desc {
   width: 50px;
   border: 1px solid #e6e6e6; }
 
-.dataTables_wrapper .paginate_button.previous,
-.dataTables_wrapper .paginate_button.next {
+.dataTables_wrapper .paginate_button.next,
+.dataTables_wrapper .paginate_button.previous {
   border: none; }
 
 .dataTables_wrapper .paginate_button.current {
@@ -3459,6 +3459,30 @@ table.dataTable thead .sorting_desc {
 .article-sorts .sorts-box .sorts-table {
   margin-left: 200px; }
 
+.album-collect {
+  width: 100%; }
+  @media only screen and (max-width: 1280px) {
+    .album-collect .album-collect-list {
+      min-width: 150px;
+      width: 20%; } }
+  @media only screen and (min-width: 1281px) and (max-width: 1366px) {
+    .album-collect .album-collect-list {
+      width: 20%; } }
+  @media only screen and (min-width: 1367px) and (max-width: 1920px) {
+    .album-collect .album-collect-list {
+      width: 16.666667%; } }
+  .album-collect .album-collect-list {
+    float: left;
+    padding: 10px; }
+    .album-collect .album-collect-list .album-cover {
+      width: 1%;
+      vertical-align: middle;
+      display: table-cell;
+      padding-bottom: 5px; }
+    .album-collect .album-collect-list img {
+      width: 100%;
+      vertical-align: top; }
+
 /**
   * 备注：所有在css中的图片，都必须以main所在的路径为基准
  */
@@ -3506,8 +3530,8 @@ table.dataTable thead .sorting_desc {
 .layui-page {
   text-align: right; }
 
-.label,
-.badge {
+.badge,
+.label {
   display: inline-block;
   padding: 2px 4px;
   font-size: 12px;
@@ -3526,66 +3550,66 @@ table.dataTable thead .sorting_desc {
   padding-left: 9px;
   border-radius: 9px; }
 
-.label:empty,
-.badge:empty {
+.badge:empty,
+.label:empty {
   display: none; }
 
-a.label:hover,
-a.label:focus,
+a.badge:focus,
 a.badge:hover,
-a.badge:focus {
+a.label:focus,
+a.label:hover {
   color: #fff;
   text-decoration: none;
   cursor: pointer; }
 
-.label-default,
-.badge-default {
+.badge-default,
+.label-default {
   background-color: #e6e6e6;
   color: #333; }
 
-.label-default[href],
-.badge-default[href] {
+.badge-default[href],
+.label-default[href] {
   background-color: #e6e6e6;
   color: #333; }
 
-.label-primary,
-.badge-primary {
+.badge-primary,
+.label-primary {
   background-color: #5a98de; }
 
-.label-primary[href],
-.badge-primary[href] {
+.badge-primary[href],
+.label-primary[href] {
   background-color: #5a98de; }
 
-.label-secondary,
-.badge-secondary {
+.badge-secondary,
+.label-secondary {
   background-color: #3bb4f2; }
 
-.label-secondary[href],
-.badge-secondary[href] {
+.badge-secondary[href],
+.label-secondary[href] {
   background-color: #3bb4f2; }
 
-.label-success,
-.badge-success {
+.badge-success,
+.label-success {
   background-color: #5eb95e; }
 
-.label-success[href],
-.badge-success[href] {
+.badge-success[href],
+.label-success[href] {
   background-color: #5eb95e; }
 
-.label-warning,
-.badge-warning {
+.badge-warning,
+.label-warning {
   background-color: #f37b1d; }
 
-.label-warning[href],
-.badge-warning[href] {
+.badge-warning[href],
+.label-warning[href] {
   background-color: #f37b1d; }
 
-.label-danger,
-.badge-danger {
+.badge-danger,
+.label-danger {
   background-color: #dd514c; }
 
-.label-danger[href],
-.badge-danger[href] {
+.badge-danger[href],
+.label-danger[href] {
   background-color: #dd514c; }
 
 .btn-danger {
@@ -3725,25 +3749,25 @@ a.badge:focus {
 .tab-body {
   position: relative; }
 
-.fly-echart.echart-map.sw-100,
-.fly-echart.echart-pie.sw-100,
+.fly-echart.echart-bar.sw-100,
 .fly-echart.echart-line.sw-100,
-.fly-echart.echart-bar.sw-100 {
+.fly-echart.echart-map.sw-100,
+.fly-echart.echart-pie.sw-100 {
   width: 100%;
   min-width: 800px;
   height: 700px; }
 
-.fly-echart.echart-pie.sw-50,
+.fly-echart.echart-bar.sw-50,
 .fly-echart.echart-line.sw-50,
-.fly-echart.echart-bar.sw-50 {
+.fly-echart.echart-pie.sw-50 {
   width: 50%;
   min-width: 600px;
   height: 500px; }
 
-.fly-echart.echart-map,
-.fly-echart.echart-pie,
+.fly-echart.echart-bar,
 .fly-echart.echart-line,
-.fly-echart.echart-bar {
+.fly-echart.echart-map,
+.fly-echart.echart-pie {
   width: 600px;
   height: 400px;
   margin-bottom: 20px; }

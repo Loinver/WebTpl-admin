@@ -74,6 +74,7 @@ layui.use(['form', 'jquery'], function() {
     layer.alert(JSON.stringify(data.field), {
       title: '最终的提交信息'
     })
-    return false;
+    layer_close();
+    return true;
   });
 })

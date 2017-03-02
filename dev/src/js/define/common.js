@@ -263,7 +263,6 @@ function getNowDate() {
 function getWeek() {
   return(new Date()).getDay();
 }
-getWeek();
 /**
  * 数组的indexOf方法封装
  * @param {Object} arr
@@ -290,33 +289,128 @@ function indexOf(arr, value, start) {
  * 数组去重方法封装
  * @param {Object} arr
  */
-function noRepeat(arr) {
+Array.prototype.noRepeat = function() {
   var result = [];
-  for(var i = 0; i < arr.length; i++) {
-    if(indexOf(result, arr[i]) == -1) {
-      result.push(arr[i]);
+  for(var i = 0; i < this.length; i++) {
+    if(indexOf(result, this[i]) == -1) {
+      result.push(this[i]);
     }
   }
   return result;
-}
+};
 /**
- * inArray方法封装
+ * 删除数组中指定项
+ */
+Array.prototype.delByIndex = function(index) {
+  if(isNaN(index) || index > this.length) {
+    return false;
+  }
+  this.splice(index, 1);
+};
+/**
+ * inArray方法封装,判断数组是否有这个值
  * @param {Object} arr
  * @param {Object} value
  */
-function inArray(arr, value) {
-  for(var i = 0; i < arr.length; i++) {
-    if(arr[i] === value) {
+Array.prototype.isInArray = function(value) {
+  for(var i = 0; i < this.length; i++) {
+    if(this[i] === value) {
       return true;
     }
   }
   return false;
-}
+};
 /**
- * 去除首尾空格函数封装
+ * 去除字符串首尾空格函数封装
  * @param {Object} arr
  */
-function trim(arr) {
-  var result = arr.replace(/^\s+|\s+$/g, '');
-  return result;
-}
+String.prototype.trim = function() {
+  return this.replace(/^\s+|\s+$/g, '');
+};
+/*
+ * 检测是否是邮箱
+ */
+String.prototype.isEmail = function() {
+  return /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/.test(this);
+};
+/*
+ * 是否是有效的身份证(中国)
+ */
+String.prototype.isIDCard = function() {
+  var iSum = 0;
+  var info = "";
+  var sId = this;
+  var aCity = {
+    11: "北京",
+    12: "天津",
+    13: "河北",
+    14: "山西",
+    15: "内蒙古",
+    21: "辽宁",
+    22: "吉林",
+    23: "黑龙江",
+    31: "上海",
+    32: "江苏",
+    33: "浙江",
+    34: "安徽",
+    35: "福建",
+    36: "江西",
+    37: "山东",
+    41: "河南",
+    42: "湖北",
+    43: "湖南",
+    44: "广东",
+    45: "广西",
+    46: "海南",
+    50: "重庆",
+    51: "四川",
+    52: "贵州",
+    53: "云南",
+    54: "西藏",
+    61: "陕西",
+    62: "甘肃",
+    63: "青海",
+    64: "宁夏",
+    65: "新疆",
+    71: "台湾",
+    81: "香港",
+    82: "澳门",
+    91: "国外"
+  };
+  if(!/^\d{17}(\d|x)$/i.test(sId)) {
+    return false;
+  }
+  sId = sId.replace(/x$/i, "a");
+  //非法地区  
+  if(aCity[parseInt(sId.substr(0, 2))] == null) {
+    return false;
+  }
+  var sBirthday = sId.substr(6, 4) + "-" + Number(sId.substr(10, 2)) + "-" + Number(sId.substr(12, 2));
+  var d = new Date(sBirthday.replace(/-/g, "/"))
+  //非法生日  
+  if(sBirthday != (d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate())) {
+    return false;
+  }
+  for(var i = 17; i >= 0; i--) {
+    iSum += (Math.pow(2, i) % 11) * parseInt(sId.charAt(17 - i), 11);
+  }
+  if(iSum % 11 != 1) {
+    return false;
+  }
+  return true;
+};
+/*
+ * 是否是汉字
+ */
+String.prototype.isChinese = function() {
+  var reg = /^[\u0391-\uFFE5]+$/;
+  //      [\u4E00-\u9FA5];   
+  return reg.test(this);
+};
+/**
+ * 是否是手机号码
+ */
+String.prototype.IsMobile = function() {
+  var reg = /^(13|14|15|18|17)[0-9]{9}$/;
+  return reg.test(this);
+};
