@@ -128,7 +128,10 @@ function layerMsg(text, icon) {
     time: 1000
   });
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> e4c2b7cbb02d79e50e670f0b34730730091b058a
 //注册弹出方法
 function layer_show(title, url, id, w, h) {
   if(title == null || title == '') {
