@@ -59,7 +59,6 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
       }, {
         "data": "id",
         "sTitle": "ID", //标题
-        "sType": 'chinese',
         "sDefaultContent": "", //此列默认值为""，以防数据中没有此值，DataTables加载数据的时候报错 
       }, {
         "data": "sorts",

@@ -162,7 +162,6 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
         message: '此打印是使用DataTable的打印按钮生成的!'
       }]
     });
-    console.log(myTable);
     myTable.buttons().container().appendTo($('.tableTools'));
     /**
      * 显示隐藏列

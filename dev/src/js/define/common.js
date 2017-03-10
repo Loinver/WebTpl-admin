@@ -157,6 +157,12 @@ function layer_close() {
   parent.layer.close(index);
 }
 /**
+ * 格式化json
+ */
+function parseJson(obj) {
+  return JSON.stringify(obj);
+}
+/**
  *********************************扩展原生函数**********************************
  */
 /**
@@ -230,7 +236,7 @@ Array.prototype.min = function() {
  * @param {name} name
  * arr.sort(sortBy('name'))
  */
-function sortBy(name) {
+Array.prototype.sortBy = function() {
   return function(o, p) {
     var a, b;
     if(typeof o === "object" && typeof p === "object" && o && p) {
@@ -252,7 +258,7 @@ function sortBy(name) {
  * 数组冒泡排序
  * 对普通数组排序
  */
-Array.prototype.sort = function() {
+Array.prototype.sort2 = function() {
   for(var unfix = this.length - 1; unfix > 0; unfix--) {
     for(var i = 0; i < unfix; i++) {
       if(this[i] > this[i + 1]) {
@@ -270,6 +276,29 @@ Array.prototype.sort = function() {
 Array.prototype.sort1 = function() {
   return this.sort(function(a, b) { return a - b; });
 }
+/**
+ * 数组排序
+ * @param {name} name
+ * arr.sort(sortBy('name'))
+ */
+function sortBy(name) {
+  return function(o, p) {
+    var a, b;
+    if(typeof o === "object" && typeof p === "object" && o && p) {
+      a = o[name];
+      b = p[name];
+      if(a === b) {
+        return 0;
+      }
+      if(typeof a === typeof b) {
+        return a < b ? -1 : 1;
+      }
+      return typeof a < typeof b ? -1 : 1;
+    } else {
+      throw("error");
+    }
+  }
+};
 /**
  * 时间差
  * @param {Object} olddate
@@ -365,14 +394,8 @@ Array.prototype.isInArray = function(value) {
  * 去除字符串首尾空格函数封装
  * @param {Object} arr
  */
-String.prototype.trim = function() {
+String.prototype.stringTrim = function() {
   return this.replace(/^\s+|\s+$/g, '');
-};
-/*
- * 检测是否是邮箱
- */
-String.prototype.isEmail = function() {
-  return /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/.test(this);
 };
 /**
  * 验证是否是时间格式
@@ -545,9 +568,8 @@ function isRang(str, rang) {
   }
 }
 /**
- * 
+ * 中文名
  */
-
 var firstName = "赵钱孙李周吴郑王冯陈褚卫蒋沈韩杨朱秦尤许何吕施张孔曹严华金魏陶姜戚谢邹喻柏水窦章云苏潘葛奚范彭郎鲁韦昌马苗凤花方俞任袁柳酆鲍史唐费廉岑薛雷贺倪汤滕殷罗毕郝邬安常乐于时傅皮卞齐康伍余元卜顾孟平黄和穆萧尹姚邵湛汪祁毛禹狄米贝明臧计伏成戴谈宋茅庞熊纪舒屈项祝董梁杜阮蓝闵席季麻强贾路娄危江童颜郭梅盛林刁钟徐邱骆高夏蔡田樊胡凌霍虞万支柯咎管卢莫经房裘缪干解应宗宣丁贲邓郁单杭洪包诸左石崔吉钮龚程嵇邢滑裴陆荣翁荀羊於惠甄魏加封芮羿储靳汲邴糜松井段富巫乌焦巴弓牧隗山谷车侯宓蓬全郗班仰秋仲伊宫宁仇栾暴甘钭厉戎祖武符刘姜詹束龙叶幸司韶郜黎蓟薄印宿白怀蒲台从鄂索咸籍赖卓蔺屠蒙池乔阴郁胥能苍双闻莘党翟谭贡劳逄姬申扶堵冉宰郦雍却璩桑桂濮牛寿通边扈燕冀郏浦尚农温别庄晏柴瞿阎充慕连茹习宦艾鱼容向古易慎戈廖庚终暨居衡步都耿满弘匡国文寇广禄阙东殴殳沃利蔚越夔隆师巩厍聂晁勾敖融冷訾辛阚那简饶空曾毋沙乜养鞠须丰巢关蒯相查后江红游竺权逯盖益桓公万俟司马上官欧阳夏侯诸葛闻人东方赫连皇甫尉迟公羊澹台公冶宗政濮阳淳于仲孙太叔申屠公孙乐正轩辕令狐钟离闾丘长孙慕容鲜于宇文司徒司空亓官司寇仉督子车颛孙端木巫马公西漆雕乐正壤驷公良拓拔夹谷宰父谷粱晋楚阎法汝鄢涂钦段干百里东郭南门呼延归海羊舌微生岳帅缑亢况后有琴梁丘左丘东门西门商牟佘佴伯赏南宫墨哈谯笪年爱阳佟第五言福百家姓续".split('');
 var girl = "秀娟英华慧巧美娜静淑惠珠翠雅芝玉萍红娥玲芬芳燕彩春菊兰凤洁梅琳素云莲真环雪荣爱妹霞香月莺媛艳瑞凡佳嘉琼勤珍贞莉桂娣叶璧璐娅琦晶妍茜秋珊莎锦黛青倩婷姣婉娴瑾颖露瑶怡婵雁蓓纨仪荷丹蓉眉君琴蕊薇菁梦岚苑婕馨瑗琰韵融园艺咏卿聪澜纯毓悦昭冰爽琬茗羽希宁欣飘育滢馥筠柔竹霭凝晓欢霄枫芸菲寒伊亚宜可姬舒影荔枝思丽 ".split('');
 var boy = "伟刚勇毅俊峰强军平保东文辉力明永健世广志义兴良海山仁波宁贵福生龙元全国胜学祥才发武新利清飞彬富顺信子杰涛昌成康星光天达安岩中茂进林有坚和彪博诚先敬震振壮会思群豪心邦承乐绍功松善厚庆磊民友裕河哲江超浩亮政谦亨奇固之轮翰朗伯宏言若鸣朋斌梁栋维启克伦翔旭鹏泽晨辰士以建家致树炎德行时泰盛雄琛钧冠策腾楠榕风航弘".split('');
@@ -697,7 +719,7 @@ String.prototype.isChinese = function() {
 /**
  * 是否是手机号码
  */
-String.prototype.IsMobile = function() {
+String.prototype.isMobile = function() {
   var reg = /^(13|14|15|18|17)[0-9]{9}$/;
   return reg.test(this);
 };

@@ -50,8 +50,8 @@ layui.use(['form', 'jquery'], function() {
         return "身份证号码格式不正确"
       }
     },
-    address:function(value){
-      if(value ==""){
+    address: function(value) {
+      if(value == "") {
         return "请输入正确的详细地址";
       }
     }
@@ -71,9 +71,7 @@ layui.use(['form', 'jquery'], function() {
   });
   //监听提交
   form.on('submit(useradd)', function(data) {
-    layer.alert(JSON.stringify(data.field), {
-      title: '最终的提交信息'
-    })
+    console.log(parseJson(data.field));
     layer_close();
     return true;
   });
