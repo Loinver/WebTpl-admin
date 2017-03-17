@@ -59,47 +59,56 @@
         </ul>
       </div>
     </div>
-    <!--顶部导航按需修改-->
     <div class="layui-side">
-      <ul class="layui-nav layui-nav-tree">
-        <li class="layui-nav-item layui-nav-title item-show" nav-item-num="2">
-          <a>用户管理<i class="layui-icon layui-right">&#xe619;</i></a>
+      <ul class="layui-nav layui-nav-tree" id="sideNav" lay-filter="sideNav">
+        <li class="layui-nav-item layui-nav-itemed">
+          <a>用户管理</a>
+          <dl class="layui-nav-child">
+            <dd>
+              <a href="javascript:;" data-url="user/user-list.html"><label>用户列表</label></a>
+            </dd>
+            <dd>
+              <a href="javascript:;" data-url="user/user-collect.html"><label>用户统计</label></a>
+            </dd>
+          </dl>
         </li>
         <li class="layui-nav-item">
-          <a href="javascript:;" data-url="user/user-list.html"><label>用户列表</label></a>
+          <a>产品管理</a>
+          <dl class="layui-nav-child">
+            <dd>
+              <a href="javascript:;" data-url="product/product-list.html"><label>产品列表</label></a>
+            </dd>
+          </dl>
         </li>
         <li class="layui-nav-item">
-          <a href="javascript:;" data-url="user/user-collect.html"><label>用户统计</label></a>
-        </li>
-        <li class="layui-nav-item layui-nav-title item-show" nav-item-num="1">
-          <a>产品管理<i class="layui-icon layui-right">&#xe619;</i></a>
-        </li>
-        <li class="layui-nav-item">
-          <a href="javascript:;" data-url="product/product-list.html"><label>产品列表</label></a>
-        </li>
-        <li class="layui-nav-item layui-nav-title item-show" nav-item-num="2">
-          <a>订单管理<i class="layui-icon layui-right">&#xe619;</i></a>
+          <a>订单管理</a>
+          <dl class="layui-nav-child">
+            <dd>
+              <a href="javascript:;" data-url="order/order-list.html"><label>订单列表</label></a>
+            </dd>
+          </dl>
         </li>
         <li class="layui-nav-item">
-          <a href="javascript:;" data-url="order/order-list.html"><label>订单列表</label></a>
-        </li>
-        <li class="layui-nav-item layui-nav-title item-show" nav-item-num="2">
-          <a>文章管理<i class="layui-icon layui-right">&#xe619;</i></a>
-        </li>
-        <li class="layui-nav-item">
-          <a href="javascript:;" data-url="article/article-list.html"><label>文章列表</label></a>
-        </li>
-        <li class="layui-nav-item">
-          <a href="javascript:;" data-url="article/article-sorts.html"><label>文章栏目</label></a>
-        </li>
-        <li class="layui-nav-item layui-nav-title item-show" nav-item-num="1">
-          <a>相册管理<i class="layui-icon layui-right">&#xe619;</i></a>
+          <a>文章管理</a>
+          <dl class="layui-nav-child">
+            <dd>
+              <a href="javascript:;" data-url="article/article-list.html"><label>文章列表</label></a>
+            </dd>
+            <dd>
+              <a href="javascript:;" data-url="article/article-sorts.html"><label>文章栏目</label></a>
+            </dd>
+          </dl>
         </li>
         <li class="layui-nav-item">
-          <a href="javascript:;" data-url="album/album-manage.html"><label>相册列表</label></a>
-        </li>
-        <li class="layui-nav-item">
-          <a href="javascript:;" data-url="album/album-sorts.html"><label>相册栏目</label></a>
+          <a>相册管理</a>
+          <dl class="layui-nav-child">
+            <dd>
+              <a href="javascript:;" data-url="album/album-manage.html"><label>相册列表</label></a>
+            </dd>
+            <dd>
+              <a href="javascript:;" data-url="album/album-sorts.html"><label>相册栏目</label></a>
+            </dd>
+          </dl>
         </li>
       </ul>
     </div>
@@ -107,7 +116,7 @@
       <div class="layui-tab fly-tab layui-tab-card" lay-filter="page-tab" lay-allowclose="true">
         <!--tab标题-->
         <ul class="layui-tab-title" id="tabTitle">
-          <li class="layui-this"><label>首页</label></li>
+          <li class="layui-this" lay-id="0"><label>首页</label></li>
         </ul>
         <!--tab内容-->
         <div class="layui-tab-content" id="tabContainers">
