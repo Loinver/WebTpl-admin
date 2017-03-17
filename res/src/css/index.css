@@ -3256,23 +3256,23 @@
   float: left; }
 
 /* 头部 */
-.layui-header {
+.layui-layout-admin.fly-body .layui-header {
   background-color: #393D49;
   height: 60px !important;
   border-bottom: 5px solid #4E5465; }
-  .layui-header .layui-nav.nav .layui-nav-item a {
+  .layui-layout-admin.fly-body .layui-header .layui-nav.nav .layui-nav-item a {
     color: #323232;
     font-size: 18px;
     margin-top: 5px; }
-  .layui-header .user {
+  .layui-layout-admin.fly-body .layui-header .user {
     margin-top: 5px;
     height: 50px;
     padding: 5px;
     position: relative; }
-    .layui-header .user img {
+    .layui-layout-admin.fly-body .layui-header .user img {
       height: 100%;
       margin-top: -5px; }
-    .layui-header .user .user-nav {
+    .layui-layout-admin.fly-body .layui-header .user .user-nav {
       position: absolute;
       right: 10px;
       top: 50px;
@@ -3281,15 +3281,15 @@
       border-radius: 0;
       display: none;
       background: #ffffff; }
-      .layui-header .user .user-nav .user-nav-item a {
+      .layui-layout-admin.fly-body .layui-header .user .user-nav .user-nav-item a {
         font-size: 12px;
         display: block;
         padding: 10px; }
-      .layui-header .user .user-nav .user-nav-item:hover {
+      .layui-layout-admin.fly-body .layui-header .user .user-nav .user-nav-item:hover {
         background: #4E5465; }
-        .layui-header .user .user-nav .user-nav-item:hover a {
+        .layui-layout-admin.fly-body .layui-header .user .user-nav .user-nav-item:hover a {
           color: #EEEEEE; }
-  .layui-header .user:hover .user-nav {
+  .layui-layout-admin.fly-body .layui-header .user:hover .user-nav {
     display: block; }
 
 /* 侧栏 */
