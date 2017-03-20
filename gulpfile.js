@@ -19,7 +19,7 @@ var pngquant = require('../../../node_modules/imagemin-pngquant');
 var dev = "./dev/";//生产目录
 var res = "./res/";//发布目录
 // 检查js
-gulp.task('jslint', function() {
+gulp.task('jshint', function() {
   return gulp.src(dev+'src/js/define/mine/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
@@ -131,10 +131,10 @@ gulp.task('plugincss', function() {
 });
 // 默认任务
 gulp.task('default', function() {
-  gulp.run('imagesmin', 'sprites', 'sass', 'jslint', 'libjs', 'scripts', 'spritecss', 'plugincss', 'concatcss', 'htmlmin');
+  gulp.run('imagesmin', 'sprites', 'sass', 'jshint', 'libjs', 'scripts', 'spritecss', 'plugincss', 'concatcss', 'htmlmin');
   gulp.watch(dev+'src/js/**/*.js', function() {
     livereload.listen();
-    gulp.run('jslint', 'libjs', 'scripts');
+    gulp.run('jshint', 'libjs', 'scripts');
   })
   gulp.watch(dev+'src/imgs/**/*.{png,jpg,gif,ico}', function() {
     livereload.listen();

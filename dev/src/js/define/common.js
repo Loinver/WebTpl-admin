@@ -85,7 +85,7 @@ layui.use(['layer', 'util', 'element'], function() {
     /**
      * 刷新当前页
      */
-    $("#refresh").on('click', function() {
+    $(document).on('click','#refresh', function() {
       window.location.reload();
     });
   });
