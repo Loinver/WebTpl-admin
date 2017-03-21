@@ -1,7 +1,8 @@
 layui.use(['element', 'layer'], function() {
   var $ = layui.jquery,
-    element = layui.element(),
-    layer = layui.layer;
+    element = layui.element();
+  //layer = layui.layer;
+  layer.msg(111);
   //iframe自适应
   $(window).on('resize', function() {
     var $obj = $('#tabContainers');
@@ -16,7 +17,7 @@ layui.use(['element', 'layer'], function() {
   var $sideNav = $('#sideNav'); //侧边导航
   //给nav绑定事件
   $('.layui-nav .layui-nav-item .layui-nav-child dd> a').each(function() {
-    var $obj = $(this); 
+    var $obj = $(this);
     var url = $obj.data('url'); //tab内容的地址
     //获取设定的url
     if(url !== undefined) {

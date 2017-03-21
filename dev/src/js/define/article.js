@@ -50,9 +50,9 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
           "orderable": false,
           "aTargets": [0, 4, 7] // 指定列不参与排序
         }],
-        select: {
-          style: 'multi'
-        },
+//      select: {
+//        style: 'multi'
+//      },
         "deferRender": true, //延迟渲染
         "ajax": "../../../json/article.json", //数据的路径
         "columns": [{ //定义列

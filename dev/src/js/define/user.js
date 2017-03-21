@@ -48,9 +48,9 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
       }],
       "deferRender": true, //延迟渲染
       "ajax": '../../../json/user.json', //数据的路径
-      select: { //单击tr选中当前行
-        style: 'multi'
-      },
+      //    select: { //单击tr选中当前行
+      //      style: 'multi'
+      //    },
       "columns": [{ //定义列
         "data": function(obj) {
           return '<input type="checkbox" class="fly-checkbox" name="sublist" data-id=' + obj.id + '>';
@@ -186,11 +186,31 @@ layui.use(['layer', 'datatable', 'datatableButton', 'datatableFlash', 'datatable
     /**
      * 选择
      */
+    var ss = 0;
     myTable.on('select', function(e, dt, type, index) {
       if(type === 'row') {
         $(myTable.row(index).node()).find('input:checkbox').prop('checked', true);
+        ss = $(myTable.row(index).node()).find('input.fly-checkbox:checkbox').data('id'); //获取该行data-id
+        console.log(ss);
       }
     });
+    $('#ssss').on('click', function() {
+      //debugger;
+      var selectRow1 = myTable;
+      var selectRow = $($(myTable).context[0].nTBody).find('tr.selected');
+      console.log(selectRow1);
+    })
+    //外部多选获取id
+    //  $('#ssss').on('click',function(){
+    //    var list = [];
+    //    $.each($('#userTable tbody > tr'), function() {
+    //    	if($(this).hasClass('selected')){
+    //    	  var id = $(this).find('input.fly-checkbox').data('id');
+    //    	  list.push(id);
+    //    	}
+    //    });
+    //    console.log(list);
+    //  })
     /**
      * 取消选择
      */

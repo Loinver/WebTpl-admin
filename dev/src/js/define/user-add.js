@@ -73,6 +73,10 @@ layui.use(['form', 'jquery'], function() {
   form.on('submit(useradd)', function(data) {
     console.log(parseJson(data.field));
     layer_close();
-    return true;
+    return false;
+  });
+  form.on('submit(sss)', function(data) {
+    $('#add').click();
+    return false;
   });
 })

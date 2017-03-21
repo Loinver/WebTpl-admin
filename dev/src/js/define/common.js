@@ -640,7 +640,13 @@ function getEmail(lMin, lMax) {
  * return 时间
  */
 function getDate(start, end) {
-  return(((new Date(start)).getTime() + getNum(0, (new Date(end)).getTime() - (new Date(start)).getTime())) / 1000).replaceTime();
+  var timeS = (new Date(start)).getTime();
+  var timeE = (new Date(end)).getTime();
+  if(timeS>timeE){
+    return '开始时间大于结束时间！'
+  }else{
+    return((timeS + getNum(0, timeE - timeS)) / 1000).replaceTime();
+  }
 }
 /*
  * 是否是有效的身份证(中国)

@@ -1,0 +1,1 @@
+layui.use("form",function(){layui.jquery,layui.form()});
