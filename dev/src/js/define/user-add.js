@@ -75,8 +75,4 @@ layui.use(['form', 'jquery'], function() {
     layer_close();
     return false;
   });
-  form.on('submit(sss)', function(data) {
-    $('#add').click();
-    return false;
-  });
 })

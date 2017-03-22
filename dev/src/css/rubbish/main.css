@@ -977,18 +977,75 @@ table.dataTable thead .sorting_desc {
       width: 100%;
       vertical-align: top; }
 
-.fly-limit.layui-form .layui-form-item .layui-form-label {
-  width: 120px; }
+.fly-limit .fly-limit-box {
+  width: 100%;
+  padding: 20px;
+  display: table; }
+  .fly-limit .fly-limit-box .fly-limit-box-left {
+    display: table-cell;
+    width: 10%;
+    min-width: 150px;
+    text-align: right;
+    padding-right: 20px;
+    vertical-align: top; }
+  .fly-limit .fly-limit-box .fly-limit-box-right {
+    display: table-cell;
+    width: 90%;
+    padding: 0 0 0 20px; }
+    .fly-limit .fly-limit-box .fly-limit-box-right .fly-limit-list {
+      float: left;
+      width: 120px;
+      margin-bottom: 10px; }
+  .fly-limit .fly-limit-box .fly-checkbox ~ label {
+    margin-left: 5px;
+    line-height: 20px;
+    display: inline-block;
+    vertical-align: top; }
 
-.fly-limit.layui-form .layui-input-block {
-  font-weight: 400; }
+.limit-container {
+  width: 560px;
+  height: 400px;
+  padding: 40px 20px;
+  background: #fff;
+  border-radius: 4px; }
 
-.fly-limit.layui-form .layui-form-checkbox[lay-skin=primary] i {
-  font-weight: 600;
-  width: 18px; }
+.limit-container ul.data-list {
+  width: 40%;
+  height: 100%;
+  border: 1px solid #e5e5e5;
+  float: left; }
 
-.fly-limit.layui-form .fly-list {
-  width: 120px; }
+.limit-container ul.data-list li {
+  line-height: 32px;
+  padding: 0px 10px; }
+
+.limit-container ul.data-list li:hover {
+  background-color: #C5EFFF;
+  color: #252525;
+  cursor: pointer;
+  font-weight: bold; }
+
+.limit-container ul.data-list li.selected {
+  background-color: #0095E8;
+  color: #fff; }
+
+.button-box {
+  float: left;
+  width: 19%;
+  height: 50%;
+  margin-top: 20%; }
+
+.button-box button {
+  background-color: #28B779;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  height: 32px;
+  line-height: 32px;
+  width: 80%;
+  margin: 10px auto;
+  display: block;
+  cursor: pointer; }
 
 /**
   * 备注：所有在css中的图片，都必须以main所在的路径为基准
