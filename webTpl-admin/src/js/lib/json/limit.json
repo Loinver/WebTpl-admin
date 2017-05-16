@@ -1,0 +1,80 @@
+{
+  "data": [
+    {
+      "id": 1, 
+      "showId": "1", 
+      "title": "用户管理", 
+      "selected":false,
+      "children": [
+        {
+          "id": 2, 
+          "showId": "1-1", 
+          "title": "用户注册",
+          "selected":false
+        }, 
+        {
+          "id": 3, 
+          "showId": "1-2", 
+          "title": "用户登录",
+          "selected":false
+        }, 
+        {
+          "id": 4, 
+          "showId": "1-3", 
+          "title": "用户添加",
+          "selected":false
+        }, 
+        {
+          "id": 5, 
+          "showId": "1-4", 
+          "title": "用户删除",
+          "selected":true
+        }, 
+        {
+          "id": 6, 
+          "showId": "1-5", 
+          "title": "用户流量",
+          "selected":true
+        }
+      ]
+    }, 
+    {
+      "id": 7, 
+      "showId": "2", 
+      "title": "产品管理", 
+      "selected":true,
+      "children": [
+        {
+          "id": 8, 
+          "showId": "2-1", 
+          "title": "产品添加",
+          "selected":true
+        }, 
+        {
+          "id": 9, 
+          "showId": "2-2", 
+          "title": "产品删除",
+          "selected":true
+        }, 
+        {
+          "id": 10, 
+          "showId": "2-3", 
+          "title": "产品修改",
+          "selected":true
+        }, 
+        {
+          "id": 11, 
+          "showId": "2-4", 
+          "title": "产品查询",
+          "selected":true
+        }, 
+        {
+          "id": 12, 
+          "showId": "2-5", 
+          "title": "产品流量",
+          "selected":true
+        }
+      ]
+    }
+  ]
+}

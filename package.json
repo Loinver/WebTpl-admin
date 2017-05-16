@@ -1,19 +1,48 @@
 {
   "name": "webtpl",
   "version": "1.0.0",
-  "description": "web demo",
   "main": "gulpfile.js",
+  "description": "使用gulp搭建的layui后台模板",
+  "license": "MIT",
+  "readmeFilename": "README.md",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Loinver/webTpl.git"
+    "url": "git+https://github.com/Loinver/webTpl-admin.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Linyer",
   "bugs": {
-    "url": "https://github.com/Loinver/webTpl/issues"
+    "url": "https://github.com/Loinver/webTpl-admin/issues"
   },
-  "homepage": "https://github.com/Loinver/webTpl#readme"
+  "homepage": "https://github.com/Loinver/webTpl-admin#readme",
+  "dependencies": {
+    "autoprefixer": "^6.3.3",
+    "browser-sync": "^2.11.1",
+    "del": "^2.2.2",
+    "gulp": "git://github.com/gulpjs/gulp#4.0",
+    "gulp-cssnano": "^2.1.1",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-lazyimagecss": "^2.0.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-postcss": "^6.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^1.5.3",
+    "gulp-usemin": "^0.3.23",
+    "gulp-util": "^3.0.7"
+  },
+  "devDependencies": {
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-header": "^1.8.8",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-sass": "^2.3.2",
+    "gulp.spritesmith": "^6.5.0",
+    "quick-local-ip": "^1.0.7",
+    "rc": "^1.2.1"
+  }
 }

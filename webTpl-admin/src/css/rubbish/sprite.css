@@ -1,0 +1,4 @@
+.icon-car1{display:inline-block;background-image: url('../../images/common/sprite.png');background-position: 0px 0px;width:124px;height:124px;}
+.icon-car2{display:inline-block;background-image: url('../../images/common/sprite.png');background-position: -124px 0px;width:124px;height:124px;}
+.icon-i-b{display:inline-block;background-image: url('../../images/common/sprite.png');background-position: 0px -124px;width:16px;height:16px;}
+.icon-i-w{display:inline-block;background-image: url('../../images/common/sprite.png');background-position: -16px -124px;width:16px;height:16px;}

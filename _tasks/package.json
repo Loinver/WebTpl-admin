@@ -1,0 +1,10 @@
+{
+	"email": "499205314@qq.com",
+	"version": "1.0",
+	"description": "项目描述",
+	"author": "Linyer",
+	"livense": "MIT",
+	"devDependencies": {
+		"gulp": "gulpjs/gulp#4.0"
+	}
+}
