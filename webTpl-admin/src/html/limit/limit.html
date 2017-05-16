@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>数据删选组件</title>
+	<style type="text/css">
+		*{padding: 0px;margin: 0px;}
+		html,body{width: 100%;height: 100%;font-family: "微软雅黑";background: #b1b1b1;}
+		ul,li{list-style: none;}
+		.container{
+			width:560px;
+			height: 400px;
+			padding: 40px 20px;
+			background: #fff;
+			border-radius: 4px;	
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -280px;
+			margin-top: -200px;
+		}
+		.container ul.data-list{width: 40%;height: 100%;border: 1px solid #e5e5e5;float: left;}
+		.container ul.data-list li{line-height: 32px;padding: 0px 10px;}
+		.container ul.data-list li:hover{ background-color: #C5EFFF; color: #252525; cursor: pointer; font-weight: bold; }
+		.container ul.data-list li.selected{ background-color: #0095E8; color: #fff; }
+		.button-box{float: left;width: 19%;height: 50%;margin-top: 20%;}
+		.button-box button{
+			background: none;
+			font-size: 16px;
+			border: 1px solid #818181;
+			color: #359bf5;height: 36px;
+			line-height: 36px;width: 80%;
+			margin: 10px auto;
+			display: block;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<ul class="data-list" id="lList">
+			<li>第一行选择文字1</li>
+			<li>第二行选择文字2</li>
+			<li>第三行选择文字3</li>
+			<li>第四行选择文字4</li>
+			<li>第五行选择文字5</li>
+			<li>第六行选择文字6</li>
+			<li>第一行选择文字7</li>
+			<li>第二行选择文字8</li>
+		</ul>
+		<div class="button-box">
+			<button type="button" name="button" id="add">添 加</button>
+			<button type="button" name="button" id="remove">删 除</button>
+		</div>
+		<ul class="data-list" id="rList">
+		</ul>
+	</div>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var lList = $("#lList");
+			var llList = document.getElementById("lList");
+			var rList = $("#rList");
+			var items = $(".data-list li");
+			for(var i = 0;i<items.length;i++){
+				items[i].onclick = itemsclick;
+				items[i].ondblclick = itemsdblclick;
+			}
+			function itemsdblclick(){
+				if (this.parentNode === llList) {
+					rList.append(this);
+				}else{
+					lList.append(this);
+				}
+			}
+			function itemsclick(){
+				var classname = this.className;
+				if(classname === "selected"){
+					this.className = "";
+				}else{
+					this.className="selected";
+				}
+			}
+			function itemsMove(){
+				var items = $(".data-list li.selected");
+				for(var i = 0;i<items.length;i++){
+					if(this.id === "add"){
+						rList.append(items[i]);
+					}else{
+						lList.append(items[i]);
+					}
+				}
+			}
+			$("#add").on("click",itemsMove);
+			$("#remove").on("click",itemsMove);
+		});
+		
+	</script>
+</body>
+</html>
