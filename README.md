@@ -14,4 +14,6 @@
 # 更新layui版本，修复bug ----2017-3-17
 1、更新layui版本到1.09
 2、重写侧边导航，修复layui升级版本导致切换tab和删除tab失效的bug问题
-#重构gulp版本，貌似新gulp有点小bug，只能在第一次的时候生产sprite。有gulp高手可以帮忙看下
+
+# 重构gulp版本----2017-5-16
+貌似新gulp有点小bug，只能在第一次的时候生产sprite。有gulp高手可以帮忙看下
